@@ -37,7 +37,7 @@ html,body{margin:0;height:100%;background:#07080e;color:#e8e8f0;font-family:syst
     html = html.replace('</head>',
       '<link rel="stylesheet" href="polish.css?v='+v+'" id="pv-polish-link"/>\n</head>');
     html = html.replace('</body>',
-      '<script src="polish.js?v='+v+'" id="pv-visuals"></scr'+'ipt>\n</body>');
+      '<script src="polish.js?v='+v+'" id="pv-visuals"></scr'+'ipt>\n<script src="polish-upgrades.js?v='+v+'" id="pv-upgrades"></scr'+'ipt>\n</body>');
 
     document.open(); document.write(html); document.close();
   } catch(e) {
