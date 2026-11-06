@@ -22,11 +22,11 @@
     voice:'<svg viewBox="0 0 48 48" fill="none"><path d="M16 20v8c0 4 3.5 8 8 8s8-4 8-8v-8" stroke="#9b7bff" stroke-width="2.2" stroke-linecap="round"/><path d="M14 22h4M30 22h4M24 12v6" stroke="#9b7bff" stroke-width="2" stroke-linecap="round"/></svg>'
   };
 
-  function ico(name){ return '<div class="pv-ico" aria-hidden="true">'+(ICONS[name]||ICONS.spark)+'</div>'; }
-  function iconRow(names, colors){
-    colors=colors||['rgba(155,123,255,.28)','rgba(255,191,105,.24)','rgba(102,223,196,.24)'];
-    return '<div class="pv-icons" aria-hidden="true">'+names.map(function(n,i){
-      return '<div class="pv-icon-cell" style="--pv-a:'+colors[i%colors.length]+'">'+(ICONS[n]||ICONS.spark)+'</div>';
+  function ico(n){return '<div class="pv-ico" aria-hidden="true">'+(ICONS[n]||ICONS.spark)+'</div>';}
+  function iconRow(ns,cs){
+    cs=cs||['rgba(155,123,255,.28)','rgba(255,191,105,.24)','rgba(102,223,196,.24)'];
+    return '<div class="pv-icons" aria-hidden="true">'+ns.map(function(n,i){
+      return '<div class="pv-icon-cell" style="--pv-a:'+cs[i%cs.length]+'">'+(ICONS[n]||ICONS.spark)+'</div>';
     }).join('')+'</div>';
   }
   function hero(){
@@ -41,171 +41,124 @@
       '<circle cx="320" cy="210" r="14" stroke="#66dfc4" stroke-width="1.8"/><circle cx="355" cy="210" r="14" stroke="#66dfc4" stroke-width="1.8"/><circle cx="338" cy="238" r="14" stroke="#66dfc4" stroke-width="1.8"/>'+
       '<text x="28" y="268" fill="rgba(255,255,255,.35)" font-family="ui-monospace,monospace" font-size="11" letter-spacing="3">STYLE · STATUS · BELONGING</text></svg></figure>';
   }
-  function accent(){ return '<div class="pv-accent" aria-hidden="true"></div>'; }
+  function accent(){return '<div class="pv-accent" aria-hidden="true"></div>';}
 
   var SLIDE_ICONS={
-    s2:['quest','theory','insight'], s5:['method','data','limit'], s9:['status','coin','compet'],
-    s10:['group','related','skin'], s12:['insight','spark','skin'], s15:['cycle','spark','coin'],
-    s16:['voice','group','insight'], s19:['limit','method','data'], s21:['source','theory','insight'], s22:['source','ethics','data']
+    s2:['quest','theory','insight'],s5:['method','data','limit'],s9:['status','coin','compet'],
+    s10:['group','related','skin'],s12:['insight','spark','skin'],s15:['cycle','spark','coin'],
+    s16:['voice','group','insight'],s19:['limit','method','data'],s21:['source','theory','insight'],s22:['source','ethics','data']
   };
   var CARD_ICONS={
-    s1:['skin','status','group'], s3:['auto','compet','related'], s4:['skin','insight','status'],
-    s11:['auto','compet','related'], s13:['skin','status','group'], s14:['mono','skin','ethics'],
-    s17:['ethics','mono','limit'], s18:['design','ethics','skin']
+    s1:['skin','status','group'],s3:['auto','compet','related'],s4:['skin','insight','status'],
+    s11:['auto','compet','related'],s13:['skin','status','group'],s14:['mono','skin','ethics'],
+    s17:['ethics','mono','limit'],s18:['design','ethics','skin']
   };
 
   function fillBars(root){
-    root = root || document;
-    var fills = root.querySelectorAll('.br-f[data-v]');
-    fills.forEach(function(f, i){
-      var v = parseFloat(f.getAttribute('data-v'));
-      if(isNaN(v)) v = 0;
-      f.style.setProperty('width', '0%', 'important');
+    root=root||document;
+    root.querySelectorAll('.br-f[data-v]').forEach(function(f,i){
+      var v=parseFloat(f.getAttribute('data-v'));
+      if(isNaN(v)) v=0;
+      f.style.setProperty('--pv-w','0%');
       void f.offsetWidth;
       setTimeout(function(){
-        f.style.setProperty('width', v + '%', 'important');
-      }, 80 + i * 85);
+        f.style.setProperty('--pv-w', v+'%');
+        f.style.setProperty('width', v+'%', 'important');
+      }, 60+i*80);
     });
   }
 
-  function glassWrapBars(){
+  function glassWrap(){
     document.querySelectorAll('.bars[data-bars]').forEach(function(bars){
       if(bars.closest('.pv-chart-card')) return;
-      var parent = bars.parentElement;
-      if(!parent) return;
-      var card = document.createElement('div');
-      card.className = 'pv-chart-card';
-      var big = parent.querySelector(':scope > .bigstat');
-      if(big){
-        parent.insertBefore(card, big);
-        card.appendChild(big);
-        card.appendChild(bars);
-      } else {
-        bars.parentNode.insertBefore(card, bars);
-        card.appendChild(bars);
-      }
+      var parent=bars.parentElement; if(!parent) return;
+      var card=document.createElement('div');
+      card.className='pv-chart-card';
+      var big=parent.querySelector(':scope > .bigstat');
+      if(big){ parent.insertBefore(card,big); card.appendChild(big); card.appendChild(bars); }
+      else { bars.parentNode.insertBefore(card,bars); card.appendChild(bars); }
     });
   }
 
   function enhance(){
-    document.querySelectorAll('.pv-strip').forEach(function(el){ el.remove(); });
-
-    var s0 = document.getElementById('s0');
-    if(s0 && !s0.querySelector('.hero-plate')){
-      var meta = s0.querySelector('.h-meta');
-      if(meta) meta.insertAdjacentHTML('beforebegin', hero());
-      else {
-        var btns = s0.querySelector('.h-btns');
-        if(btns) btns.insertAdjacentHTML('afterend', hero());
-      }
+    document.querySelectorAll('.pv-strip').forEach(function(el){el.remove();});
+    var s0=document.getElementById('s0');
+    if(s0&&!s0.querySelector('.hero-plate')){
+      var meta=s0.querySelector('.h-meta');
+      if(meta) meta.insertAdjacentHTML('beforebegin',hero());
+      else{ var btns=s0.querySelector('.h-btns'); if(btns) btns.insertAdjacentHTML('afterend',hero()); }
     }
-
     Object.keys(SLIDE_ICONS).forEach(function(id){
-      var sec = document.getElementById(id);
-      if(!sec || sec.querySelector('.pv-icons')) return;
-      var html = iconRow(SLIDE_ICONS[id]);
-      var co = sec.querySelector('.co');
-      var g = sec.querySelector('.g');
-      var host = sec.querySelector('.fitbox') || sec;
-      if(co) co.insertAdjacentHTML('beforebegin', html);
-      else if(g) g.insertAdjacentHTML('beforebegin', html);
-      else host.insertAdjacentHTML('beforeend', html);
+      var sec=document.getElementById(id);
+      if(!sec||sec.querySelector('.pv-icons')) return;
+      var html=iconRow(SLIDE_ICONS[id]);
+      var co=sec.querySelector('.co'), g=sec.querySelector('.g'), host=sec.querySelector('.fitbox')||sec;
+      if(co) co.insertAdjacentHTML('beforebegin',html);
+      else if(g) g.insertAdjacentHTML('beforebegin',html);
+      else host.insertAdjacentHTML('beforeend',html);
     });
-
     Object.keys(CARD_ICONS).forEach(function(id){
-      var sec = document.getElementById(id);
-      if(!sec) return;
-      sec.querySelectorAll('.card,.sdt').forEach(function(card, i){
-        if(card.querySelector('.pv-ico')) return;
-        card.insertAdjacentHTML('afterbegin', ico(CARD_ICONS[id][i % CARD_ICONS[id].length]));
+      var sec=document.getElementById(id); if(!sec) return;
+      sec.querySelectorAll('.card,.sdt').forEach(function(c,i){
+        if(c.querySelector('.pv-ico')) return;
+        c.insertAdjacentHTML('afterbegin',ico(CARD_ICONS[id][i%CARD_ICONS[id].length]));
       });
     });
-
     document.querySelectorAll('.screen').forEach(function(sec){
-      if(sec.id === 's0' || sec.querySelector('.pv-orb')) return;
-      sec.style.position = sec.style.position || 'relative';
-      sec.insertAdjacentHTML('beforeend',
-        '<div class="pv-orb a" aria-hidden="true"></div>'+
-        '<div class="pv-orb b" aria-hidden="true"></div>'+
-        '<div class="pv-orb c" aria-hidden="true"></div>');
+      if(sec.id==='s0'||sec.querySelector('.pv-orb')) return;
+      sec.style.position=sec.style.position||'relative';
+      sec.insertAdjacentHTML('beforeend','<div class="pv-orb a" aria-hidden="true"></div><div class="pv-orb b" aria-hidden="true"></div><div class="pv-orb c" aria-hidden="true"></div>');
     });
-
     document.querySelectorAll('.screen h1.tt, .screen .tt').forEach(function(h){
-      if(h.nextElementSibling && h.nextElementSibling.classList.contains('pv-accent')) return;
+      if(h.nextElementSibling&&h.nextElementSibling.classList.contains('pv-accent')) return;
       if(h.closest('#s0')) return;
-      h.insertAdjacentHTML('afterend', accent());
+      h.insertAdjacentHTML('afterend',accent());
     });
-
-    var top = document.querySelector('.top');
-    if(top) top.classList.add('pv-chrome');
-    document.querySelectorAll('.btn').forEach(function(b){ b.classList.add('pv-btn'); });
-
-    try { glassWrapBars(); } catch(e) {}
+    var top=document.querySelector('.top'); if(top) top.classList.add('pv-chrome');
+    document.querySelectorAll('.btn').forEach(function(b){b.classList.add('pv-btn');});
+    try{glassWrap();}catch(e){}
   }
 
   function onSlide(sec){
     if(!sec) return;
-    sec.querySelectorAll('.rv,.rvl,.rvr,.rvs').forEach(function(el){ el.classList.add('in'); });
+    sec.querySelectorAll('.rv,.rvl,.rvr,.rvs').forEach(function(el){el.classList.add('in');});
     fillBars(sec);
-    setTimeout(function(){ fillBars(sec); }, 300);
-    setTimeout(function(){ fillBars(document); }, 600);
+    setTimeout(function(){fillBars(sec);},250);
+    setTimeout(function(){fillBars(document);},500);
   }
 
   function wrapNav(){
-    var _play = window.play;
-    if(typeof _play === 'function' && !_play.__pv3){
-      window.play = function(sec){
-        var r = _play.apply(this, arguments);
-        onSlide(sec);
-        return r;
-      };
-      window.play.__pv3 = 1;
+    if(typeof window.play==='function'&&!window.play.__pv4){
+      var _p=window.play;
+      window.play=function(sec){var r=_p.apply(this,arguments);onSlide(sec);return r;};
+      window.play.__pv4=1;
     }
-    var _go = window.go;
-    if(typeof _go === 'function' && !_go.__pv3){
-      window.go = function(){
-        var r = _go.apply(this, arguments);
+    if(typeof window.go==='function'&&!window.go.__pv4){
+      var _g=window.go;
+      window.go=function(){
+        var r=_g.apply(this,arguments);
         setTimeout(function(){
-          var on = document.querySelector('.screen.on') ||
-                   document.querySelector('.screen[aria-hidden="false"]');
-          onSlide(on);
-        }, 60);
+          onSlide(document.querySelector('.screen.on')||document.querySelector('.screen[aria-hidden="false"]'));
+        },50);
         return r;
       };
-      window.go.__pv3 = 1;
+      window.go.__pv4=1;
     }
   }
 
   function boot(){
-    try { enhance(); } catch(e) { console.warn('pv', e); }
+    try{enhance();}catch(e){console.warn('pv',e);}
     wrapNav();
-    setTimeout(wrapNav, 400);
-    setTimeout(function(){ fillBars(document); }, 500);
-    setTimeout(function(){ fillBars(document); }, 1200);
-    setTimeout(function(){ fillBars(document); }, 2500);
-    try {
-      var mo = new MutationObserver(function(muts){
-        muts.forEach(function(m){
-          if(m.type === 'attributes' && m.attributeName === 'style'){
-            var el = m.target;
-            if(el.classList && el.classList.contains('br-f') && el.getAttribute('data-v')){
-              var v = parseFloat(el.getAttribute('data-v')) || 0;
-              var w = el.style.width;
-              if(!w || w === '0%' || w === '0'){
-                setTimeout(function(){
-                  el.style.setProperty('width', v + '%', 'important');
-                }, 50);
-              }
-            }
-          }
-        });
-      });
-      mo.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['style'] });
-    } catch(e) {}
+    setTimeout(wrapNav,400);
+    [400,900,1600,2800].forEach(function(t){setTimeout(function(){fillBars(document);},t);});
+    setInterval(function(){
+      var on=document.querySelector('.screen.on')||document.querySelector('.screen[aria-hidden="false"]');
+      if(on) fillBars(on);
+    },2000);
   }
 
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot);
   else boot();
-  setTimeout(boot, 800);
-  setTimeout(boot, 1800);
+  setTimeout(boot,700);
+  setTimeout(boot,1600);
 })();
