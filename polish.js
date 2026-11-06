@@ -23,14 +23,12 @@
   };
 
   function ico(name){ return '<div class="pv-ico" aria-hidden="true">'+(ICONS[name]||ICONS.spark)+'</div>'; }
-
   function iconRow(names, colors){
-    colors = colors || ['rgba(155,123,255,.28)','rgba(255,191,105,.24)','rgba(102,223,196,.24)'];
+    colors=colors||['rgba(155,123,255,.28)','rgba(255,191,105,.24)','rgba(102,223,196,.24)'];
     return '<div class="pv-icons" aria-hidden="true">'+names.map(function(n,i){
       return '<div class="pv-icon-cell" style="--pv-a:'+colors[i%colors.length]+'">'+(ICONS[n]||ICONS.spark)+'</div>';
     }).join('')+'</div>';
   }
-
   function hero(){
     return '<figure class="hero-plate" aria-hidden="true"><svg viewBox="0 0 520 292" fill="none">'+
       '<defs><linearGradient id="hpG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9b7bff"/><stop offset="1" stop-color="#00ff9c"/></linearGradient>'+
@@ -43,7 +41,6 @@
       '<circle cx="320" cy="210" r="14" stroke="#66dfc4" stroke-width="1.8"/><circle cx="355" cy="210" r="14" stroke="#66dfc4" stroke-width="1.8"/><circle cx="338" cy="238" r="14" stroke="#66dfc4" stroke-width="1.8"/>'+
       '<text x="28" y="268" fill="rgba(255,255,255,.35)" font-family="ui-monospace,monospace" font-size="11" letter-spacing="3">STYLE · STATUS · BELONGING</text></svg></figure>';
   }
-
   function accent(){ return '<div class="pv-accent" aria-hidden="true"></div>'; }
 
   var SLIDE_ICONS={
@@ -51,33 +48,35 @@
     s10:['group','related','skin'], s12:['insight','spark','skin'], s15:['cycle','spark','coin'],
     s16:['voice','group','insight'], s19:['limit','method','data'], s21:['source','theory','insight'], s22:['source','ethics','data']
   };
-
   var CARD_ICONS={
     s1:['skin','status','group'], s3:['auto','compet','related'], s4:['skin','insight','status'],
-    s8:['skin','status','group'], s11:['auto','compet','related'], s13:['skin','status','group'],
-    s14:['mono','skin','ethics'], s17:['ethics','mono','limit'], s18:['design','ethics','skin']
+    s11:['auto','compet','related'], s13:['skin','status','group'], s14:['mono','skin','ethics'],
+    s17:['ethics','mono','limit'], s18:['design','ethics','skin']
   };
 
-  function fillBars(sec){
-    if(!sec) return;
-    var fills=sec.querySelectorAll('.br-f[data-v]');
-    fills.forEach(function(f,i){
-      var v=parseFloat(f.getAttribute('data-v'))||0;
-      f.style.width='0%';
+  function fillBars(root){
+    root = root || document;
+    var fills = root.querySelectorAll('.br-f[data-v]');
+    fills.forEach(function(f, i){
+      var v = parseFloat(f.getAttribute('data-v'));
+      if(isNaN(v)) v = 0;
+      f.style.setProperty('width', '0%', 'important');
       void f.offsetWidth;
-      setTimeout(function(){ f.style.width=v+'%'; }, 120 + i*90);
+      setTimeout(function(){
+        f.style.setProperty('width', v + '%', 'important');
+      }, 80 + i * 85);
     });
   }
 
   function glassWrapBars(){
     document.querySelectorAll('.bars[data-bars]').forEach(function(bars){
       if(bars.closest('.pv-chart-card')) return;
-      var parent=bars.parentElement;
+      var parent = bars.parentElement;
       if(!parent) return;
-      var card=document.createElement('div');
-      card.className='pv-chart-card';
-      var big=parent.querySelector('.bigstat');
-      if(big && big.parentElement===parent){
+      var card = document.createElement('div');
+      card.className = 'pv-chart-card';
+      var big = parent.querySelector(':scope > .bigstat');
+      if(big){
         parent.insertBefore(card, big);
         card.appendChild(big);
         card.appendChild(bars);
@@ -91,41 +90,44 @@
   function enhance(){
     document.querySelectorAll('.pv-strip').forEach(function(el){ el.remove(); });
 
-    var s0=document.getElementById('s0');
+    var s0 = document.getElementById('s0');
     if(s0 && !s0.querySelector('.hero-plate')){
-      var meta=s0.querySelector('.h-meta');
+      var meta = s0.querySelector('.h-meta');
       if(meta) meta.insertAdjacentHTML('beforebegin', hero());
       else {
-        var btns=s0.querySelector('.h-btns');
+        var btns = s0.querySelector('.h-btns');
         if(btns) btns.insertAdjacentHTML('afterend', hero());
       }
     }
 
     Object.keys(SLIDE_ICONS).forEach(function(id){
-      var sec=document.getElementById(id);
+      var sec = document.getElementById(id);
       if(!sec || sec.querySelector('.pv-icons')) return;
-      var html=iconRow(SLIDE_ICONS[id]);
-      var co=sec.querySelector('.co');
-      var g=sec.querySelector('.g');
-      var host=sec.querySelector('.fitbox')||sec;
+      var html = iconRow(SLIDE_ICONS[id]);
+      var co = sec.querySelector('.co');
+      var g = sec.querySelector('.g');
+      var host = sec.querySelector('.fitbox') || sec;
       if(co) co.insertAdjacentHTML('beforebegin', html);
       else if(g) g.insertAdjacentHTML('beforebegin', html);
       else host.insertAdjacentHTML('beforeend', html);
     });
 
     Object.keys(CARD_ICONS).forEach(function(id){
-      var sec=document.getElementById(id);
+      var sec = document.getElementById(id);
       if(!sec) return;
-      sec.querySelectorAll('.card,.sdt').forEach(function(card,i){
+      sec.querySelectorAll('.card,.sdt').forEach(function(card, i){
         if(card.querySelector('.pv-ico')) return;
-        card.insertAdjacentHTML('afterbegin', ico(CARD_ICONS[id][i%CARD_ICONS[id].length]));
+        card.insertAdjacentHTML('afterbegin', ico(CARD_ICONS[id][i % CARD_ICONS[id].length]));
       });
     });
 
     document.querySelectorAll('.screen').forEach(function(sec){
-      if(sec.id==='s0' || sec.querySelector('.pv-orb')) return;
-      sec.style.position=sec.style.position||'relative';
-      sec.insertAdjacentHTML('beforeend','<div class="pv-orb a" aria-hidden="true"></div><div class="pv-orb b" aria-hidden="true"></div><div class="pv-orb c" aria-hidden="true"></div>');
+      if(sec.id === 's0' || sec.querySelector('.pv-orb')) return;
+      sec.style.position = sec.style.position || 'relative';
+      sec.insertAdjacentHTML('beforeend',
+        '<div class="pv-orb a" aria-hidden="true"></div>'+
+        '<div class="pv-orb b" aria-hidden="true"></div>'+
+        '<div class="pv-orb c" aria-hidden="true"></div>');
     });
 
     document.querySelectorAll('.screen h1.tt, .screen .tt').forEach(function(h){
@@ -134,60 +136,76 @@
       h.insertAdjacentHTML('afterend', accent());
     });
 
-    var top=document.querySelector('.top');
+    var top = document.querySelector('.top');
     if(top) top.classList.add('pv-chrome');
     document.querySelectorAll('.btn').forEach(function(b){ b.classList.add('pv-btn'); });
 
-    try{ glassWrapBars(); }catch(e){}
+    try { glassWrapBars(); } catch(e) {}
   }
 
   function onSlide(sec){
     if(!sec) return;
     sec.querySelectorAll('.rv,.rvl,.rvr,.rvs').forEach(function(el){ el.classList.add('in'); });
     fillBars(sec);
+    setTimeout(function(){ fillBars(sec); }, 300);
+    setTimeout(function(){ fillBars(document); }, 600);
   }
 
-  function wrapPlay(){
-    var _play=window.play;
-    if(typeof _play==='function' && !_play.__pv2){
-      window.play=function(sec){
-        var r=_play.apply(this,arguments);
-        setTimeout(function(){ onSlide(sec); }, 80);
-        setTimeout(function(){ onSlide(sec); }, 400);
+  function wrapNav(){
+    var _play = window.play;
+    if(typeof _play === 'function' && !_play.__pv3){
+      window.play = function(sec){
+        var r = _play.apply(this, arguments);
+        onSlide(sec);
         return r;
       };
-      window.play.__pv2=1;
+      window.play.__pv3 = 1;
     }
-    var _go=window.go;
-    if(typeof _go==='function' && !_go.__pv2){
-      window.go=function(){
-        var r=_go.apply(this,arguments);
+    var _go = window.go;
+    if(typeof _go === 'function' && !_go.__pv3){
+      window.go = function(){
+        var r = _go.apply(this, arguments);
         setTimeout(function(){
-          var on=document.querySelector('.screen.on')||document.querySelector('.screen[aria-hidden="false"]');
+          var on = document.querySelector('.screen.on') ||
+                   document.querySelector('.screen[aria-hidden="false"]');
           onSlide(on);
-        }, 100);
-        setTimeout(function(){
-          var on=document.querySelector('.screen.on')||document.querySelector('.screen[aria-hidden="false"]');
-          onSlide(on);
-        }, 450);
+        }, 60);
         return r;
       };
-      window.go.__pv2=1;
+      window.go.__pv3 = 1;
     }
   }
 
   function boot(){
-    try{ enhance(); }catch(e){ console.warn('pv',e); }
-    wrapPlay();
-    setTimeout(wrapPlay, 500);
-    setTimeout(function(){
-      var on=document.querySelector('.screen.on')||document.getElementById('s0');
-      onSlide(on);
-    }, 700);
+    try { enhance(); } catch(e) { console.warn('pv', e); }
+    wrapNav();
+    setTimeout(wrapNav, 400);
+    setTimeout(function(){ fillBars(document); }, 500);
+    setTimeout(function(){ fillBars(document); }, 1200);
+    setTimeout(function(){ fillBars(document); }, 2500);
+    try {
+      var mo = new MutationObserver(function(muts){
+        muts.forEach(function(m){
+          if(m.type === 'attributes' && m.attributeName === 'style'){
+            var el = m.target;
+            if(el.classList && el.classList.contains('br-f') && el.getAttribute('data-v')){
+              var v = parseFloat(el.getAttribute('data-v')) || 0;
+              var w = el.style.width;
+              if(!w || w === '0%' || w === '0'){
+                setTimeout(function(){
+                  el.style.setProperty('width', v + '%', 'important');
+                }, 50);
+              }
+            }
+          }
+        });
+      });
+      mo.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['style'] });
+    } catch(e) {}
   }
 
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot);
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
-  setTimeout(boot, 900);
-  setTimeout(boot, 2000);
+  setTimeout(boot, 800);
+  setTimeout(boot, 1800);
 })();
