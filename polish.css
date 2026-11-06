@@ -1,4 +1,4 @@
-/* v15 — full upgrade pack */
+/* v16 — chapters top + smooth transitions */
 :root{
   --pv-a:#9b7bff;
   --pv-a2:#b8a4ff;
@@ -15,6 +15,22 @@
 @keyframes liquidShimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes softRise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @keyframes tipIn{from{opacity:0;transform:translate(-50%,6px)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes pvEnterF{
+  from{opacity:0;transform:translate3d(2.2%,0,0) scale(.985);filter:blur(4px)}
+  to{opacity:1;transform:none;filter:none}
+}
+@keyframes pvEnterB{
+  from{opacity:0;transform:translate3d(-2.2%,0,0) scale(.985);filter:blur(4px)}
+  to{opacity:1;transform:none;filter:none}
+}
+@keyframes pvExitF{
+  from{opacity:1;transform:none;filter:none}
+  to{opacity:0;transform:translate3d(-1.4%,0,0) scale(.99);filter:blur(2px)}
+}
+@keyframes pvExitB{
+  from{opacity:1;transform:none;filter:none}
+  to{opacity:0;transform:translate3d(1.4%,0,0) scale(.99);filter:blur(2px)}
+}
 
 .card,.sdt,.kpi,.vc,.eth,.tlstep,.co,.deep{
   background:linear-gradient(155deg,rgba(255,255,255,.045) 0%,transparent 50%),linear-gradient(168deg,rgba(24,26,40,.78),rgba(9,10,16,.86))!important;
@@ -78,11 +94,35 @@
 #nav button.on{background:rgba(155,123,255,.18)!important;color:#e8e4ff!important;box-shadow:0 0 0 1px rgba(155,123,255,.35)!important}
 #nav button:hover{transform:translateY(-1px)}
 
-.pv-chapters{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:80;display:flex;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(8,9,14,.72);border:1px solid rgba(255,255,255,.08);-webkit-backdrop-filter:blur(16px) saturate(1.1);backdrop-filter:blur(16px) saturate(1.1);box-shadow:0 10px 28px rgba(0,0,0,.4)}
-.pv-chapters button{appearance:none;border:0;background:transparent;color:rgba(180,182,200,.7);font-size:10.5px;font-weight:600;padding:5px 9px;border-radius:999px;cursor:pointer;letter-spacing:.02em;transition:all .2s}
-.pv-chapters button:hover{color:#fff;background:rgba(255,255,255,.06)}
-.pv-chapters button.on{color:#fff;background:rgba(155,123,255,.25);box-shadow:0 0 0 1px rgba(155,123,255,.35)}
-.pv-chapters button.dn{color:rgba(155,123,255,.7)}
+/* chapters — top, never overlaps bottom snav */
+.pv-chapters{
+  position:fixed;left:50%;top:58px;transform:translateX(-50%);
+  z-index:70;display:flex;gap:4px;padding:5px 8px;border-radius:999px;
+  background:rgba(8,9,14,.78);border:1px solid rgba(255,255,255,.08);
+  -webkit-backdrop-filter:blur(16px) saturate(1.1);backdrop-filter:blur(16px) saturate(1.1);
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+  max-width:min(96vw,920px);overflow-x:auto;scrollbar-width:none;
+}
+.pv-chapters::-webkit-scrollbar{display:none}
+.pv-chapters button{
+  appearance:none;border:0;background:transparent;color:rgba(180,182,200,.65);
+  font-size:10.5px;font-weight:600;padding:5px 10px;border-radius:999px;cursor:pointer;
+  letter-spacing:.02em;transition:color .25s,background .25s,box-shadow .25s,transform .2s;
+  white-space:nowrap;flex-shrink:0;
+}
+.pv-chapters button:hover{color:#fff;background:rgba(255,255,255,.07);transform:translateY(-1px)}
+.pv-chapters button.on{color:#fff;background:rgba(155,123,255,.28);box-shadow:0 0 0 1px rgba(155,123,255,.4)}
+.pv-chapters button.dn{color:rgba(155,123,255,.55)}
+
+/* smoother slide transitions */
+.screen{transition:opacity .45s cubic-bezier(.22,1,.36,1), transform .5s cubic-bezier(.22,1,.36,1)!important}
+.screen.in-fwd{animation:pvEnterF .55s cubic-bezier(.22,1,.36,1) both!important}
+.screen.in-back{animation:pvEnterB .55s cubic-bezier(.22,1,.36,1) both!important}
+.screen.out-fwd{animation:pvExitF .32s cubic-bezier(.4,0,1,1) both!important}
+.screen.out-back{animation:pvExitB .32s cubic-bezier(.4,0,1,1) both!important}
+
+.snav{z-index:75!important}
+.modes{z-index:75!important}
 
 .hero-plate{width:min(52cqw,460px);aspect-ratio:16/9;margin:0 auto 12px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:radial-gradient(80% 80% at 70% 30%,rgba(0,212,122,.07),transparent 50%),radial-gradient(70% 70% at 25% 70%,rgba(155,123,255,.11),transparent 55%),linear-gradient(145deg,#10121a,#06070c);box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 18px 40px rgba(0,0,0,.4);opacity:0;animation:fadeUp .75s ease .08s forwards}
 .hero-plate svg{width:100%;height:100%;display:block}
@@ -106,11 +146,13 @@
   .pv-icon-cell{width:48px;height:48px}
   .hero-plate,.pv-plate{width:100%}
   .pv-take{grid-template-columns:1fr}
-  .pv-chapters{max-width:94vw;overflow-x:auto;bottom:10px;gap:4px;padding:5px 8px}
+  .pv-chapters{max-width:94vw;overflow-x:auto;top:52px;gap:3px;padding:4px 6px}
   .pv-chapters button{font-size:10px;padding:4px 7px}
   .waffle{grid-template-columns:repeat(6,1fr)!important}
 }
 @media(prefers-reduced-motion:reduce){
+  .screen.in-fwd,.screen.in-back,.screen.out-fwd,.screen.out-back{animation:none!important}
+  .screen{transition:none!important}
   .pv-icon-cell,.hero-plate,.pv-orb,.card:hover,.br-f::after,.pv-chip,.waffle i{animation:none!important;transform:none!important;transition:none!important}
   .rv,.rvl,.rvr,.rvs{opacity:1;transform:none;transition:none}
   .br-f{transition:none!important}
