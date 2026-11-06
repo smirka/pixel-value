@@ -33,9 +33,9 @@ html,body{margin:0;height:100%;background:#07080e;color:#e8e8f0;font-family:syst
     }
     if(!html) throw lastErr||new Error('fetch failed');
 
-    var v = '16';
+    var v = '17';
     html = html.replace('</head>',
-      '<link rel="stylesheet" href="polish.css?v='+v+'" id="pv-polish-link"/>\n</head>');
+      '<link rel="stylesheet" href="polish.css?v='+v+'" id="pv-polish-link"/>\n<link rel="stylesheet" href="polish-beauty.css?v='+v+'" id="pv-beauty-link"/>\n</head>');
     html = html.replace('</body>',
       '<script src="polish.js?v='+v+'" id="pv-visuals"></scr'+'ipt>\n<script src="polish-upgrades.js?v='+v+'" id="pv-upgrades"></scr'+'ipt>\n</body>');
 
