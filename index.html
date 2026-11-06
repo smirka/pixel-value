@@ -33,7 +33,7 @@ html,body{margin:0;height:100%;background:#090a10;color:#e8e8f0;font-family:syst
     }
     if(!html) throw lastErr||new Error('fetch failed');
 
-    var v = '12';
+    var v = '13';
     html = html.replace('</head>',
       '<link rel="stylesheet" href="polish.css?v='+v+'" id="pv-polish-link"/>\n</head>');
     html = html.replace('</body>',
