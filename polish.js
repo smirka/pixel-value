@@ -196,6 +196,7 @@
     document.querySelectorAll('.screen').forEach(function(sec){
       if(sec.id==='s0'||sec.querySelector('.pv-orb')) return;
       sec.style.position=sec.style.position||'relative';
+      if(!sec.querySelector('.pv-grid')) sec.insertAdjacentHTML('afterbegin','<div class="pv-grid" aria-hidden="true"></div>');
       sec.insertAdjacentHTML('beforeend','<div class="pv-orb a" aria-hidden="true"></div><div class="pv-orb b" aria-hidden="true"></div><div class="pv-orb c" aria-hidden="true"></div>');
     });
     document.querySelectorAll('.screen h1.tt, .screen .tt').forEach(function(h){
