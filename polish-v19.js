@@ -27,15 +27,7 @@
     });
   }
 
-  var DEN={s6:'из <b>18</b> участников',s7:'из <b>18</b> участников',s8:'из <b>10</b> покупателей',s9:'из <b>10</b> покупателей',s10:'из <b>18</b> участников'};
-  function dens(){
-    Object.keys(DEN).forEach(function(id){
-      var sec=document.getElementById(id);
-      if(!sec||sec.querySelector('.pv-den')) return;
-      var host=sec.querySelector('.pv-chart-card')||sec.querySelector('.bars');
-      if(host) host.insertAdjacentHTML('afterend','<div class="pv-den">'+DEN[id]+'</div>');
-    });
-  }
+  function dens(){ /* no duplicate denominator lines */ }
 
   function thesis(){
     var s6=document.getElementById('s6');
@@ -91,24 +83,7 @@
     if(tt) tt.insertAdjacentHTML('afterend', html);
   }
 
-  function morph(){
-    var s0=document.getElementById('s0');
-    if(!s0||s0.querySelector('.pv-morph')) return;
-    var svg='<svg class="pv-morph" viewBox="0 0 200 200" aria-hidden="true">'+
-      '<defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5a5f78"/><stop offset="100%" stop-color="#9b7bff"/></linearGradient></defs>'+
-      '<circle class="fill" cx="100" cy="70" r="36" fill="#5a5f78"/>'+
-      '<path class="fill" d="M55 160c8-42 22-62 45-62s37 20 45 62" fill="#5a5f78"/>'+
-      '<circle cx="100" cy="70" r="40" fill="none" stroke="rgba(155,123,255,.35)" stroke-width="1.5" stroke-dasharray="4 6"/>'+
-      '</svg>';
-    var hero=s0.querySelector('.hero-plate');
-    if(hero) hero.insertAdjacentHTML('beforebegin', svg);
-    else {
-      var meta=s0.querySelector('.h-meta,.h-btns');
-      if(meta) meta.insertAdjacentHTML('beforebegin', svg);
-    }
-    setTimeout(function(){ $$('.pv-morph .fill').forEach(function(el){ el.setAttribute('fill','url(#mg)'); }); }, 600);
-    setTimeout(function(){ $$('.pv-morph .fill').forEach(function(el){ el.setAttribute('fill','#9b7bff'); }); }, 1800);
-  }
+  function morph(){ /* disabled: hero-plate already on s0 */ }
 
   var timerStart=null, timerIV=null;
   function presenterUI(){
@@ -234,6 +209,7 @@
   }
 
   function boot(){
+    document.querySelectorAll('.pv-chapters,.pv-morph,.pv-den,.pv-src').forEach(function(el){el.remove();});
     fonts();
     presenterUI();
     overviewUI();
@@ -250,9 +226,9 @@
     keys();
     onSlide();
     setTimeout(function(){
-      oneDecor(); dens(); thesis(); bigNum(); moreQuotes(); recs(); faceoff(); morph(); wrapNav(); onSlide();
+      document.querySelectorAll('.pv-chapters,.pv-morph,.pv-den').forEach(function(el){el.remove();});
+      oneDecor(); thesis(); bigNum(); moreQuotes(); recs(); faceoff(); wrapNav(); onSlide();
     },900);
-    setTimeout(function(){ dens(); bigNum(); moreQuotes(); recs(); faceoff(); },1600);
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot);
