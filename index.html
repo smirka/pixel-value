@@ -33,14 +33,12 @@ html,body{margin:0;height:100%;background:#090a10;color:#e8e8f0;font-family:syst
     }
     if(!html) throw lastErr||new Error('fetch failed');
 
-    var css='', js='';
-    try {
-      css = await (await fetch('polish.css?v=4',{cache:'no-store'})).text();
-      js = await (await fetch('polish.js?v=4',{cache:'no-store'})).text();
-    } catch(e) {}
-
-    if(css) html = html.replace('</head>', '<style id="pv-polish">'+css+'</style></head>');
-    if(js) html = html.replace('</body>', '<script id="pv-visuals">'+js+'<\\/script></body>');
+    // External assets — avoid inlining JS (SVG tags break HTML script parsing)
+    var v = '5';
+    html = html.replace('</head>',
+      '<link rel="stylesheet" href="polish.css?v='+v+'" id="pv-polish-link"/>\n</head>');
+    html = html.replace('</body>',
+      '<script src="polish.js?v='+v+'" id="pv-visuals"><\\/script>\n</body>');
 
     document.open(); document.write(html); document.close();
   } catch(e) {
