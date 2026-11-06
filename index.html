@@ -33,11 +33,12 @@ html,body{margin:0;height:100%;background:#07080e;color:#e8e8f0;font-family:syst
     }
     if(!html) throw lastErr||new Error('fetch failed');
 
-    var v = '19';
+    var v = '20';
     html = html.replace('</head>',
       '<link rel="stylesheet" href="polish.css?v='+v+'"/>\n'+
       '<link rel="stylesheet" href="polish-beauty.css?v='+v+'"/>\n'+
-      '<link rel="stylesheet" href="polish-v19.css?v='+v+'"/>\n</head>');
+      '<link rel="stylesheet" href="polish-v19.css?v='+v+'"/>\n'+
+      '<link rel="stylesheet" href="polish-v20-fix.css?v='+v+'"/>\n</head>');
     html = html.replace('</body>',
       '<script src="polish.js?v='+v+'"></scr'+'ipt>\n'+
       '<script src="polish-upgrades.js?v='+v+'"></scr'+'ipt>\n'+

@@ -1,0 +1,27 @@
+/* v20 fix — no duplicate nav, no overflow, center */
+
+.pv-chapters{display:none!important;visibility:hidden!important;pointer-events:none!important;height:0!important;overflow:hidden!important;opacity:0!important}
+
+.screen#s0 .pv-morph{display:none!important}
+
+.screen,.fitwrap,.fitbox{overflow:hidden!important;max-width:100%!important}
+.card,.sdt,.kpi,.pv-chart-card,.pv-thesis,.pv-vs,.pv-faceoff,.pv-recs,.pv-quote,.pv-limit,.pv-take{
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+.bars,.br{max-width:100%!important}
+.pv-bignum{max-width:100%;overflow:hidden}
+
+.fitbox > *{max-width:min(100%,1100px)}
+.screen .g,.screen .g2,.screen .g3{width:100%;max-width:1100px;margin-left:auto!important;margin-right:auto!important}
+.pv-chart-card{margin-left:auto!important;margin-right:auto!important}
+
+.pv-src,.pv-den{display:none!important}
+
+html,body{overflow-x:hidden!important}
+
+#s0 .hero-plate{margin-left:auto;margin-right:auto}
+
+@media(max-width:900px){
+  body.pv-pres .stage,body.pv-pres .screen{padding-right:0!important}
+}
