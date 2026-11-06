@@ -26,9 +26,10 @@
     return '<div class="pv-ico" aria-hidden="true">'+(ICONS[name]||ICONS.spark)+'</div>';
   }
 
-  function strip(items){
-    return '<div class="pv-strip" aria-hidden="true">'+items.map(function(it){
-      return '<div class="pv-tile" style="--pv-a:'+it.c+'"><div class="g">'+(ICONS[it.i]||ICONS.spark)+'</div><div class="t">'+it.t+'</div><div class="l">'+it.l+'</div></div>';
+  function iconRow(names, colors){
+    colors = colors || ['rgba(155,123,255,.28)','rgba(255,191,105,.24)','rgba(102,223,196,.24)'];
+    return '<div class="pv-icons" aria-hidden="true">'+names.map(function(n,i){
+      return '<div class="pv-icon-cell" style="--pv-a:'+colors[i%colors.length]+'">'+(ICONS[n]||ICONS.spark)+'</div>';
     }).join('')+'</div>';
   }
 
@@ -47,29 +48,25 @@
 
   function accent(){ return '<div class="pv-accent" aria-hidden="true"></div>'; }
 
-  var SLIDE_FIGS={
-    s1:[{i:'skin',t:'Стиль',l:'Автономия',c:'rgba(155,123,255,.25)'},{i:'status',t:'Статус',l:'Компетентность',c:'rgba(255,191,105,.22)'},{i:'group',t:'Круг',l:'Связанность',c:'rgba(102,223,196,.22)'}],
-    s2:[{i:'quest',t:'Вопрос',l:'Мотивы',c:'rgba(0,255,156,.22)'},{i:'theory',t:'Рамка',l:'SDT',c:'rgba(155,123,255,.25)'},{i:'insight',t:'Гипотеза',l:'Смысл',c:'rgba(102,223,196,.22)'}],
-    s3:[{i:'auto',t:'Автономия',l:'Выбор стиля',c:'rgba(155,123,255,.25)'},{i:'compet',t:'Компетентность',l:'Редкость',c:'rgba(0,255,156,.2)'},{i:'related',t:'Связанность',l:'Сообщество',c:'rgba(102,223,196,.22)'}],
-    s4:[{i:'skin',t:'Предмет',l:'Скин',c:'rgba(102,223,196,.22)'},{i:'insight',t:'Смысл',l:'Я',c:'rgba(155,123,255,.25)'},{i:'status',t:'Образ',l:'Показ',c:'rgba(0,255,156,.2)'}],
-    s5:[{i:'method',t:'Опрос',l:'n = 18',c:'rgba(255,191,105,.22)'},{i:'data',t:'Данные',l:'Самоотчёт',c:'rgba(155,123,255,.25)'},{i:'limit',t:'Границы',l:'Выборка',c:'rgba(255,125,145,.22)'}],
-    s6:[{i:'data',t:'Активность',l:'Часы',c:'rgba(155,123,255,.25)'},{i:'compet',t:'Опыт',l:'Игры',c:'rgba(0,255,156,.2)'},{i:'group',t:'Социум',l:'Друзья',c:'rgba(102,223,196,.22)'}],
-    s7:[{i:'coin',t:'Покупки',l:'Косметика',c:'rgba(255,191,105,.22)'},{i:'skin',t:'Скины',l:'Внешний вид',c:'rgba(155,123,255,.25)'},{i:'status',t:'Редкость',l:'Статус',c:'rgba(0,255,156,.2)'}],
-    s8:[{i:'skin',t:'Мотив',l:'Выражение',c:'rgba(155,123,255,.25)'},{i:'status',t:'Мотив',l:'Статус',c:'rgba(255,191,105,.22)'},{i:'group',t:'Мотив',l:'Круг',c:'rgba(102,223,196,.22)'}],
-    s9:[{i:'status',t:'Редкость',l:'Сигнал',c:'rgba(255,191,105,.22)'},{i:'coin',t:'Цена',l:'Восприятие',c:'rgba(0,255,156,.2)'},{i:'compet',t:'Опыт',l:'Узнаваемость',c:'rgba(155,123,255,.25)'}],
-    s10:[{i:'group',t:'Друзья',l:'Влияние',c:'rgba(102,223,196,.22)'},{i:'related',t:'Команда',l:'Общее',c:'rgba(155,123,255,.25)'},{i:'skin',t:'Символ',l:'Принадлежность',c:'rgba(0,255,156,.2)'}],
-    s11:[{i:'auto',t:'Автономия',l:'SDT',c:'rgba(155,123,255,.25)'},{i:'compet',t:'Компетентность',l:'SDT',c:'rgba(0,255,156,.2)'},{i:'related',t:'Связанность',l:'SDT',c:'rgba(102,223,196,.22)'}],
-    s12:[{i:'insight',t:'Инсайт',l:'Смысл',c:'rgba(0,255,156,.22)'},{i:'spark',t:'Ценность',l:'Не урон',c:'rgba(155,123,255,.25)'},{i:'skin',t:'Я',l:'Ощущение',c:'rgba(102,223,196,.22)'}],
-    s13:[{i:'skin',t:'Выражение',l:'Кто я',c:'rgba(155,123,255,.25)'},{i:'status',t:'Статус',l:'Как видят',c:'rgba(255,191,105,.22)'},{i:'group',t:'Принадлежность',l:'С кем я',c:'rgba(102,223,196,.22)'}],
-    s14:[{i:'mono',t:'Pay-to-Win',l:'Преимущество',c:'rgba(255,125,145,.22)'},{i:'skin',t:'Косметика',l:'Внешность',c:'rgba(155,123,255,.25)'},{i:'ethics',t:'Честность',l:'Прозрачность',c:'rgba(0,255,156,.2)'}],
-    s15:[{i:'cycle',t:'После',l:'Цикл',c:'rgba(255,191,105,.22)'},{i:'spark',t:'Эмоция',l:'Отклик',c:'rgba(0,255,156,.2)'},{i:'coin',t:'Повтор',l:'Покупка',c:'rgba(155,123,255,.25)'}],
-    s16:[{i:'voice',t:'Голоса',l:'Реплики',c:'rgba(155,123,255,.25)'},{i:'group',t:'Игроки',l:'Опыт',c:'rgba(102,223,196,.22)'},{i:'insight',t:'Смысл',l:'Слова',c:'rgba(0,255,156,.2)'}],
-    s17:[{i:'ethics',t:'Этика',l:'Ответственность',c:'rgba(0,255,156,.22)'},{i:'mono',t:'Цены',l:'Прозрачность',c:'rgba(255,125,145,.22)'},{i:'limit',t:'Защита',l:'Уязвимые',c:'rgba(255,191,105,.22)'}],
-    s18:[{i:'design',t:'Дизайн',l:'Принципы',c:'rgba(102,223,196,.22)'},{i:'ethics',t:'Честность',l:'UX',c:'rgba(0,255,156,.2)'},{i:'skin',t:'Смысл',l:'Ценность',c:'rgba(155,123,255,.25)'}],
-    s19:[{i:'limit',t:'Границы',l:'Выборка',c:'rgba(255,191,105,.22)'},{i:'method',t:'Метод',l:'Ограничения',c:'rgba(155,123,255,.25)'},{i:'data',t:'Данные',l:'Самоотчёт',c:'rgba(255,125,145,.22)'}],
-    s20:[{i:'spark',t:'Значение',l:'Не урон',c:'rgba(0,255,156,.22)'},{i:'skin',t:'Смысл',l:'Идентичность',c:'rgba(155,123,255,.25)'},{i:'coin',t:'Ценность',l:'Соц. слой',c:'rgba(255,191,105,.22)'}],
-    s21:[{i:'source',t:'Теория',l:'Источники',c:'rgba(155,123,255,.25)'},{i:'theory',t:'SDT',l:'Belk',c:'rgba(102,223,196,.22)'},{i:'insight',t:'Рамка',l:'Концепции',c:'rgba(0,255,156,.2)'}],
-    s22:[{i:'source',t:'2025',l:'Материалы',c:'rgba(102,223,196,.22)'},{i:'ethics',t:'Регуляция',l:'ЕС',c:'rgba(0,255,156,.2)'},{i:'data',t:'Проверка',l:'DOI',c:'rgba(155,123,255,.25)'}]
+  var SLIDE_ICONS={
+    s2:['quest','theory','insight'],
+    s4:['skin','insight','status'],
+    s5:['method','data','limit'],
+    s6:['data','compet','group'],
+    s7:['coin','skin','status'],
+    s8:['skin','status','group'],
+    s9:['status','coin','compet'],
+    s10:['group','related','skin'],
+    s11:['auto','compet','related'],
+    s12:['insight','spark','skin'],
+    s14:['mono','skin','ethics'],
+    s15:['cycle','spark','coin'],
+    s16:['voice','group','insight'],
+    s17:['ethics','mono','limit'],
+    s18:['design','ethics','skin'],
+    s19:['limit','method','data'],
+    s21:['source','theory','insight'],
+    s22:['source','ethics','data']
   };
 
   var CARD_ICONS={
@@ -85,6 +82,8 @@
   };
 
   function enhance(){
+    document.querySelectorAll('.pv-strip').forEach(function(el){ el.remove(); });
+
     var s0=document.getElementById('s0');
     if(s0 && !s0.querySelector('.hero-plate')){
       var meta=s0.querySelector('.h-meta');
@@ -95,14 +94,13 @@
       }
     }
 
-    Object.keys(SLIDE_FIGS).forEach(function(id){
+    Object.keys(SLIDE_ICONS).forEach(function(id){
       var sec=document.getElementById(id);
-      if(!sec || sec.querySelector('.pv-strip')) return;
-      var host=sec.querySelector('.fitbox') || sec.querySelector('.g') || sec;
-      var items=SLIDE_FIGS[id];
-      var html=strip(items);
+      if(!sec || sec.querySelector('.pv-icons')) return;
+      var html=iconRow(SLIDE_ICONS[id]);
       var co=sec.querySelector('.co');
       var g=sec.querySelector('.g');
+      var host=sec.querySelector('.fitbox') || sec;
       if(co) co.insertAdjacentHTML('beforebegin', html);
       else if(g) g.insertAdjacentHTML('beforebegin', html);
       else host.insertAdjacentHTML('beforeend', html);
@@ -140,7 +138,7 @@
       void el.offsetWidth;
       el.classList.add('in');
     });
-    sec.querySelectorAll('.pv-tile,.hero-plate,.pv-ico').forEach(function(el){
+    sec.querySelectorAll('.pv-icon-cell,.hero-plate,.pv-ico').forEach(function(el){
       el.style.animation='none';
       void el.offsetWidth;
       el.style.animation='';
