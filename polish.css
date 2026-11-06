@@ -1,0 +1,77 @@
+/* motion polish */
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes popIn{0%{opacity:0;transform:scale(.92) translateY(12px)}100%{opacity:1;transform:none}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+
+.card.rv,.sdt.rv,.kpi.rv,.vc.rv,.eth.rv,.lim.rv,.tlstep.rv,.mini.rv,.src.rv,.co.rv{
+  transition:opacity .62s var(--eo),transform .62s var(--eo),border-color .35s,box-shadow .5s,clip-path .85s var(--eo);
+  transition-delay:var(--d,0ms),var(--d,0ms),0s,0s,var(--d,0ms);
+}
+.card,.sdt,.kpi,.tlstep,.vc,.eth{
+  box-shadow:0 1px 0 rgba(255,255,255,.07) inset,0 12px 28px rgba(0,0,0,.42),0 28px 56px rgba(0,0,0,.28)!important;
+  transform-style:preserve-3d;position:relative;overflow:hidden;
+}
+.card::after,.sdt::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.06) 50%,transparent 70%);
+  background-size:200% 100%;transition:opacity .3s;
+}
+.card:hover::after,.sdt:hover::after{opacity:1;animation:shimmer 1.4s linear}
+.card:hover,.sdt:hover,.kpi:hover,.tlstep:hover{
+  box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 20px 40px rgba(0,0,0,.55),0 40px 70px rgba(0,0,0,.35)!important;
+  transform:translateY(-3px);
+  border-color:rgba(155,123,255,.28)!important;
+}
+
+.pv-ico{
+  width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:12px;
+  background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 10px 22px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.16) inset;
+  transition:transform .35s ease,box-shadow .35s;
+}
+.card:hover .pv-ico,.sdt:hover .pv-ico{transform:translateY(-3px) scale(1.05)}
+.pv-ico svg{width:26px;height:26px}
+
+.pv-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 6px}
+.pv-tile{
+  position:relative;min-height:96px;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  background:radial-gradient(120% 90% at 20% 0%,var(--pv-a,rgba(155,123,255,.2)),transparent 55%),linear-gradient(160deg,rgba(28,32,48,.95),rgba(8,10,16,.98));
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 14px 28px rgba(0,0,0,.4);
+  animation:popIn .7s var(--eo) both;
+}
+.pv-tile:nth-child(2){animation-delay:.08s}
+.pv-tile:nth-child(3){animation-delay:.16s}
+.pv-tile .t{position:absolute;left:14px;bottom:32px;font-weight:700;font-size:15px}
+.pv-tile .l{position:absolute;left:14px;bottom:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,232,240,.45);font-family:ui-monospace,monospace}
+.pv-tile .g{position:absolute;right:10px;top:10px;opacity:.55}
+
+.hero-plate{
+  width:min(56cqw,500px);aspect-ratio:16/9;margin:0 auto 16px;border-radius:20px;overflow:hidden;position:relative;
+  border:1px solid rgba(255,255,255,.14);
+  background:radial-gradient(80% 80% at 70% 30%,rgba(0,255,156,.12),transparent 50%),radial-gradient(70% 70% at 25% 70%,rgba(155,123,255,.18),transparent 55%),linear-gradient(145deg,#12151f,#070910);
+  box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 28px 54px rgba(0,0,0,.5);
+  opacity:0;animation:fu .9s ease .25s forwards;
+}
+.hero-plate svg{width:100%;height:100%;display:block}
+.hero-plate .ring{transform-origin:190px 110px;animation:spinSlow 18s linear infinite}
+
+.screen.on .pv-orb{
+  position:absolute;border-radius:50%;pointer-events:none;filter:blur(30px);opacity:.35;
+  animation:floatY 5s ease-in-out infinite;
+}
+.pv-orb.a{width:180px;height:180px;background:rgba(155,123,255,.35);top:8%;right:6%}
+.pv-orb.b{width:140px;height:140px;background:rgba(0,255,156,.2);bottom:12%;left:8%;animation-delay:1.2s}
+
+.kpi .n,.kpi .num{text-shadow:0 0 24px rgba(155,123,255,.25)}
+.pv-accent{
+  height:2px;width:48px;border-radius:2px;margin:8px 0 12px;
+  background:linear-gradient(90deg,var(--purple,#9b7bff),var(--green,#00ff9c));
+  box-shadow:0 0 12px rgba(155,123,255,.45);
+}
+@media(max-width:700px){.pv-strip{grid-template-columns:1fr}.hero-plate{width:100%}}
+@media(prefers-reduced-motion:reduce){
+  .pv-tile,.hero-plate,.pv-orb,.card:hover,.sdt:hover{animation:none!important;transform:none!important}
+}
