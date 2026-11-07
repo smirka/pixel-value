@@ -547,6 +547,16 @@ body.lowfx .orb{animation:none}
  .cd-x,.kpi-d,.sdt-d,.sub,.vc-q,.lim-d,.co-x,.br-l,.lg-i .lb,.eth-d,.mini-t,.mono-s,.cmp li,.tlstep .d{color:#333!important}
  .ghost,.wash{display:none}
 }
+
+/* Compact game-context examples on the monetization slide */
+.game-examples{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-2)}
+.game-example{min-width:0;padding:var(--sp-2) var(--sp-3);border:1px solid var(--line);border-top:2px solid var(--game-ac);border-radius:var(--r-1);background:linear-gradient(150deg,rgba(255,255,255,.045),rgba(255,255,255,.012))}
+.game-name{font-family:var(--mono);font-size:var(--fs-2);font-weight:800;letter-spacing:.04em;color:var(--game-ac);margin-bottom:4px}
+.game-example p{font-size:var(--fs-1);line-height:1.38;color:var(--dim)}
+.game-kind{display:inline-block;margin-top:6px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.game-foot{margin-top:var(--sp-2);font-size:var(--fs-1);line-height:1.4;color:var(--muted)}
+@media(max-width:900px){.game-examples{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.game-examples{grid-template-columns:1fr}.game-example{padding:10px 12px}.game-example p{font-size:12px}}
 </style>
 
 <link rel="canonical" href="https://smirka.github.io/pixel-value/"/>
@@ -1109,6 +1119,15 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   </div>
   <div class="gap-s"></div>
   <div class="co warn rv"><div class="co-l">Серая зона</div><div class="co-x">Даже косметика иногда меняет <span class="key a">заметность модели, читаемость силуэта или восприятие соперника</span>. Классификация зависит от конкретной игры и механик предмета.</div></div>
+  <div class="gap-s"></div>
+  <div class="hd rv" style="margin-bottom:var(--sp-2)"><span class="chip" style="--ac:var(--teal)">Четыре игровых контекста</span><span class="tagline">Не все примеры — Pay-to-Win</span></div>
+  <div class="game-examples rv">
+   <article class="game-example" style="--game-ac:#a58cff"><div class="game-name">Dota 2</div><p>Valve описывает магазинные предметы как косметические: они не меняют игровой процесс.</p><span class="game-kind">Косметика</span></article>
+   <article class="game-example" style="--game-ac:#ff9b83"><div class="game-name">CS2</div><p>Отдельный игровой контекст для исследования. Конкретные предметы, их характеристики и способы получения в этой работе не рассматриваются.</p><span class="game-kind">Контекст исследования</span></article>
+   <article class="game-example" style="--game-ac:#ff667d"><div class="game-name">VALORANT</div><p>Riot указывает, что косметический контент не должен давать положительного или отрицательного игрового преимущества.</p><span class="game-kind">Косметика</span></article>
+   <article class="game-example" style="--game-ac:#66dfc4"><div class="game-name">Fortnite</div><p>Epic подтверждает: образы не меняют хитбоксы и не дают конкурентного преимущества.</p><span class="game-kind">Косметика</span></article>
+  </div>
+  <p class="game-foot rv">Важно: эти игры приведены как контексты для разговора о косметике, а не как утверждение, что каждая из них использует Pay-to-Win. P2W — это покупка, дающая измеримое преимущество в игровом процессе.</p>
  </div></div>
 </section>
 
@@ -1197,7 +1216,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   <p class="sub rv" style="--d:130ms">Честное исследование показывает не только результаты, но и <span class="key a">границы их применимости</span>.</p>
   <div class="gap"></div>  <div class="g g2">
    <article class="lim rvl" style="--d:0ms"><h2 class="lim-t">Малая выборка</h2><p class="lim-d">18 участников — нельзя обобщать результаты на всех школьников или игроков.</p></article>   <article class="lim rvr" style="--d:70ms"><h2 class="lim-t">Неслучайный отбор</h2><p class="lim-d">В основном одноклассники и знакомые; выборка не репрезентативна.</p></article>
-   <article class="lim rvl" style="--d:140ms"><h2 class="lim-t">Разные игры</h2><p class="lim-d">CS2, Dota 2 и Valorant имеют разные экономики и игровые контексты.</p></article>
+   <article class="lim rvl" style="--d:140ms"><h2 class="lim-t">Разные игры</h2><p class="lim-d">CS2, Dota 2, VALORANT и Fortnite имеют разные экономики и игровые контексты.</p></article>
    <article class="lim rvr" style="--d:210ms"><h2 class="lim-t">Самоотчёт</h2><p class="lim-d">Ответы могут не полностью отражать реальные мотивы поведения.</p></article>  </div>
   <div class="gap"></div>
   <div class="co rv"><div class="co-l">Следующий шаг</div><div class="co-x">Увеличить выборку, использовать более случайный отбор, ограничиться одной игрой и применить <span class="key">одинаковую шкалу SDT для всех участников</span>.</div></div>
@@ -1243,6 +1262,8 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  <div class="fitwrap"><div class="fitbox">
   <div class="hd rv"><span class="chip" style="--ac:var(--teal)">22 / Источники · 2025 и материалы</span><span class="tagline">Свежие работы и регуляторика</span></div>
   <div class="g g2" id="srcB"></div>
+  <div class="gap-s"></div>
+  <div class="mono-s rv">Официальные пояснения к примерам: <a href="https://www.dota2.com/spoilsofwar/faq?l=english" target="_blank" rel="noopener noreferrer">Dota 2 · Valve</a> · <a href="https://playvalorant.com/en-gb/news/dev/valorant-store-and-cosmetic-content/" target="_blank" rel="noopener noreferrer">VALORANT · Riot Games</a> · <a href="https://www.epicgames.com/help/c-34254770/c-33726977/do-fortnite-outfits-provide-a-gameplay-advantage-a13997117" target="_blank" rel="noopener noreferrer">Fortnite · Epic Games</a>.</div>
   <div class="gap-s"></div>
   <div class="co warn rv"><div class="co-l">Проверка источников и материалов</div><div class="co-x">Состав и формулировки перенесены из исследовательской презентации. DOI и выходные данные <span class="key a">не дополнялись и не изменялись</span>. В исходной версии использовались фотографии Unsplash; в этой сборке все визуалы процедурные (SVG, canvas, CSS), поэтому презентация работает офлайн и не обращается к сторонним сервисам.</div></div>
   <div class="gap-s"></div>
