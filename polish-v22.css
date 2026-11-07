@@ -68,3 +68,28 @@ button{font:inherit}
   .screen :where(p,span,li,h1,h2,h3,strong,b){color:#111!important;text-shadow:none!important}
   .screen :where(.card,.sdt,.kpi,.pv-chart-card,.pv-quote,.pv-limit){break-inside:avoid;box-shadow:none!important}
 }
+
+
+/* Mobile reading fix: allow tall, stacked slides to scroll above fixed controls */
+@media(max-width:800px){
+  .screen{
+    justify-content:flex-start!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-y:contain;
+  }
+  .screen .fitwrap{
+    height:auto!important;
+    min-height:100%!important;
+    overflow:visible!important;
+    align-items:flex-start!important;
+    justify-content:flex-start!important;
+  }
+  .screen .fitbox{
+    width:100%!important;
+    max-width:none!important;
+    transform:none!important;
+    flex:0 0 auto;
+  }
+}
