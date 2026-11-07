@@ -557,6 +557,39 @@ body.lowfx .orb{animation:none}
 .game-foot{margin-top:var(--sp-2);font-size:var(--fs-1);line-height:1.4;color:var(--muted)}
 @media(max-width:900px){.game-examples{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.game-examples{grid-template-columns:1fr}.game-example{padding:10px 12px}.game-example p{font-size:12px}}
+
+/* PIXEL / VALUE v24 — restrained light, tactile depth, reliable charts */
+:root{--sh-card:0 1px 0 rgba(255,255,255,.035) inset,0 2px 4px rgba(0,0,0,.34),0 10px 22px rgba(0,0,0,.34);--sh-lift:0 1px 0 rgba(255,255,255,.06) inset,0 5px 12px rgba(0,0,0,.42),0 18px 34px rgba(0,0,0,.42)}
+.l-orbs .orb{filter:blur(112px);opacity:.46}
+.o1{background:radial-gradient(circle,rgba(116,93,178,.13),transparent 68%)!important}
+.o2{background:radial-gradient(circle,rgba(64,145,128,.075),transparent 68%)!important}
+.o3{background:radial-gradient(circle,rgba(75,125,125,.065),transparent 68%)!important}
+.l-tint{opacity:.12!important;mix-blend-mode:normal!important}
+.l-vig{background:radial-gradient(ellipse 118% 88% at 50% 46%,transparent 54%,rgba(0,0,0,.42) 100%)!important}
+#spot,#pulse,.pv-cursor-glow{display:none!important;opacity:0!important}
+.wash{opacity:.17!important}
+.br{display:grid;grid-template-columns:minmax(100px,1.1fr) minmax(80px,2fr) auto;gap:12px;align-items:center}
+.br-t{display:block!important;width:100%;min-width:0;position:relative;height:13px!important;overflow:hidden!important;border-radius:999px!important;background:rgba(255,255,255,.075)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:inset 0 2px 4px rgba(0,0,0,.42)!important}
+.br-f{display:block!important;height:100%!important;min-height:0!important;width:0;border:0!important;border-radius:999px!important;background:linear-gradient(90deg,var(--ac),var(--ac2))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 7px rgba(155,123,255,.12)!important;opacity:1!important;transform:none!important;transition:width 1.05s cubic-bezier(.16,1,.3,1)!important}
+.game-examples{gap:12px!important}
+.game-example{position:relative;isolation:isolate;overflow:hidden;min-height:154px;padding:14px!important;border:1px solid rgba(255,255,255,.10)!important;border-top:1px solid rgba(255,255,255,.12)!important;border-radius:14px!important;background:linear-gradient(155deg,rgba(35,39,55,.96),rgba(16,19,29,.98))!important;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 6px 14px rgba(0,0,0,.28),0 14px 25px rgba(0,0,0,.22)!important;transform:translateY(0);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.game-example:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(135deg,color-mix(in srgb,var(--game-ac) 10%,transparent),transparent 54%);pointer-events:none}
+.game-example:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--game-ac) 42%,#555)!important;box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 12px 24px rgba(0,0,0,.36)!important}
+.game-mark{width:40px;height:40px;display:grid;place-items:center;margin:0 0 9px;border-radius:11px;border:1px solid color-mix(in srgb,var(--game-ac) 48%,#303447);background:linear-gradient(145deg,#252a3b,#10131d);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 4px 10px rgba(0,0,0,.25)}
+.game-mark svg{width:26px;height:26px;display:block;overflow:visible}
+.game-name{font-family:var(--sans)!important;font-size:14px!important;font-weight:750!important;letter-spacing:.02em!important;color:#f2f1f8!important;margin-bottom:5px!important}
+.game-example p{font-size:var(--fs-1);line-height:1.4;color:#c7c8d4}
+.game-kind{font-size:9px!important;letter-spacing:.08em!important;color:var(--game-ac)!important;border:1px solid color-mix(in srgb,var(--game-ac) 24%,transparent);background:color-mix(in srgb,var(--game-ac) 8%,transparent);padding:4px 7px;border-radius:99px}
+.pv-cosmetic-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 var(--sp-3)}
+.pv-cosmetic{min-width:0;display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid rgba(255,255,255,.1);border-radius:13px;background:linear-gradient(150deg,rgba(34,38,54,.95),rgba(14,17,27,.98));box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 18px rgba(0,0,0,.24)}
+.pv-cosmetic svg{width:54px;height:54px;flex:0 0 54px;display:block;filter:drop-shadow(0 5px 7px rgba(0,0,0,.25))}
+.pv-cosmetic span{display:flex;flex-direction:column;gap:3px;min-width:0}
+.pv-cosmetic small{font:9px var(--mono);letter-spacing:.15em;color:var(--pv-ac)}
+.pv-cosmetic strong{font-size:clamp(10px,1.12vw,13px);line-height:1.25;color:var(--text);font-weight:650}
+.card,.kpi,.sdt,.cmp-s,.tlstep,.eth,.vc{box-shadow:0 1px 0 rgba(255,255,255,.045) inset,0 5px 13px rgba(0,0,0,.24),0 13px 26px rgba(0,0,0,.2)}
+.card:hover,.kpi:hover,.sdt:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.07) inset,0 9px 19px rgba(0,0,0,.3),0 18px 32px rgba(0,0,0,.25)}
+@media(max-width:760px){.pv-cosmetic-strip{grid-template-columns:1fr;gap:7px}.pv-cosmetic svg{width:42px;height:42px;flex-basis:42px}.game-example{min-height:0}.br{grid-template-columns:minmax(82px,1fr) minmax(65px,1.3fr) auto;gap:7px}}
+
 </style>
 
 <link rel="canonical" href="https://smirka.github.io/pixel-value/"/>
@@ -712,7 +745,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  <div class="top-in">
   <a class="logo" href="#s0" data-go="0" aria-label="PIXEL / VALUE — в начало">
    <span class="logo-m" aria-hidden="true">P/V</span>
-   <span class="logo-t">PIXEL / VALUE<small>ИССЛЕДОВАНИЕ · 2025</small></span>
+   <span class="logo-t">PIXEL / VALUE<small>ИССЛЕДОВАНИЕ · 2026</small></span>
   </a>
   <svg class="ring" viewBox="0 0 36 36" aria-hidden="true"><circle class="rt" cx="18" cy="18" r="15.5"></circle><circle class="rv2" id="ringV" cx="18" cy="18" r="15.5" stroke-dasharray="97.4" stroke-dashoffset="97.4"></circle></svg>
   <nav class="nav" id="nav" aria-label="Главы исследования"></nav>
@@ -758,7 +791,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
     <span><i aria-hidden="true"></i>Владислав Смирнов · 11 класс</span>
     <span><i aria-hidden="true"></i>Опрос · n = 18</span>
     <span><i aria-hidden="true"></i>Социология · UX · Геймдизайн</span>
-    <span><i aria-hidden="true"></i>2025</span>
+    <span><i aria-hidden="true"></i>2026</span>
    </div>
   </div>
  </div></div>
@@ -1267,7 +1300,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   <div class="gap-s"></div>
   <div class="co warn rv"><div class="co-l">Проверка источников и материалов</div><div class="co-x">Состав и формулировки перенесены из исследовательской презентации. DOI и выходные данные <span class="key a">не дополнялись и не изменялись</span>. В исходной версии использовались фотографии Unsplash; в этой сборке все визуалы процедурные (SVG, canvas, CSS), поэтому презентация работает офлайн и не обращается к сторонним сервисам.</div></div>
   <div class="gap-s"></div>
-  <p class="mono-s rv">PIXEL / VALUE · Интерактивное социологическое исследование · Владислав Смирнов, 11 класс · собственный опрос: n = 18 · 2025</p>
+  <p class="mono-s rv">PIXEL / VALUE · Интерактивное социологическое исследование · Владислав Смирнов, 11 класс · собственный опрос: n = 18 · 2026</p>
   <div class="gap-s"></div>
   <div class="rv" style="display:flex;gap:var(--sp-2);flex-wrap:wrap">
    <button type="button" class="btn" data-go="0">↺ Смотреть заново</button>
@@ -1381,7 +1414,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
    <div class="dc-grid" id="changeList" style="gap:12px"></div>
   </div>
 
-  <div class="ftnote"><span>© 2025 PIXEL / VALUE · Исследовательская презентация 16:9</span><span id="ftClock">СБОРКА · v5.2.0</span></div>
+  <div class="ftnote"><span>© 2026 PIXEL / VALUE · Исследовательская презентация 16:9</span><span id="ftClock">СБОРКА · v5.2.0</span></div>
  </div>
 </section>
 
@@ -3346,108 +3379,76 @@ else { init(); }
 })();
 </script>
 
-<script id="pixel-value-visual-system">
+
+<script id="pixel-value-v24">
 (function(){
- 'use strict';
- var art=[
-  {id:'s12',src:'https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&w=1200&q=80',alt:'Абстрактные световые линии, метафора факторов ценности виртуального предмета'},
-  {id:'s13',src:'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1200&q=80',alt:'Неоновые геометрические линии, визуальная метафора двух моделей монетизации'},
-  {id:'s14',src:'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80',alt:'Светящийся кристалл на тёмном фоне, метафора жизненного цикла предмета'},
-  {id:'s15',src:'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=80',alt:'Яркая абстрактная цветовая композиция, метафора разных мотивов игроков'}
- ];
- var icons={
-  s1:[['fa-gamepad','Игры'],['fa-coins','Экономика'],['fa-users','Игроки'],['fa-magnifying-glass','Исследование']],
-  s2:[['fa-circle-question','Вопрос'],['fa-lightbulb','Гипотеза'],['fa-scale-balanced','Баланс']],
-  s3:[['fa-user-astronaut','Автономия'],['fa-trophy','Компетентность'],['fa-people-group','Связь']],
-  s4:[['fa-fingerprint','Идентичность'],['fa-box-open','Владение'],['fa-heart','Привязанность']],
-  s5:[['fa-magnifying-glass','Поиск'],['fa-chart-column','Анализ'],['fa-users','Опрос'],['fa-book-open','Источники'],['fa-lightbulb','Вывод']],
-  s8:[['fa-crown','Статус'],['fa-gem','Редкость'],['fa-arrow-trend-up','Спрос']],
-  s9:[['fa-hand-holding-heart','Владение'],['fa-lock','Моё'],['fa-heart','Связь']],
-  s10:[['fa-people-group','Сообщество'],['fa-comments','Обсуждение'],['fa-share-nodes','Влияние']],
-  s16:[['fa-lightbulb','Инсайт'],['fa-puzzle-piece','Контекст'],['fa-circle-check','Проверка']],
-  s17:[['fa-shield-heart','Этика'],['fa-scale-balanced','Честность'],['fa-eye','Прозрачность']],
-  s18:[['fa-rocket','Будущее'],['fa-seedling','Рост'],['fa-compass','Направление'],['fa-flask','Эксперимент']],
-  s21:[['fa-book-open','Теория'],['fa-link','Источники'],['fa-graduation-cap','Исследование']],
-  s22:[['fa-file-lines','Документация'],['fa-chart-pie','Данные'],['fa-code','Метод']]
- };
- var images=[
-  {id:'s0',src:'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80',alt:'Игровое пространство с компьютерами и неоновой подсветкой',cls:'pv-hero-backdrop'},
-  {id:'s20',src:'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80',alt:'Светящаяся неоновая форма сердца как метафора эмоциональной ценности',cls:'pv-final-backdrop'}
- ];
- function addImage(target,item){
-  if(!target||target.querySelector('.'+item.cls))return;
-  var wrap=document.createElement('div');wrap.className=item.cls;wrap.setAttribute('aria-hidden','true');
-  var img=document.createElement('img');img.src=item.src;img.alt=item.alt;img.decoding='async';
-  if(item.id!=='s0')img.loading='lazy';else img.fetchPriority='high';
-  wrap.appendChild(img);target.insertBefore(wrap,target.firstChild);
- }
- function build(){
-  document.querySelectorAll('.screen').forEach(function(slide,i){
-   var title=slide.getAttribute('data-title')||('Кадр '+(i+1));
-   slide.setAttribute('role','region');slide.setAttribute('aria-label','Слайд '+(i+1)+' из 23: '+title);slide.setAttribute('aria-roledescription','слайд');
-   var fit=slide.querySelector('.fitbox');
-   if(fit){
-    var set=icons[slide.id];
-    if(set){
-     var row=document.createElement('div');row.className='pv-icon-row';row.setAttribute('aria-label','Ключевые понятия слайда');
-     set.forEach(function(entry){
-      var item=document.createElement('div');item.className='pv-icon';item.style.setProperty('--pv-accent',slide.getAttribute('data-ac')||'#4ecdc4');item.setAttribute('role','img');item.setAttribute('aria-label',entry[1]);
-      var icon=document.createElement('i');icon.className='fa-solid '+entry[0];icon.setAttribute('aria-hidden','true');item.appendChild(icon);
-      var label=document.createElement('span');label.textContent=entry[1];item.appendChild(label);row.appendChild(item);
-     });
-     fit.insertBefore(row,fit.firstChild);
-    }
-    var image=art.find(function(a){return a.id===slide.id;});
-    if(image){
-     var wrap=document.createElement('figure');wrap.className='pv-art pv-glass';wrap.setAttribute('aria-label',image.alt);
-     var img=document.createElement('img');img.src=image.src;img.alt=image.alt;img.loading='lazy';img.decoding='async';wrap.appendChild(img);fit.appendChild(wrap);slide.classList.add('pv-has-art');
-    }
-   }
-   if(slide.id==='s22'&&fit){
-    var legal=document.createElement('footer');legal.className='pv-legal';
-    legal.innerHTML='Все изображения используются в образовательных целях. Фотографии: <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>. Все права на игровые ассеты принадлежат их владельцам. Иконки: <a href="https://fontawesome.com" target="_blank" rel="noopener noreferrer">Font Awesome</a>.';
-    fit.appendChild(legal);
-   }
-  });
-  images.forEach(function(item){addImage(document.getElementById(item.id),item);});
-  var glow=document.createElement('div');glow.className='pv-cursor-glow';glow.setAttribute('aria-hidden','true');document.body.appendChild(glow);
-  initGlass();initMotion();
- }
- function initGlass(){
-  var nodes=Array.prototype.slice.call(document.querySelectorAll('.card,.kpi,.sdt,.cmp-s,.co,.tlstep,.vc,.eth,.src,.btn,.tb,.pv-art'));
-  var visible=new Set(),states=new WeakMap(),raf=0;
-  nodes.forEach(function(el){
-   el.classList.add('pv-glass');var layer=document.createElement('span');layer.className='pv-glass-layer';layer.setAttribute('aria-hidden','true');el.insertBefore(layer,el.firstChild);states.set(el,{x:50,y:50,tx:50,ty:50});
-  });
-  var io=('IntersectionObserver'in window)?new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)visible.add(e.target);else visible.delete(e.target);});},{rootMargin:'80px'}):null;
-  nodes.forEach(function(el){if(io)io.observe(el);else visible.add(el);});
-  function frame(){raf=0;visible.forEach(function(el){var s=states.get(el);if(!s)return;s.x+=(s.tx-s.x)*.1;s.y+=(s.ty-s.y)*.1;el.style.setProperty('--glass-x',s.x+'%');el.style.setProperty('--glass-y',s.y+'%');});}
-  function schedule(){if(!raf)raf=requestAnimationFrame(frame);}
-  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
-   document.addEventListener('pointermove',function(e){
-    glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';
-    nodes.forEach(function(el){if(!visible.has(el))return;var r=el.getBoundingClientRect(),s=states.get(el);if(e.clientX>=r.left-40&&e.clientX<=r.right+40&&e.clientY>=r.top-40&&e.clientY<=r.bottom+40){s.tx=Math.max(25,Math.min(75,(e.clientX-r.left)/Math.max(1,r.width)*100));s.ty=Math.max(25,Math.min(75,(e.clientY-r.top)/Math.max(1,r.height)*100));}else{s.tx=50;s.ty=50;}});
-    schedule();
-   },{passive:true});
-  }
-  document.addEventListener('pointerdown',function(e){
-   var el=e.target.closest('.pv-glass');if(!el)return;
-   if(e.pointerType==='touch'){var r=el.getBoundingClientRect(),wave=document.createElement('span');wave.className='pv-ripple';wave.style.left=(e.clientX-r.left)+'px';wave.style.top=(e.clientY-r.top)+'px';el.appendChild(wave);setTimeout(function(){wave.remove();},520);}
-   else{el.classList.add('pv-glass-active');setTimeout(function(){el.classList.remove('pv-glass-active');},180);}
-  },{passive:true});
-  document.addEventListener('pointermove',function(e){
-   if(e.pointerType!=='mouse')return;var b=e.target.closest('.btn,.tb');if(!b)return;var r=b.getBoundingClientRect(),dx=(e.clientX-r.left-r.width/2)/Math.max(1,r.width/2),dy=(e.clientY-r.top-r.height/2)/Math.max(1,r.height/2);b.style.setProperty('--mag-x',(dx*4)+'px');b.style.setProperty('--mag-y',(dy*4)+'px');
-  },{passive:true});
-  document.addEventListener('pointerout',function(e){var b=e.target.closest&&e.target.closest('.btn,.tb');if(b){b.style.setProperty('--mag-x','0px');b.style.setProperty('--mag-y','0px');}});
- }
- function initMotion(){
-  var reveals=document.querySelectorAll('.screen .card,.screen .kpi,.screen .sdt,.screen .vc,.screen .eth,.screen .tlstep');
-  if('IntersectionObserver'in window){
-   var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('pv-in');io.unobserve(e.target);}});},{threshold:.08});
-   reveals.forEach(function(el){el.classList.add('pv-reveal');io.observe(el);});
-  }
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build,{once:true});else build();
+'use strict';
+function $(s,r){return (r||document).querySelector(s)}
+function icon(type,accent){
+ var common='fill="none" stroke="'+accent+'" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"';
+ if(type==='dota')return '<svg viewBox="0 0 48 48" aria-hidden="true"><path '+common+' d="M24 5 39 13v22L24 43 9 35V13Z"/><path '+common+' d="m16 15 16 18M32 15 16 33"/><path d="m24 11 7 13-7 13-7-13Z" fill="'+accent+'" opacity=".2"/></svg>';
+ if(type==='cs')return '<svg viewBox="0 0 48 48" aria-hidden="true"><path '+common+' d="M10 10h28v28H10zM10 19h28M19 10v28M29 10v28M10 29h28"/></svg>';
+ if(type==='valo')return '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h12L40 38H28Z" fill="'+accent+'"/><path d="M8 38 18 23l7 10-3 5Z" fill="#f4e8e9"/></svg>';
+ return '<svg viewBox="0 0 48 48" aria-hidden="true"><path '+common+' d="M24 5 29 16 41 18 32 27 34 40 24 34 14 40 16 27 7 18 19 16Z"/><path d="m24 13 3 8 8 1-6 6 1 8-6-4-6 4 1-8-6-6 8-1Z" fill="'+accent+'" opacity=".22"/></svg>';
+}
+function cosmetic(type){
+ if(type==='avatar')return '<svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="pvA" x2="1" y2="1"><stop stop-color="#a994e9"/><stop offset="1" stop-color="#536a9c"/></linearGradient></defs><path d="M32 7 44 14 48 29 43 48 32 57 21 48 16 29 20 14Z" fill="#242b40" stroke="#a994e9"/><path d="M22 24q10-18 20 0l-3 11H25Z" fill="url(#pvA)"/><circle cx="32" cy="30" r="8" fill="#d5c8ed"/><path d="m19 51 4-12 9-4 9 4 4 12-13 7Z" fill="#687da8" stroke="#9d8be0"/></svg>';
+ if(type==='aura')return '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#66cdbb" stroke-width="2" stroke-dasharray="3 4"/><circle cx="32" cy="32" r="16" fill="#193b3c" stroke="#66cdbb"/><path d="m32 18 4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#a6eee0"/><circle cx="32" cy="32" r="4" fill="#f1f4f2"/></svg>';
+ return '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 53 18v27L32 58 11 45V18Z" fill="#3c2d25" stroke="#d6a66d" stroke-width="1.6"/><path d="M32 13 46 21v20L32 50 18 41V21Z" fill="#d6a66d" opacity=".2"/><path d="m32 17 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2Z" fill="#e8c58c"/></svg>';
+}
+function setBars(){
+ document.querySelectorAll('.br-f[data-v]').forEach(function(bar){
+  var v=parseFloat(bar.getAttribute('data-v'));
+  if(!Number.isFinite(v))return;
+  v=Math.max(0,Math.min(100,v));
+  bar.style.setProperty('display','block','important');
+  bar.style.setProperty('width',v+'%','important');
+  bar.style.setProperty('height','100%','important');
+  bar.style.setProperty('opacity','1','important');
+ });
+}
+function addGames(){
+ var games=[['dota','#bba8f5'],['cs','#c4c7d2'],['valo','#e08b96'],['fortnite','#78cdbb']];
+ var cards=$('.game-examples .game-example');
+ cards.forEach(function(card,i){
+  if(card.querySelector('.game-mark'))return;
+  var cfg=games[i];if(!cfg)return;
+  var mark=document.createElement('div');mark.className='game-mark';mark.innerHTML=icon(cfg[0],cfg[1]);
+  var title=card.querySelector('.game-name');
+  if(title)card.insertBefore(mark,title);else card.insertBefore(mark,card.firstChild);
+ });
+}
+function $(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function addCosmetics(){
+ var sec=$('#s13 .g3');
+ if(!sec||sec.querySelector('.pv-cosmetic-strip'))return;
+ var strip=document.createElement('div');strip.className='pv-cosmetic-strip';
+ strip.innerHTML='<div class="pv-cosmetic"><span>'+cosmetic('avatar')+'</span><span><small>ОБРАЗ</small><strong>Персонаж и стиль</strong></span></div><div class="pv-cosmetic"><span>'+cosmetic('aura')+'</span><span><small>ЭФФЕКТ</small><strong>Аура и оформление</strong></span></div><div class="pv-cosmetic"><span>'+cosmetic('badge')+'</span><span><small>КОЛЛЕКЦИЯ</small><strong>Значок и эмблема</strong></span></div>';
+ sec.parentNode.insertBefore(strip,sec);
+}
+function setFavicon(){
+ var href='assets/pv-favicon.svg';
+ ['icon','shortcut icon'].forEach(function(rel){
+  var l=document.querySelector('link[rel="'+rel+'"]');
+  if(!l){l=document.createElement('link');l.rel=rel;document.head.appendChild(l)}
+  l.type='image/svg+xml';l.href=href;
+ });
+}
+function init(){
+ setFavicon();addGames();addCosmetics();setBars();
+ document.querySelectorAll('.ftnote span:first-child').forEach(function(el){el.textContent=el.textContent.replace(/©\s*20\d{2}/,'© 2026')});
+ document.querySelectorAll('.logo-t small').forEach(function(el){el.textContent='ИССЛЕДОВАНИЕ · 2026'});
+ document.querySelectorAll('.h-meta span').forEach(function(el){if(/2025/.test(el.textContent))el.textContent=el.textContent.replace('2025','2026')});
+ document.querySelectorAll('.ftnote').forEach(function(el){if(el.textContent.indexOf('© 2026')<0)el.textContent=el.textContent.replace('© 2025','© 2026')});
+ var old=window.reveal,oldPlay=window.play;
+ // The core presentation functions are scoped; a lightweight observer repairs bars after every slide transition.
+ var observer=new MutationObserver(function(records){if(records.some(function(r){return r.attributeName==='class'}))setBars()});
+ observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']});
+ window.addEventListener('pageshow',setBars);window.addEventListener('resize',setBars);
+ setTimeout(setBars,200);setTimeout(setBars,900);
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
-</script></body>
+</script>
+</body>
 </html>
