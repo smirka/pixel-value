@@ -297,8 +297,7 @@ h1.tt{font-size:var(--fs-6);font-weight:800;line-height:1.06;letter-spacing:-.03
 .lg-i .vl{font-family:var(--mono);font-weight:700;font-size:var(--fs-1)}
 .lg-i .pc{font-family:var(--mono);font-size:var(--fs-1);color:var(--muted2);min-width:3.6em;text-align:right}
 .bars{display:flex;flex-direction:column;gap:var(--sp-2)}
-.br{display:grid;grid-template-columns:minmax(70px,31%) 1fr clamp(46px,10cqw,94px);gap:var(--sp-2);align-items:center}.br-l{font-size:var(--fs-2);color:var(--dim);line-height:1.22}.br-t{height:clamp(11px,2.6cqh,26px);background:linear-gradient(180deg,rgba(0,0,0,.48),rgba(255,255,255,.02));border-radius:7px;overflow:hidden;position:relative;border:1px solid var(--line);box-shadow:inset 0 2px 7px rgba(0,0,0,.5)}.br-f{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width 1.35s var(--eo);box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}.br-v{font-family:var(--mono);font-weight:700;font-size:var(--fs-1);text-align:right;white-space:nowrap}.br-v em{display:block;font-style:normal;font-size:var(--fs-0);color:var(--muted2);font-weight:400}.gauge{position:relative;width:clamp(84px,15.5cqh,164px);aspect-ratio:120/76;flex-shrink:0}.gauge svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 12px rgba(0,0,0,.45))}
-.gauge path{fill:none;stroke-width:10;stroke-linecap:round}
+.br{display:grid;grid-template-columns:minmax(70px,31%) 1fr clamp(46px,10cqw,94px);gap:var(--sp-2);align-items:center}.br-l{font-size:var(--fs-2);color:var(--dim);line-height:1.22}.br-t{height:clamp(11px,2.6cqh,26px);background:linear-gradient(180deg,rgba(0,0,0,.48),rgba(255,255,255,.02));border-radius:7px;overflow:hidden;position:relative;border:1px solid var(--line);box-shadow:inset 0 2px 7px rgba(0,0,0,.5)}.br-f{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width 1.35s var(--eo);box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}.br-v{font-family:var(--mono);font-weight:700;font-size:var(--fs-1);text-align:right;white-space:nowrap}.br-v em{display:block;font-style:normal;font-size:var(--fs-0);color:var(--muted2);font-weight:400}.gauge{position:relative;width:clamp(84px,15.5cqh,164px);aspect-ratio:120/76;flex-shrink:0}.gauge svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 12px rgba(0,0,0,.45))}.gauge path{fill:none;stroke-width:10;stroke-linecap:round}
 .gauge .gtrk{stroke:rgba(255,255,255,.065)}
 .gauge .gval{stroke-dasharray:0 100;transition:stroke-dasharray 1.5s var(--eo)}
 .gauge .gnum{position:absolute;left:0;right:0;bottom:0;text-align:center;font-size:var(--fs-5);font-weight:800;letter-spacing:-.03em;line-height:1}
@@ -597,8 +596,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  border-color:var(--glass-border-hover);box-shadow:0 1px 0 rgba(255,255,255,.15) inset,0 -1px 0 rgba(0,0,0,.2) inset,0 2px 8px rgba(0,0,0,.2),0 8px 24px rgba(0,0,0,.25),0 16px 48px rgba(0,0,0,.3); transform:translateY(-4px);
 }.pv-glass{position:relative;isolation:isolate;overflow:hidden}
 .pv-glass-layer{position:absolute;inset:0;z-index:0;overflow:hidden;border-radius:inherit;pointer-events:none}.pv-glass-layer:before{content:"";position:absolute;inset:0;border-radius:inherit;backdrop-filter:blur(1px);background:radial-gradient(220px circle at var(--glass-x,50%) var(--glass-y,50%),rgba(255,255,255,.1),transparent 68%),linear-gradient(180deg,rgba(255,255,255,.1),transparent 42%,rgba(0,0,0,.05));opacity:.9}
-.pv-glass-layer:after{content:"";position:absolute;inset:-50%;border-radius:inherit;background:conic-gradient(from 0deg,transparent 0 18%,rgba(255,255,255,.06) 21%,transparent 28% 48%,rgba(102,126,234,.04) 52%,transparent 58% 76%,rgba(255,107,157,.05) 80%,transparent 88%);mix-blend-mode:screen;animation:pvGlassSpin var(--glass-rotation) linear infinite}
-.pv-glass>*:not(.pv-glass-layer){position:relative;z-index:1}
+.pv-glass-layer:after{content:"";position:absolute;inset:-50%;border-radius:inherit;background:conic-gradient(from 0deg,transparent 0 18%,rgba(255,255,255,.06) 21%,transparent 28% 48%,rgba(102,126,234,.04) 52%,transparent 58% 76%,rgba(255,107,157,.05) 80%,transparent 88%);mix-blend-mode:screen;animation:pvGlassSpin var(--glass-rotation) linear infinite}.pv-glass>*:not(.pv-glass-layer){position:relative;z-index:1}
 @keyframes pvGlassSpin{to{transform:rotate(360deg)}}
 .pv-glass:hover .pv-glass-layer:after{animation-duration:4s}
 .pv-glass-active{animation:pvGlassPulse 3s ease-in-out infinite}
@@ -674,6 +672,16 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 @media(max-width:520px){
  #s9 .wlab>span{font-size:12px;line-height:1.4}
  #s20.screen{padding-bottom:calc(var(--bot) + 64px)}
+}
+
+/* Compact donut legend on narrow screens */
+@media(max-width:760px){
+ #s9 .dwrap{gap:12px;align-items:center}
+ #s9 .donut{width:clamp(88px,26vw,104px);flex:0 0 auto}
+ #s9 .lg{min-width:0;flex:1 1 190px;width:auto}
+ #s9 .lg-i{display:grid;grid-template-columns:8px minmax(0,1fr) auto auto;gap:7px;padding:7px 5px;font-size:12px}
+ #s9 .lg-i .lb{min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.25}
+ #s9 .lg-i .vl,#s9 .lg-i .pc{white-space:nowrap;min-width:max-content;font-size:11px}
 }
 </style></head>
 <body>
@@ -897,8 +905,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
       </svg>      <div class="dctr"><div><b id="dPurchV" style="color:var(--green)">56%</b><s id="dPurchL">Покупали · 10/18</s></div></div>
      </div>     <div class="lg" id="lgPurch">
       <div class="lg-i" data-k="0"><span class="sw" style="background:var(--green)"></span><span class="lb">Покупали</span><span class="vl">10 / 18</span><span class="pc">55,6%</span></div>
-      <div class="lg-i" data-k="1"><span class="sw" style="background:var(--line2)"></span><span class="lb">Не покупали</span><span class="vl">8 / 18</span><span class="pc">44,4%</span></div>
-     </div>
+      <div class="lg-i" data-k="1"><span class="sw" style="background:var(--line2)"></span><span class="lb">Не покупали</span><span class="vl">8 / 18</span><span class="pc">44,4%</span></div>     </div>
     </div>
     <div class="deep" style="margin-top:var(--sp-3)">
      <div class="mono-s" style="text-transform:uppercase;letter-spacing:.18em;color:var(--muted)">Каждый квадрат = 1 участник</div>
@@ -1197,8 +1204,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  </div></div></section>
 
 <section class="screen" id="s20" data-i="20" data-title="Вывод" data-tag="Вывод" data-ac="#00ff9c" data-ac2="#9b7bff" role="group" aria-roledescription="кадр" aria-label="20 · Вывод"
- data-notes="Финальный тезис: скин покупают за значение, а не за урон. Оговоритесь — вывод только о небольшой группе. Закончите вопросом для размышления и паузой.">
- <div class="wash" style="--washc:rgba(0,255,156,.12)"></div><div class="ghost" aria-hidden="true">20</div>
+ data-notes="Финальный тезис: скин покупают за значение, а не за урон. Оговоритесь — вывод только о небольшой группе. Закончите вопросом для размышления и паузой."> <div class="wash" style="--washc:rgba(0,255,156,.12)"></div><div class="ghost" aria-hidden="true">20</div>
  <div class="fitwrap"><div class="fitbox" style="text-align:center">
   <div class="hd rv" style="justify-content:center"><span class="chip" style="--ac:var(--green)">20 / Вывод</span></div>
   <h1 class="rv" style="--d:60ms;font-size:var(--fs-7);font-weight:800;line-height:1.05;letter-spacing:-.036em;margin-bottom:var(--sp-3)">
@@ -1497,8 +1503,7 @@ function shade(hex){
 
 /* ══════════ ДАННЫЕ ИССЛЕДОВАНИЯ ══════════ */
 var DATA={
-  activity:[{l:'Ежедневно',n:7,d:18},{l:'Несколько раз в неделю',n:6,d:18},{l:'1–2 раза в неделю',n:3,d:18},{l:'Реже',n:2,d:18}],
-  purchase:[{l:'Покупали',n:10,d:18},{l:'Не покупали',n:8,d:18}],
+  activity:[{l:'Ежедневно',n:7,d:18},{l:'Несколько раз в неделю',n:6,d:18},{l:'1–2 раза в неделю',n:3,d:18},{l:'Реже',n:2,d:18}],  purchase:[{l:'Покупали',n:10,d:18},{l:'Не покупали',n:8,d:18}],
   motives:[{l:'Стиль / самовыражение',n:4,d:10},{l:'Редкие предметы',n:3,d:10},{l:'Повышение статуса',n:2,d:10},{l:'Влияние друзей',n:1,d:10},{l:'Поддержка студии',n:0,d:10}],
   rarity:[{l:'Да',n:7,d:18},{l:'Нет',n:6,d:18},{l:'Затрудняюсь',n:5,d:18}],
   friends:[{l:'Сильно',n:3,d:18},{l:'Иногда',n:7,d:18},{l:'Не влияют',n:8,d:18}]
@@ -1797,8 +1802,7 @@ function applyAccent(){
   var p=$('#pulse'); if(!p){ return; }
   p.classList.remove('go');
   void p.offsetWidth;
-  p.classList.add('go');
-}
+  p.classList.add('go');}
 
 /* ══════════ PAINT ══════════ */
 function paint(){
@@ -2097,8 +2101,7 @@ function initHeroCanvas(){
       cx.fillStyle='rgba('+q.col+','+(q.a*(0.6+pu*0.6)).toFixed(3)+')';
       cx.fill();
       for(j=i+1;j<pts.length;j++){
-        var o=pts[j];
-        var L=Math.hypot(q.x-o.x,q.y-o.y);
+        var o=pts[j];        var L=Math.hypot(q.x-o.x,q.y-o.y);
         if(L<120){
           cx.beginPath(); cx.moveTo(q.x,q.y); cx.lineTo(o.x,o.y);
           cx.strokeStyle='rgba(155,123,255,'+(0.09*(1-L/120)).toFixed(3)+')';
@@ -2397,8 +2400,7 @@ function readHash(){
 
 /* ══════════ A11Y ══════════ */
 function buildA11yTables(){
-  var host=$('#a11yData'); if(!host){ return; }
-  var html='<h2>Данные исследования PIXEL / VALUE (n = 18)</h2>';
+  var host=$('#a11yData'); if(!host){ return; }  var html='<h2>Данные исследования PIXEL / VALUE (n = 18)</h2>';
   function tbl(title,rows,note){
     var s='<h3>'+title+'</h3><table><caption>'+title+'</caption><thead><tr><th scope="col">Ответ</th><th scope="col">Количество</th><th scope="col">Знаменатель</th><th scope="col">Процент</th></tr></thead><tbody>';
     rows.forEach(function(r){
@@ -2697,8 +2699,7 @@ var QA=[
  {t:'warn',h:'Браузерная автоматизация',d:'Недоступна в этой среде: скриншоты, Lighthouse и Core Web Vitals не запускались. Числовые оценки производительности не заявляются.'},
  {t:'warn',h:'Сборка и система контроля версий',d:'Шаг сборки и git-операции не выполнялись: проект представляет собой один автономный файл, репозиторий не подключался.'},
  {t:'warn',h:'Синхронизация двух экранов',d:'Межоконная синхронизация режима докладчика не тестировалась и поэтому не заявляется. Реализован локальный режим с заметками и таймером.'}
-];
-var QA_STATS=[['23','Кадров 16:9'],['11','Диаграмм'],['5','Наборов данных'],['17','Показателей'],['0','Изменённых чисел'],['8','Источников'],['13','Горячих клавиш'],['0','Внешних зависимостей']];
+];var QA_STATS=[['23','Кадров 16:9'],['11','Диаграмм'],['5','Наборов данных'],['17','Показателей'],['0','Изменённых чисел'],['8','Источников'],['13','Горячих клавиш'],['0','Внешних зависимостей']];
 var CHANGES=[
  ['v5.2','Текущая сборка','Устранена синтаксическая ошибка в журнале диагностики, из-за которой не выполнялся весь скрипт. Проверены и восстановлены все элементы управления: кнопка «О проекте», режимы, карта кадров, докладчик, справка, направляющие, автоподгонка, копирование ссылки, печать, мобильное меню, вкладки документации. Убраны посторонние символы в текстах документации.'],
  ['v5.1','Документация проекта','Раздел технической документации очищен от посторонних вкладок и переименован в технический паспорт: о проекте, данные и метод, аудит, диаграммы, каркас 16:9, дизайн-система, доступность, качество, материалы, диагностика, изменения. Свет и движение приведены к сдержанному уровню: убраны вращающиеся лучи, «матричные» потоки и бесконечные блики; уменьшены угол наклона карточек, плотность зерна, амплитуда дрейфа орбов и сила светового пятна.'],
@@ -2997,8 +2998,7 @@ function bindDocs(){  $$('#dcTabs button').forEach(function(b){
           fb2.innerHTML=hl('$ frame-169 --measure --all\n'+rep2.rows.join('\n')
             +'\n\nКАДРОВ: '+SECT.length+' · ТРЕБУЮТ SCALE: '+rep2.over+' · ВНУТРЕННИЙ СКРОЛЛ В ПРЕЗЕНТАЦИИ: 0');
         }
-        var es=$('#envStats');
-        if(es){
+        var es=$('#envStats');        if(es){
           var envRows=[
             ['Кадров',String(N)],
             ['Диаграмм',String(specs)],
@@ -3297,8 +3297,7 @@ function init(){
     if(window.console){
       if(bad){ console.warn('[Аудит данных] расхождения сумм: '+bad); }
       else { console.log('%c[Аудит данных] 5 наборов целостны · 1 противоречие формулировки зафиксировано · 0 изменённых чисел','color:#00ff9c'); }
-      console.log('%c[Каркас 16:9] кадров: '+N+' · автоподгонка: '+(Fit.enabled()?'активна':'отключена'),'color:#9b7bff');
-    }
+      console.log('%c[Каркас 16:9] кадров: '+N+' · автоподгонка: '+(Fit.enabled()?'активна':'отключена'),'color:#9b7bff');    }
     Log.add('старт → PIXEL / VALUE v5.2 · кадров '+N+' · диаграмм '+chartSpecs().length,'ok');
     Log.add('аудит данных → '+R.length+' проверок, изменённых чисел 0','ok');
     Log.add('среда → reduced-motion: '+(Env.RM?'да':'нет')+' · слабое устройство: '+(Env.LOW?'да':'нет')+' · ядер: '+Env.cores,'info');
