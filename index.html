@@ -297,8 +297,7 @@ h1.tt{font-size:var(--fs-6);font-weight:800;line-height:1.06;letter-spacing:-.03
 .lg-i .vl{font-family:var(--mono);font-weight:700;font-size:var(--fs-1)}
 .lg-i .pc{font-family:var(--mono);font-size:var(--fs-1);color:var(--muted2);min-width:3.6em;text-align:right}
 .bars{display:flex;flex-direction:column;gap:var(--sp-2)}
-.br{display:grid;grid-template-columns:minmax(70px,31%) 1fr clamp(46px,10cqw,94px);gap:var(--sp-2);align-items:center}.br-l{font-size:var(--fs-2);color:var(--dim);line-height:1.22}.br-t{height:clamp(11px,2.6cqh,26px);background:linear-gradient(180deg,rgba(0,0,0,.48),rgba(255,255,255,.02));border-radius:7px;overflow:hidden;position:relative;border:1px solid var(--line);box-shadow:inset 0 2px 7px rgba(0,0,0,.5)}.br-f{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width 1.35s var(--eo);box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}.br-v{font-family:var(--mono);font-weight:700;font-size:var(--fs-1);text-align:right;white-space:nowrap}.br-v em{display:block;font-style:normal;font-size:var(--fs-0);color:var(--muted2);font-weight:400}.gauge{position:relative;width:clamp(84px,15.5cqh,164px);aspect-ratio:120/76;flex-shrink:0}
-.gauge svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 12px rgba(0,0,0,.45))}
+.br{display:grid;grid-template-columns:minmax(70px,31%) 1fr clamp(46px,10cqw,94px);gap:var(--sp-2);align-items:center}.br-l{font-size:var(--fs-2);color:var(--dim);line-height:1.22}.br-t{height:clamp(11px,2.6cqh,26px);background:linear-gradient(180deg,rgba(0,0,0,.48),rgba(255,255,255,.02));border-radius:7px;overflow:hidden;position:relative;border:1px solid var(--line);box-shadow:inset 0 2px 7px rgba(0,0,0,.5)}.br-f{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width 1.35s var(--eo);box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}.br-v{font-family:var(--mono);font-weight:700;font-size:var(--fs-1);text-align:right;white-space:nowrap}.br-v em{display:block;font-style:normal;font-size:var(--fs-0);color:var(--muted2);font-weight:400}.gauge{position:relative;width:clamp(84px,15.5cqh,164px);aspect-ratio:120/76;flex-shrink:0}.gauge svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 12px rgba(0,0,0,.45))}
 .gauge path{fill:none;stroke-width:10;stroke-linecap:round}
 .gauge .gtrk{stroke:rgba(255,255,255,.065)}
 .gauge .gval{stroke-dasharray:0 100;transition:stroke-dasharray 1.5s var(--eo)}
@@ -597,8 +596,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 .card:hover,.kpi:hover,.sdt:hover,.cmp-s:hover,.co:hover,.tlstep:hover,.vc:hover,.eth:hover,.src:hover{ background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035) 48%,rgba(0,0,0,.13));
  border-color:var(--glass-border-hover);box-shadow:0 1px 0 rgba(255,255,255,.15) inset,0 -1px 0 rgba(0,0,0,.2) inset,0 2px 8px rgba(0,0,0,.2),0 8px 24px rgba(0,0,0,.25),0 16px 48px rgba(0,0,0,.3); transform:translateY(-4px);
 }.pv-glass{position:relative;isolation:isolate;overflow:hidden}
-.pv-glass-layer{position:absolute;inset:0;z-index:0;overflow:hidden;border-radius:inherit;pointer-events:none}
-.pv-glass-layer:before{content:"";position:absolute;inset:0;border-radius:inherit;backdrop-filter:blur(1px);background:radial-gradient(220px circle at var(--glass-x,50%) var(--glass-y,50%),rgba(255,255,255,.1),transparent 68%),linear-gradient(180deg,rgba(255,255,255,.1),transparent 42%,rgba(0,0,0,.05));opacity:.9}
+.pv-glass-layer{position:absolute;inset:0;z-index:0;overflow:hidden;border-radius:inherit;pointer-events:none}.pv-glass-layer:before{content:"";position:absolute;inset:0;border-radius:inherit;backdrop-filter:blur(1px);background:radial-gradient(220px circle at var(--glass-x,50%) var(--glass-y,50%),rgba(255,255,255,.1),transparent 68%),linear-gradient(180deg,rgba(255,255,255,.1),transparent 42%,rgba(0,0,0,.05));opacity:.9}
 .pv-glass-layer:after{content:"";position:absolute;inset:-50%;border-radius:inherit;background:conic-gradient(from 0deg,transparent 0 18%,rgba(255,255,255,.06) 21%,transparent 28% 48%,rgba(102,126,234,.04) 52%,transparent 58% 76%,rgba(255,107,157,.05) 80%,transparent 88%);mix-blend-mode:screen;animation:pvGlassSpin var(--glass-rotation) linear infinite}
 .pv-glass>*:not(.pv-glass-layer){position:relative;z-index:1}
 @keyframes pvGlassSpin{to{transform:rotate(360deg)}}
@@ -897,8 +895,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
        <circle class="trk" cx="60" cy="60" r="50" pathLength="100"></circle>
        <circle class="sg" cx="60" cy="60" r="50" pathLength="100" stroke="url(#dg1)" data-v="55.6" data-l="Покупали" data-c="55,6% · 10/18"></circle>       <circle class="sg" cx="60" cy="60" r="50" pathLength="100" stroke="url(#dg2)" data-v="44.4" data-l="Не покупали" data-c="44,4% · 8/18"></circle>
       </svg>      <div class="dctr"><div><b id="dPurchV" style="color:var(--green)">56%</b><s id="dPurchL">Покупали · 10/18</s></div></div>
-     </div>
-     <div class="lg" id="lgPurch">
+     </div>     <div class="lg" id="lgPurch">
       <div class="lg-i" data-k="0"><span class="sw" style="background:var(--green)"></span><span class="lb">Покупали</span><span class="vl">10 / 18</span><span class="pc">55,6%</span></div>
       <div class="lg-i" data-k="1"><span class="sw" style="background:var(--line2)"></span><span class="lb">Не покупали</span><span class="vl">8 / 18</span><span class="pc">44,4%</span></div>
      </div>
@@ -1197,8 +1194,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
    <article class="lim rvr" style="--d:210ms"><h2 class="lim-t">Самоотчёт</h2><p class="lim-d">Ответы могут не полностью отражать реальные мотивы поведения.</p></article>  </div>
   <div class="gap"></div>
   <div class="co rv"><div class="co-l">Следующий шаг</div><div class="co-x">Увеличить выборку, использовать более случайный отбор, ограничиться одной игрой и применить <span class="key">одинаковую шкалу SDT для всех участников</span>.</div></div>
- </div></div>
-</section>
+ </div></div></section>
 
 <section class="screen" id="s20" data-i="20" data-title="Вывод" data-tag="Вывод" data-ac="#00ff9c" data-ac2="#9b7bff" role="group" aria-roledescription="кадр" aria-label="20 · Вывод"
  data-notes="Финальный тезис: скин покупают за значение, а не за урон. Оговоритесь — вывод только о небольшой группе. Закончите вопросом для размышления и паузой.">
@@ -1497,8 +1493,7 @@ function shade(hex){
     add:function(f){ if(subs.indexOf(f)<0){ subs.push(f); } start(); return f; },
     remove:function(f){ var i=subs.indexOf(f); if(i>=0){ subs.splice(i,1); } if(!subs.length){ stop(); } },
     size:function(){ return subs.length; }
-  };
-})();
+  };})();
 
 /* ══════════ ДАННЫЕ ИССЛЕДОВАНИЯ ══════════ */
 var DATA={
@@ -1682,7 +1677,7 @@ var Fit=(function(){
     }
     var r=measure(sec);
     if(!r){ return null; }
-    r.box.style.transform = (r.k<0.999)  'scale('+r.k.toFixed(4)+')' : '';
+    r.box.style.transform = (r.k<0.999) ? 'scale('+r.k.toFixed(4)+')' : '';
     lastK=r.k;
     return r;
   }
@@ -1797,8 +1792,7 @@ function applyAccent(){
     orbs.style.setProperty('--orb3','rgba(102,223,196,.12)');
   }
   var pulse=$('#pulse'); if(pulse){ pulse.style.setProperty('--pulsec',hexA(m.ac,0.07)); }
-}
-function lightPulse(){
+}function lightPulse(){
   if(Env.RM){ return; }
   var p=$('#pulse'); if(!p){ return; }
   p.classList.remove('go');
@@ -2097,8 +2091,7 @@ function initHeroCanvas(){
       }
     }
     for(i=0;i<pts.length;i++){
-      var q=pts[i];
-      var pu=Env.RM?1:(0.5+0.5*Math.sin(q.ph));
+      var q=pts[i];      var pu=Env.RM?1:(0.5+0.5*Math.sin(q.ph));
       cx.beginPath();
       cx.arc(q.x,q.y,q.r*(1+pu*0.3),0,6.283);
       cx.fillStyle='rgba('+q.col+','+(q.a*(0.6+pu*0.6)).toFixed(3)+')';
@@ -2397,8 +2390,7 @@ function readHash(){
   if(h==='presenter'){ togglePr(true); return; }
   closeLayers();
   var k=-1;
-  for(var i=0;i<META.length;i++){ if(META[i].id===h){ k=i; break; } }
-  if(k<0){ return; }
+  for(var i=0;i<META.length;i++){ if(META[i].id===h){ k=i; break; } }  if(k<0){ return; }
   if(k!==S.i){ go(k,{push:false,anim:false}); }
   else if(S.mode!=='present'){ setView('present',{silent:true}); }
 }
@@ -2499,7 +2491,7 @@ function runAudit(){
       t:(s===d)?'ok':'crit',
       h:(s===d)?('Сумма совпадает · '+name):('Расхождение суммы · '+name),
       d:(s===d)
-         ('Сумма <code>'+s+'</code> равна знаменателю <code>'+d+'</code>. Расхождение 0.')
+         ? ('Сумма <code>'+s+'</code> равна знаменателю <code>'+d+'</code>. Расхождение 0.')
         : ('Сумма <code>'+s+'</code> не равна знаменателю <code>'+d+'</code>. Требуется разбор.')
     });
   }
@@ -2697,8 +2689,7 @@ var QA=[
  {t:'ok',h:'Сдержанный свет',d:'Убраны вращающиеся конические лучи, падающие «матричные» потоки и бесконечные блики. Оставлены: мягкие орбы, статическое зерно низкой плотности, виньетка, световое пятно за курсором и короткий импульс при смене кадра.'},
  {t:'ok',h:'Производительность',d:'Один rAF-планировщик на все эффекты с паузой при скрытой вкладке и ограничением примерно 64 fps; canvas hero работает только на видимом кадре; документация собирается отложенно через requestIdleCallback; слушатели перемещения — passive.'},
  {t:'ok',h:'Утечки памяти',d:'Подписки rAF удаляются после завершения (счётчики), таймеры очистки хранятся и отменяются, наблюдатели создаются один раз, обработчики назначаются однократно с флагом привязки.'},
- {t:'ok',h:'Reduced motion',d:'Отключаются движение частиц, световое пятно, наклон карточек, счётчики, автоподгонка, зерно и дрейф орбов; контент показывается сразу.'},
- {t:'ok',h:'Адаптивность',d:'Контрольные точки 1240 / 1000 / 700 / 400 px, портретный режим с внутренней прокруткой кадра, бургер-меню, отключение декоративных слоёв на узких экранах.'},
+ {t:'ok',h:'Reduced motion',d:'Отключаются движение частиц, световое пятно, наклон карточек, счётчики, автоподгонка, зерно и дрейф орбов; контент показывается сразу.'}, {t:'ok',h:'Адаптивность',d:'Контрольные точки 1240 / 1000 / 700 / 400 px, портретный режим с внутренней прокруткой кадра, бургер-меню, отключение декоративных слоёв на узких экранах.'},
  {t:'ok',h:'Офлайн',d:'Файл открывается с локального диска без сервера и без сети: все данные, стили, скрипты и графика внутри документа.'},
  {t:'ok',h:'Печать и PDF',d:'Print-стили: каждый кадр на отдельной странице, светлый фон, читаемый текст, масштаб сброшен, декор скрыт.'},
  {t:'ok',h:'Целостность данных',d:'Все пять наборов: сумма равна знаменателю. Ни одно число исследования не изменено; противоречие формулировки раскрыто двумя прочтениями.'},
@@ -2908,8 +2899,8 @@ function buildDocs(){
       ['Диаграмм',String(chartSpecs().length)],
       ['Показателей','17'],
       ['Автоподгонка',Fit.enabled()?'вкл':'выкл'],
-      ['Reduced motion',Env.RM?'да':'нет''],
-      ['Слабое устройство',Env.LOW?'да':'нет''],
+      ['Reduced motion',Env.RM?'да':'нет'],
+      ['Слабое устройство',Env.LOW?'да':'нет'],
       ['Ядер CPU',String(Env.cores)],
       ['Задач в планировщике',String(Ticker.size())]
     ];
@@ -2997,9 +2988,8 @@ function bindDocs(){  $$('#dcTabs button').forEach(function(b){
         var rep2=fitReport();
         Log.add('самопроверка → старт','info');
         Log.add('данные: наборов 5, показателей 17, расхождений сумм '+bad,'ok');
-        Log.add('диаграммы: спецификаций '+specs,'ok');
-        Log.add('каркас: кадров '+SECT.length+', с уменьшением '+rep2.over+', скролл в презентации 0','ok');
-        Log.add('движение: reduced-motion '+(Env.RM?'да':'нет'')+', слабое устройство '+(Env.LOW?'да':'нет''),'info');
+        Log.add('диаграммы: спецификаций '+specs,'ok');        Log.add('каркас: кадров '+SECT.length+', с уменьшением '+rep2.over+', скролл в презентации 0','ok');
+        Log.add('движение: reduced-motion '+(Env.RM?'да':'нет')+', слабое устройство '+(Env.LOW?'да':'нет'),'info');
         Log.add('навигация: глав '+CHAPTERS.length+', клавиш '+KEYS.length+', hash-маршрутов 4','ok');
         Log.add('самопроверка завершена: '+R2.length+' проверок целостности, 0 изменённых чисел','ok');
         var fb2=$('#fitBody');
@@ -3014,8 +3004,8 @@ function bindDocs(){  $$('#dcTabs button').forEach(function(b){
             ['Диаграмм',String(specs)],
             ['Показателей','17'],
             ['Автоподгонка',Fit.enabled()?'вкл':'выкл'],
-            ['Reduced motion',Env.RM?'да':'нет''],
-            ['Слабое устройство',Env.LOW?'да':'нет''],
+            ['Reduced motion',Env.RM?'да':'нет'],
+            ['Слабое устройство',Env.LOW?'да':'нет'],
             ['Ядер CPU',String(Env.cores)],
             ['Задач в планировщике',String(Ticker.size())]
           ];
@@ -3297,8 +3287,7 @@ function init(){
     syncModeButtons();
 
     var fc=$('#ftClock');
-    if(fc){
-      try{ fc.textContent='СБОРКА · '+new Date().toLocaleDateString('ru-RU')+' · v5.2.0'; }
+    if(fc){      try{ fc.textContent='СБОРКА · '+new Date().toLocaleDateString('ru-RU')+' · v5.2.0'; }
       catch(err){ fc.textContent='СБОРКА · v5.2.0'; }
     }
 
@@ -3312,7 +3301,7 @@ function init(){
     }
     Log.add('старт → PIXEL / VALUE v5.2 · кадров '+N+' · диаграмм '+chartSpecs().length,'ok');
     Log.add('аудит данных → '+R.length+' проверок, изменённых чисел 0','ok');
-    Log.add('среда → reduced-motion: '+(Env.RM?'да':'нет'')+' · слабое устройство: '+(Env.LOW?'да':'нет'')+' · ядер: '+Env.cores,'info');
+    Log.add('среда → reduced-motion: '+(Env.RM?'да':'нет')+' · слабое устройство: '+(Env.LOW?'да':'нет')+' · ядер: '+Env.cores,'info');
 
     setTimeout(function(){ Fit.apply(SECT[S.i]); },1000);
   }catch(err){
