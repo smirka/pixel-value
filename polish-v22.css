@@ -1,0 +1,70 @@
+/* v22 — accessibility, resilient layout and interaction polish; preserves the existing PIXEL / VALUE visual language */
+
+/* Predictable sizing and safer viewport handling */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{min-width:320px;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,svg,video,canvas{max-width:100%}
+button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
+button{font:inherit}
+
+/* Keyboard focus: visible without changing the resting design */
+:where(button,a,[role="button"],input,select,textarea,[tabindex]):focus-visible{
+  outline:2px solid #a995ff!important;
+  outline-offset:3px!important;
+  box-shadow:0 0 0 4px rgba(169,149,255,.18)!important;
+}
+:where(button,a,[role="button"]):focus:not(:focus-visible){outline:none}
+
+/* Keep controls comfortably usable on touch screens */
+@media (pointer:coarse){
+  .top button,#nav button,.snav button,.modes button,.pv-sound,
+  .btn,.pv-btn{min-height:40px}
+  .snav button{min-width:40px!important;width:40px!important;height:40px!important}
+  .top button,#nav button{padding-inline:10px!important}
+}
+
+/* Text and chart resilience on narrow screens */
+.screen{min-width:0;overflow-wrap:anywhere}
+.screen p{max-width:72ch}
+.screen :where(.card,.sdt,.kpi,.pv-chart-card,.pv-thesis,.pv-quote,.pv-limit){min-width:0}
+.br-l,.br-v,.br-t{min-width:0}
+.br-l{overflow-wrap:anywhere}
+.pv-chart-card,.card,.sdt,.kpi{scroll-margin-block:1rem}
+
+/* Respect device safe areas while retaining the original floating controls */
+@supports(padding:max(0px)){
+  .top{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+  .snav{margin-bottom:env(safe-area-inset-bottom)}
+}
+
+/* Motion is decorative; navigation and content remain fully available */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+
+/* High-contrast preference keeps labels and controls legible */
+@media(prefers-contrast:more){
+  .sub,.tagline,.cd-l,.br-l,.br-v,.pv-n{
+    color:#f4f2ff!important;
+  }
+  .card,.sdt,.kpi,.pv-chart-card,.pv-quote,.pv-limit{
+    border-color:rgba(226,218,255,.38)!important;
+  }
+}
+
+/* Print-friendly research handout without presentation chrome */
+@media print{
+  html,body{height:auto!important;overflow:visible!important;background:#fff!important;color:#111!important}
+  .top,.snav,.modes,.pv-sound,#fx,canvas.fx,canvas#fx,.pv-orb,.pv-grid{display:none!important}
+  .screen{position:relative!important;display:block!important;opacity:1!important;visibility:visible!important;transform:none!important;overflow:visible!important;break-after:page;page-break-after:always;background:#fff!important;color:#111!important}
+  .screen:last-child{break-after:auto;page-break-after:auto}
+  .screen :where(p,span,li,h1,h2,h3,strong,b){color:#111!important;text-shadow:none!important}
+  .screen :where(.card,.sdt,.kpi,.pv-chart-card,.pv-quote,.pv-limit){break-inside:avoid;box-shadow:none!important}
+}
