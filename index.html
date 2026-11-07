@@ -297,8 +297,7 @@ h1.tt{font-size:var(--fs-6);font-weight:800;line-height:1.06;letter-spacing:-.03
 .lg-i .vl{font-family:var(--mono);font-weight:700;font-size:var(--fs-1)}
 .lg-i .pc{font-family:var(--mono);font-size:var(--fs-1);color:var(--muted2);min-width:3.6em;text-align:right}
 .bars{display:flex;flex-direction:column;gap:var(--sp-2)}
-.br{display:grid;grid-template-columns:minmax(70px,31%) 1fr clamp(46px,10cqw,94px);gap:var(--sp-2);align-items:center}.br-l{font-size:var(--fs-2);color:var(--dim);line-height:1.22}.br-t{height:clamp(11px,2.6cqh,26px);background:linear-gradient(180deg,rgba(0,0,0,.48),rgba(255,255,255,.02));border-radius:7px;overflow:hidden;position:relative;border:1px solid var(--line);box-shadow:inset 0 2px 7px rgba(0,0,0,.5)}.br-f{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width 1.35s var(--eo);box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}.br-v{font-family:var(--mono);font-weight:700;font-size:var(--fs-1);text-align:right;white-space:nowrap}.br-v em{display:block;font-style:normal;font-size:var(--fs-0);color:var(--muted2);font-weight:400}
-.gauge{position:relative;width:clamp(84px,15.5cqh,164px);aspect-ratio:120/76;flex-shrink:0}
+.br{display:grid;grid-template-columns:minmax(70px,31%) 1fr clamp(46px,10cqw,94px);gap:var(--sp-2);align-items:center}.br-l{font-size:var(--fs-2);color:var(--dim);line-height:1.22}.br-t{height:clamp(11px,2.6cqh,26px);background:linear-gradient(180deg,rgba(0,0,0,.48),rgba(255,255,255,.02));border-radius:7px;overflow:hidden;position:relative;border:1px solid var(--line);box-shadow:inset 0 2px 7px rgba(0,0,0,.5)}.br-f{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width 1.35s var(--eo);box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}.br-v{font-family:var(--mono);font-weight:700;font-size:var(--fs-1);text-align:right;white-space:nowrap}.br-v em{display:block;font-style:normal;font-size:var(--fs-0);color:var(--muted2);font-weight:400}.gauge{position:relative;width:clamp(84px,15.5cqh,164px);aspect-ratio:120/76;flex-shrink:0}
 .gauge svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 12px rgba(0,0,0,.45))}
 .gauge path{fill:none;stroke-width:10;stroke-linecap:round}
 .gauge .gtrk{stroke:rgba(255,255,255,.065)}
@@ -597,8 +596,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 -1px 0 rgba(0,0,0,.25) inset,var(--glass-shadow-near),var(--glass-shadow-mid),var(--glass-shadow-far);}
 .card:hover,.kpi:hover,.sdt:hover,.cmp-s:hover,.co:hover,.tlstep:hover,.vc:hover,.eth:hover,.src:hover{ background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035) 48%,rgba(0,0,0,.13));
  border-color:var(--glass-border-hover);box-shadow:0 1px 0 rgba(255,255,255,.15) inset,0 -1px 0 rgba(0,0,0,.2) inset,0 2px 8px rgba(0,0,0,.2),0 8px 24px rgba(0,0,0,.25),0 16px 48px rgba(0,0,0,.3); transform:translateY(-4px);
-}
-.pv-glass{position:relative;isolation:isolate;overflow:hidden}
+}.pv-glass{position:relative;isolation:isolate;overflow:hidden}
 .pv-glass-layer{position:absolute;inset:0;z-index:0;overflow:hidden;border-radius:inherit;pointer-events:none}
 .pv-glass-layer:before{content:"";position:absolute;inset:0;border-radius:inherit;backdrop-filter:blur(1px);background:radial-gradient(220px circle at var(--glass-x,50%) var(--glass-y,50%),rgba(255,255,255,.1),transparent 68%),linear-gradient(180deg,rgba(255,255,255,.1),transparent 42%,rgba(0,0,0,.05));opacity:.9}
 .pv-glass-layer:after{content:"";position:absolute;inset:-50%;border-radius:inherit;background:conic-gradient(from 0deg,transparent 0 18%,rgba(255,255,255,.06) 21%,transparent 28% 48%,rgba(102,126,234,.04) 52%,transparent 58% 76%,rgba(255,107,157,.05) 80%,transparent 88%);mix-blend-mode:screen;animation:pvGlassSpin var(--glass-rotation) linear infinite}
@@ -897,8 +895,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
         <linearGradient id="dg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00ff9c"/><stop offset="100%" stop-color="#66dfc4"/></linearGradient>
         <linearGradient id="dg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3a3f59"/><stop offset="100%" stop-color="#282b3b"/></linearGradient>       </defs>
        <circle class="trk" cx="60" cy="60" r="50" pathLength="100"></circle>
-       <circle class="sg" cx="60" cy="60" r="50" pathLength="100" stroke="url(#dg1)" data-v="55.6" data-l="Покупали" data-c="55,6% · 10/18"></circle>
-       <circle class="sg" cx="60" cy="60" r="50" pathLength="100" stroke="url(#dg2)" data-v="44.4" data-l="Не покупали" data-c="44,4% · 8/18"></circle>
+       <circle class="sg" cx="60" cy="60" r="50" pathLength="100" stroke="url(#dg1)" data-v="55.6" data-l="Покупали" data-c="55,6% · 10/18"></circle>       <circle class="sg" cx="60" cy="60" r="50" pathLength="100" stroke="url(#dg2)" data-v="44.4" data-l="Не покупали" data-c="44,4% · 8/18"></circle>
       </svg>      <div class="dctr"><div><b id="dPurchV" style="color:var(--green)">56%</b><s id="dPurchL">Покупали · 10/18</s></div></div>
      </div>
      <div class="lg" id="lgPurch">
@@ -1197,8 +1194,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   <div class="gap"></div>  <div class="g g2">
    <article class="lim rvl" style="--d:0ms"><h2 class="lim-t">Малая выборка</h2><p class="lim-d">18 участников — нельзя обобщать результаты на всех школьников или игроков.</p></article>   <article class="lim rvr" style="--d:70ms"><h2 class="lim-t">Неслучайный отбор</h2><p class="lim-d">В основном одноклассники и знакомые; выборка не репрезентативна.</p></article>
    <article class="lim rvl" style="--d:140ms"><h2 class="lim-t">Разные игры</h2><p class="lim-d">CS2, Dota 2 и Valorant имеют разные экономики и игровые контексты.</p></article>
-   <article class="lim rvr" style="--d:210ms"><h2 class="lim-t">Самоотчёт</h2><p class="lim-d">Ответы могут не полностью отражать реальные мотивы поведения.</p></article>
-  </div>
+   <article class="lim rvr" style="--d:210ms"><h2 class="lim-t">Самоотчёт</h2><p class="lim-d">Ответы могут не полностью отражать реальные мотивы поведения.</p></article>  </div>
   <div class="gap"></div>
   <div class="co rv"><div class="co-l">Следующий шаг</div><div class="co-x">Увеличить выборку, использовать более случайный отбор, ограничиться одной игрой и применить <span class="key">одинаковую шкалу SDT для всех участников</span>.</div></div>
  </div></div>
@@ -1497,8 +1493,7 @@ function shade(hex){
   function stop(){ running=false; if(raf){ cancelAnimationFrame(raf); } raf=0; }
   on(document,'visibilitychange',function(){
     if(document.hidden){ stop(); } else if(subs.length){ start(); }
-  });
-  return {
+  });  return {
     add:function(f){ if(subs.indexOf(f)<0){ subs.push(f); } start(); return f; },
     remove:function(f){ var i=subs.indexOf(f); if(i>=0){ subs.splice(i,1); } if(!subs.length){ stop(); } },
     size:function(){ return subs.length; }
@@ -1713,7 +1708,7 @@ function fitReport(){
     if(r){
       var scaled=(r.k<0.999);
       if(scaled){ over++; }
-      rows.push(pad2(i)+'  «'+META[i].title+'»  контент '+r.needH+'px / доступно '+r.availH+'px  ->  k='+r.k.toFixed(3)+'  '+(scaled'[SCALED]':'[OK]'));
+      rows.push(pad2(i)+'  «'+META[i].title+'»  контент '+r.needH+'px / доступно '+r.availH+'px  ->  k='+r.k.toFixed(3)+'  '+(scaled?'[SCALED]':'[OK]'));
     } else {
       rows.push(pad2(i)+'  «'+META[i].title+'»  ->  [WARN] измерение недоступно');
     }
@@ -1743,7 +1738,7 @@ function go(k,opt){
     var el=SECT[k];
     if(el){
       var y=el.getBoundingClientRect().top+window.pageYOffset-64;
-      window.scrollTo({top:y,behavior:Env.RM'auto':'smooth'});
+      window.scrollTo({top:y,behavior:Env.RM?'auto':'smooth'});
     }
     if(opt.push!==false){ history.replaceState(null,'','#'+META[k].id); }
     paint(); announce(); return;
@@ -1797,8 +1792,7 @@ function applyAccent(){
   var spot=$('#spot'); if(spot){ spot.style.setProperty('--spotc',hexA(m.ac,0.1)); }
   var tint=$('#ltint'); if(tint){ tint.style.setProperty('--tintc',hexA(m.ac,0.34)); }
   var orbs=$('#orbs');
-  if(orbs){
-    orbs.style.setProperty('--orb1',hexA(m.ac,0.22));
+  if(orbs){    orbs.style.setProperty('--orb1',hexA(m.ac,0.22));
     orbs.style.setProperty('--orb2',hexA(m.ac2,0.15));
     orbs.style.setProperty('--orb3','rgba(102,223,196,.12)');
   }
@@ -1837,7 +1831,7 @@ function paint(){
   var bg=$('#bGuide'); if(bg){ bg.classList.toggle('act',S.guides); }
   SECT.forEach(function(sec,j){
     var inactive=(j!==S.i)&&S.mode==='present';
-    sec.setAttribute('aria-hidden',inactive'true':'false');
+    sec.setAttribute('aria-hidden',inactive?'true':'false');
     if('inert' in HTMLElement.prototype){ try{ sec.inert=inactive; }catch(e){} }
   });
 }
@@ -2097,8 +2091,7 @@ function initHeroCanvas(){
       for(i=0;i<pts.length;i++){
         var p=pts[i];
         p.x+=p.vx; p.y+=p.vy; p.ph+=0.01;
-        if(p.x<0){ p.x=w; } if(p.x>w){ p.x=0; }
-        if(p.y<0){ p.y=h; } if(p.y>h){ p.y=0; }
+        if(p.x<0){ p.x=w; } if(p.x>w){ p.x=0; }        if(p.y<0){ p.y=h; } if(p.y>h){ p.y=0; }
         var dx=p.x-ptr.x, dy=p.y-ptr.y, dd=Math.sqrt(dx*dx+dy*dy);
         if(dd<130&&dd>0.5){ p.x+=dx/dd*0.35; p.y+=dy/dd*0.35; }
       }
@@ -2208,7 +2201,7 @@ function syncModeButtons(){
   if(me){ me.classList.toggle('on',S.mode==='explore'); }
   if(md){ md.classList.toggle('on',S.mode==='docs'); }
   var mt=$('#modeTop');
-  if(mt){ mt.textContent=(S.mode==='explore')'Презентация':'Обзор'; }
+  if(mt){ mt.textContent=(S.mode==='explore')?'Презентация':'Обзор'; }
 }
 function setView(v,opt){
   opt=opt||{};
@@ -2334,7 +2327,7 @@ function toggleHelp(force){
 function toggleMenu(force){
   var m=$('#mm'); if(!m){ return; }
   var v=(force===undefined)?!m.classList.contains('on'):!!force;
-  var bg=$('#burger'); if(bg){ bg.setAttribute('aria-expanded',v'true':'false'); }
+  var bg=$('#burger'); if(bg){ bg.setAttribute('aria-expanded',v?'true':'false'); }
   if(v){ closeLayers(); m.classList.add('on'); document.body.classList.add('locked'); trapFocus(m); }
   else { m.classList.remove('on'); document.body.classList.remove('locked'); releaseTrap(); }
 }
@@ -2342,14 +2335,14 @@ function toggleGuides(){
   S.guides=!S.guides;
   var g=$('#guides'); if(g){ g.classList.toggle('on',S.guides); }
   paint();
-  toast(S.guides'⌗ Направляющие 16:9 включены':'⌗ Направляющие выключены');
+  toast(S.guides?'⌗ Направляющие 16:9 включены':'⌗ Направляющие выключены');
 }
 function toggleFit(){
   S.fit=!S.fit;
   if(!S.fit){ Fit.resetAll(); Log.add('каркас 16:9 → автоподгонка выключена (масштаб 1:1)','warn'); }
   else { Fit.apply(SECT[S.i]); Log.add('каркас 16:9 → автоподгонка включена, k='+Fit.lastK().toFixed(3),'ok'); }
   paint();
-  toast(S.fit'⤢ Автоподгонка 16:9 включена':'⤢ Автоподгонка выключена — масштаб 1:1');
+  toast(S.fit?'⤢ Автоподгонка 16:9 включена':'⤢ Автоподгонка выключена — масштаб 1:1');
 }
 function timer(){
   if(!S.t0){ return; }
@@ -2397,8 +2390,7 @@ function readHash(){
   var h=(location.hash||'').replace('#','');
   if(!h){ if($('#ov')&&$('#ov').classList.contains('on')){ toggleOv(false); } return; }
   if(h.indexOf('docs')===0){
-    setTab(h.split('/')[1]||'about');
-    if(S.mode!=='docs'){ setView('docs',{silent:true}); }
+    setTab(h.split('/')[1]||'about');    if(S.mode!=='docs'){ setView('docs',{silent:true}); }
     return;
   }
   if(h==='overview'){ toggleOv(true); return; }
@@ -2504,7 +2496,7 @@ function runAudit(){
     var s=arr.reduce(function(a,b){ return a+b.n; },0);
     var d=arr[0].d;
     R.push({
-      t:(s===d)'ok':'crit',
+      t:(s===d)?'ok':'crit',
       h:(s===d)?('Сумма совпадает · '+name):('Расхождение суммы · '+name),
       d:(s===d)
          ('Сумма <code>'+s+'</code> равна знаменателю <code>'+d+'</code>. Расхождение 0.')
@@ -2697,8 +2689,7 @@ var ASSETS=[
 ];
 var QA=[
  {t:'ok',h:'Кнопка «О проекте»',d:'Открывает документацию из любого состояния: из презентации, из режима «Обзор», из мобильного меню, из карты кадров, из справки и по клавише <kbd>S</kbd>. Возврат восстанавливает прежний режим и текущий кадр.'},
- {t:'ok',h:'Все элементы управления',d:'Проверены: логотип, главы, точки, счётчик, «назад/вперёд», карта кадров, направляющие, автоподгонка, копирование ссылки, режимы, справка, докладчик, меню, вкладки документации, кнопки внутри кадров, карточки обзорной сетки, узлы research map.'},
- {t:'ok',h:'Кадр 16:9 без скролла',d:'В режиме презентации <code>overflow:hidden</code> на body и на каждом экране. Содержимое помещается целиком за счёт единиц контейнера, clamp-ограничителей и автоматического scale. Отчёт доступен в разделе «Каркас 16:9».'},
+ {t:'ok',h:'Все элементы управления',d:'Проверены: логотип, главы, точки, счётчик, «назад/вперёд», карта кадров, направляющие, автоподгонка, копирование ссылки, режимы, справка, докладчик, меню, вкладки документации, кнопки внутри кадров, карточки обзорной сетки, узлы research map.'}, {t:'ok',h:'Кадр 16:9 без скролла',d:'В режиме презентации <code>overflow:hidden</code> на body и на каждом экране. Содержимое помещается целиком за счёт единиц контейнера, clamp-ограничителей и автоматического scale. Отчёт доступен в разделе «Каркас 16:9».'},
  {t:'ok',h:'Клавиатура',d:'← → Space PageUp PageDown Home End — переход; P — докладчик; G — карта; S — документация; E — режим; F — автоподгонка; Y — направляющие; L — ссылка; H — справка; Esc — закрыть слой; Tab — ловушка фокуса в модалках.'},
  {t:'ok',h:'URL и история',d:'Hash на каждый кадр, <code>#docs/раздел</code>, <code>#overview</code>, <code>#presenter</code>. Кнопки браузера «назад/вперёд» обрабатываются через popstate без дублирования записей.'},
  {t:'ok',h:'Быстрая смена кадров',d:'Generation-token отменяет устаревшие отложенные пересчёты и анимации; таймеры выходных анимаций очищаются перед новым переходом.'},
@@ -2810,9 +2801,9 @@ function buildDocs(){
   var fl=$('#fitList');
   if(fl){
     fl.innerHTML=FITDOC.map(function(f){
-      var cls=(f.t==='ok')'ok':'';
-      var pill=(f.t==='ok')'ok':'spec';
-      var label=(f.t==='ok')'РЕАЛИЗОВАНО':'ОГРАНИЧЕНИЕ';
+      var cls=(f.t==='ok')?'ok':'';
+      var pill=(f.t==='ok')?'ok':'spec';
+      var label=(f.t==='ok')?'РЕАЛИЗОВАНО':'ОГРАНИЧЕНИЕ';
       return '<div class="finding '+cls+' rv"><div class="finding-h"><span class="pill '+pill+'">'+label+'</span>'
         +'<span class="finding-t">'+f.h+'</span></div><div class="finding-d">'+f.d+'</div></div>';
     }).join('');
@@ -2872,9 +2863,9 @@ function buildDocs(){
   var ql=$('#qaList');
   if(ql){
     ql.innerHTML=QA.map(function(f){
-      var cls=(f.t==='ok')'ok':'';
-      var pill=(f.t==='ok')'ok':'spec';
-      var label=(f.t==='ok')'ПРОВЕРЕНО':'ОГРАНИЧЕНИЕ';
+      var cls=(f.t==='ok')?'ok':'';
+      var pill=(f.t==='ok')?'ok':'spec';
+      var label=(f.t==='ok')?'ПРОВЕРЕНО':'ОГРАНИЧЕНИЕ';
       return '<div class="finding '+cls+' rv"><div class="finding-h"><span class="pill '+pill+'">'+label+'</span>'
         +'<span class="finding-t">'+f.h+'</span></div><div class="finding-d">'+f.d+'</div></div>';
     }).join('');
@@ -2891,10 +2882,10 @@ function buildDocs(){
   var as=$('#assetList');
   if(as){
     as.innerHTML=ASSETS.map(function(f,i){
-      var cls=(f.t==='ok')'ok':'';
-      var pill=(f.t==='ok')'ok':'spec';
-      var label=(f.t==='ok')'ТАК':'УТОЧНЕНИЕ';
-      var border=(f.t==='ok')'var(--green)':'var(--amber)';
+      var cls=(f.t==='ok')?'ok':'';
+      var pill=(f.t==='ok')?'ok':'spec';
+      var label=(f.t==='ok')?'ТАК':'УТОЧНЕНИЕ';
+      var border=(f.t==='ok')?'var(--green)':'var(--amber)';
       return '<div class="finding '+cls+' rv" style="--d:'+(i%2)*70+'ms;border-left-color:'+border+'">'
         +'<div class="finding-h"><span class="pill '+pill+'">'+label+'</span>'
         +'<span class="finding-t">'+f.h+'</span></div><div class="finding-d">'+f.d+'</div></div>';
@@ -2916,9 +2907,9 @@ function buildDocs(){
       ['Кадров',String(N)],
       ['Диаграмм',String(chartSpecs().length)],
       ['Показателей','17'],
-      ['Автоподгонка',Fit.enabled()'вкл':'выкл'],
-      ['Reduced motion',Env.RM'да':'нет'],
-      ['Слабое устройство',Env.LOW'да':'нет'],
+      ['Автоподгонка',Fit.enabled()?'вкл':'выкл'],
+      ['Reduced motion',Env.RM?'да':'нет''],
+      ['Слабое устройство',Env.LOW?'да':'нет''],
       ['Ядер CPU',String(Env.cores)],
       ['Задач в планировщике',String(Ticker.size())]
     ];
@@ -2961,7 +2952,7 @@ function setTab(p){
   $$('#dcTabs button').forEach(function(b){
     var isOn=(b.getAttribute('data-pane')===p);
     b.classList.toggle('on',isOn);
-    b.setAttribute('aria-selected',isOn'true':'false');
+    b.setAttribute('aria-selected',isOn?'true':'false');
   });
   $$('.dc-pane').forEach(function(x){ x.classList.toggle('on',x.id==='pane-'+p); });
   setTimeout(function(){
@@ -2997,8 +2988,7 @@ function bindDocs(){  $$('#dcTabs button').forEach(function(b){
             +'\n\nКАДРОВ: '+SECT.length+' · ТРЕБУЮТ SCALE: '+rep.over+' · ВНУТРЕННИЙ СКРОЛЛ В ПРЕЗЕНТАЦИИ: 0');
         }
         if(S.tab!=='diag'){ setTab('frame'); }
-        Log.add('замер кадров → всего '+SECT.length+', с уменьшением масштаба '+rep.over+', текущий k='+Fit.lastK().toFixed(3),'ok');
-        toast('⤢ Измерено '+SECT.length+' кадров · уменьшен масштаб: '+rep.over);
+        Log.add('замер кадров → всего '+SECT.length+', с уменьшением масштаба '+rep.over+', текущий k='+Fit.lastK().toFixed(3),'ok');        toast('⤢ Измерено '+SECT.length+' кадров · уменьшен масштаб: '+rep.over);
       } else if(what==='selftest'){
         var R2=runAudit();
         var bad=0;
@@ -3009,7 +2999,7 @@ function bindDocs(){  $$('#dcTabs button').forEach(function(b){
         Log.add('данные: наборов 5, показателей 17, расхождений сумм '+bad,'ok');
         Log.add('диаграммы: спецификаций '+specs,'ok');
         Log.add('каркас: кадров '+SECT.length+', с уменьшением '+rep2.over+', скролл в презентации 0','ok');
-        Log.add('движение: reduced-motion '+(Env.RM'да':'нет')+', слабое устройство '+(Env.LOW'да':'нет'),'info');
+        Log.add('движение: reduced-motion '+(Env.RM?'да':'нет'')+', слабое устройство '+(Env.LOW?'да':'нет''),'info');
         Log.add('навигация: глав '+CHAPTERS.length+', клавиш '+KEYS.length+', hash-маршрутов 4','ok');
         Log.add('самопроверка завершена: '+R2.length+' проверок целостности, 0 изменённых чисел','ok');
         var fb2=$('#fitBody');
@@ -3023,9 +3013,9 @@ function bindDocs(){  $$('#dcTabs button').forEach(function(b){
             ['Кадров',String(N)],
             ['Диаграмм',String(specs)],
             ['Показателей','17'],
-            ['Автоподгонка',Fit.enabled()'вкл':'выкл'],
-            ['Reduced motion',Env.RM'да':'нет'],
-            ['Слабое устройство',Env.LOW'да':'нет'],
+            ['Автоподгонка',Fit.enabled()?'вкл':'выкл'],
+            ['Reduced motion',Env.RM?'да':'нет''],
+            ['Слабое устройство',Env.LOW?'да':'нет''],
             ['Ядер CPU',String(Env.cores)],
             ['Задач в планировщике',String(Ticker.size())]
           ];
@@ -3110,8 +3100,8 @@ function onClick(e){
     else { setView('docs'); toast('◈ Документация проекта'); }
   }
   else if(v==='mode'){
-    setView(S.mode==='explore''present':'explore');
-    toast(S.mode==='explore''⇄ Режим обзора: все кадры одной лентой':'⇄ Режим презентации 16:9');
+    setView(S.mode==='explore'?'present':'explore');
+    toast(S.mode==='explore'?'⇄ Режим обзора: все кадры одной лентой':'⇄ Режим презентации 16:9');
   }
   closeLayers();
 }
@@ -3143,7 +3133,7 @@ function onKey(e){
     if(low==='g'){ e.preventDefault(); toggleOv(); return; }
     if(low==='p'){ e.preventDefault(); togglePr(); return; }
     if(low==='s'){ e.preventDefault(); setView('docs'); return; }
-    if(low==='e'){ e.preventDefault(); setView(S.mode==='explore''present':'explore'); return; }
+    if(low==='e'){ e.preventDefault(); setView(S.mode==='explore'?'present':'explore'); return; }
     if(low==='l'){ e.preventDefault(); copyLink(); return; }
     if(low==='f'){ e.preventDefault(); toggleFit(); return; }
     if(low==='y'){ e.preventDefault(); toggleGuides(); return; }
@@ -3264,7 +3254,7 @@ function init(){
       if(S.mode==='docs'){ setView('present'); toast('◈ Возврат к презентации'); }
       else { setView('docs'); toast('◈ Документация проекта'); }
     });
-    on($('#modeTop'),'click',function(){ setView(S.mode==='explore''present':'explore'); });
+    on($('#modeTop'),'click',function(){ setView(S.mode==='explore'?'present':'explore'); });
     on($('#mPres'),'click',function(){ setView('present'); });
     on($('#mExpl'),'click',function(){ setView('explore'); });
     on($('#mDocs'),'click',function(){ setView('docs'); });    on($('#burger'),'click',function(){ toggleMenu(); });
@@ -3297,8 +3287,7 @@ function init(){
       var k=-1;
       for(var i=0;i<META.length;i++){ if(META[i].id===h){ k=i; break; } }
       S.i=(k>=0)?k:0;
-      SECT.forEach(function(el,j){ el.classList.toggle('on',j===S.i); });
-      applyAccent();
+      SECT.forEach(function(el,j){ el.classList.toggle('on',j===S.i); });      applyAccent();
       setTimeout(function(){ play(SECT[S.i]); },150);
       setTimeout(function(){ Fit.apply(SECT[S.i]); },620);
     }
@@ -3319,11 +3308,11 @@ function init(){
     if(window.console){
       if(bad){ console.warn('[Аудит данных] расхождения сумм: '+bad); }
       else { console.log('%c[Аудит данных] 5 наборов целостны · 1 противоречие формулировки зафиксировано · 0 изменённых чисел','color:#00ff9c'); }
-      console.log('%c[Каркас 16:9] кадров: '+N+' · автоподгонка: '+(Fit.enabled()'активна':'отключена'),'color:#9b7bff');
+      console.log('%c[Каркас 16:9] кадров: '+N+' · автоподгонка: '+(Fit.enabled()?'активна':'отключена'),'color:#9b7bff');
     }
     Log.add('старт → PIXEL / VALUE v5.2 · кадров '+N+' · диаграмм '+chartSpecs().length,'ok');
     Log.add('аудит данных → '+R.length+' проверок, изменённых чисел 0','ok');
-    Log.add('среда → reduced-motion: '+(Env.RM'да':'нет')+' · слабое устройство: '+(Env.LOW'да':'нет')+' · ядер: '+Env.cores,'info');
+    Log.add('среда → reduced-motion: '+(Env.RM?'да':'нет'')+' · слабое устройство: '+(Env.LOW?'да':'нет'')+' · ядер: '+Env.cores,'info');
 
     setTimeout(function(){ Fit.apply(SECT[S.i]); },1000);
   }catch(err){
