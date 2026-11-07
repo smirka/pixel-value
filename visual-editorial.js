@@ -2,6 +2,7 @@
   'use strict';
   var ASSET='assets/';
   var visualMap={
+    s0:{src:'pv-avatar.svg',alt:'Авторская иллюстрация фантазийного игрового аватара'},
     s1:{src:'pv-avatar.svg',alt:'Авторская иллюстрация игрового аватара — визуальный образ и самовыражение',cards:['pv-avatar.svg','pv-rarity.svg','pv-community.svg']},
     s2:{src:'pv-inventory.svg',alt:'Коллекция трёх оригинальных игровых косметических предметов'},
     s3:{src:'pv-community.svg',alt:'Три игровых аватара объединены общим символом'},
