@@ -7,6 +7,8 @@
 <meta name="description" content="Интерактивное социологическое исследование о ценности виртуальных предметов в видеоиграх. 23 слайда, данные, теории, кейсы из CS2, Dota 2, Fortnite, Valorant."/>
 <meta name="color-scheme" content="dark"/>
 <meta name="theme-color" content="#0a0a0f"/>
+<link rel="icon" type="image/svg+xml" href="assets/pv-favicon.svg"/>
+<link rel="apple-touch-icon" href="assets/pv-favicon.svg"/>
 <style>
 /* ══════════ ШРИФТЫ ══════════ */
 @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212}
@@ -693,6 +695,32 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  #s9 .lg-i .lb{min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.25}
  #s9 .lg-i .vl,#s9 .lg-i .pc{white-space:nowrap;min-width:max-content;font-size:11px}
 }
+
+/* v24 — cleaner vector art, deeper cards, game marks and resilient data bars */
+.screen .card,.screen .sdt,.screen .kpi,.screen .vc{
+ border-color:rgba(210,204,255,.16);
+ box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 -1px 0 rgba(0,0,0,.22) inset,0 5px 12px rgba(0,0,0,.28),0 18px 42px rgba(0,0,0,.34);
+}
+.screen .card:hover,.screen .sdt:hover,.screen .kpi:hover{
+ box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 8px 16px rgba(0,0,0,.32),0 24px 52px rgba(0,0,0,.42);
+}
+.pv-art{background:linear-gradient(145deg,rgba(155,123,255,.10),rgba(102,223,196,.06));border-color:rgba(195,173,255,.24);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 22px 56px rgba(0,0,0,.48)}
+.pv-art img{object-fit:contain;filter:drop-shadow(0 14px 28px rgba(0,0,0,.32));transform:none}
+.pv-art:after{background:radial-gradient(ellipse at 50% 80%,rgba(155,123,255,.12),transparent 70%)}
+.pv-game-row{position:absolute;z-index:8;right:0;top:0;display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;max-width:38%}
+.pv-game-mark{min-width:68px;display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:11px;background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.15);box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 7px 18px rgba(0,0,0,.24);backdrop-filter:blur(12px)}
+.pv-game-mark b{width:24px;height:24px;display:grid;place-items:center;border-radius:7px;font:800 10px var(--mono);color:#0a0b10;background:var(--game-accent)}
+.pv-game-mark span{font-size:9px;font-weight:700;letter-spacing:.04em;color:var(--dim);white-space:nowrap}
+.br-t{min-width:0;background:linear-gradient(180deg,rgba(0,0,0,.56),rgba(255,255,255,.035));box-shadow:inset 0 2px 8px rgba(0,0,0,.62),0 1px 0 rgba(255,255,255,.04)}
+.br-f{display:block;min-width:0;opacity:1!important;visibility:visible!important}
+@media(max-width:800px){
+ .pv-game-row{position:relative;right:auto;top:auto;max-width:100%;justify-content:center;margin:0 0 12px}
+ .pv-game-mark{min-width:0;padding:6px 8px}
+ .pv-game-mark span{font-size:8px}
+ .screen.pv-has-art .fitbox{padding-right:0}
+ .pv-art{opacity:.5}
+}
+@media(prefers-reduced-motion:reduce){.screen .card,.screen .sdt,.screen .kpi{transition:none!important}}
 </style></head>
 <body>
 <a class="skip" href="#stage">Перейти к содержимому</a>
@@ -3350,10 +3378,10 @@ else { init(); }
 (function(){
  'use strict';
  var art=[
-  {id:'s12',src:'https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&w=1200&q=80',alt:'Абстрактные световые линии, метафора факторов ценности виртуального предмета'},
-  {id:'s13',src:'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1200&q=80',alt:'Неоновые геометрические линии, визуальная метафора двух моделей монетизации'},
-  {id:'s14',src:'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80',alt:'Светящийся кристалл на тёмном фоне, метафора жизненного цикла предмета'},
-  {id:'s15',src:'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=80',alt:'Яркая абстрактная цветовая композиция, метафора разных мотивов игроков'}
+  {id:'s12',src:'assets/pv-inventory.svg',alt:'Абстрактные световые линии, метафора факторов ценности виртуального предмета'},
+  {id:'s13',src:'assets/pv-community.svg',alt:'Неоновые геометрические линии, визуальная метафора двух моделей монетизации'},
+  {id:'s14',src:'assets/pv-cosmetic-showcase.svg',alt:'Светящийся кристалл на тёмном фоне, метафора жизненного цикла предмета'},
+  {id:'s15',src:'assets/pv-lifecycle.svg',alt:'Яркая абстрактная цветовая композиция, метафора разных мотивов игроков'}
  ];
  var icons={
   s1:[['fa-gamepad','Игры'],['fa-coins','Экономика'],['fa-users','Игроки'],['fa-magnifying-glass','Исследование']],
@@ -3371,8 +3399,8 @@ else { init(); }
   s22:[['fa-file-lines','Документация'],['fa-chart-pie','Данные'],['fa-code','Метод']]
  };
  var images=[
-  {id:'s0',src:'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80',alt:'Игровое пространство с компьютерами и неоновой подсветкой',cls:'pv-hero-backdrop'},
-  {id:'s20',src:'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80',alt:'Светящаяся неоновая форма сердца как метафора эмоциональной ценности',cls:'pv-final-backdrop'}
+  {id:'s0',src:'assets/pv-avatar.svg',alt:'Игровое пространство с компьютерами и неоновой подсветкой',cls:'pv-hero-backdrop'},
+  {id:'s20',src:'assets/pv-community.svg',alt:'Светящаяся неоновая форма сердца как метафора эмоциональной ценности',cls:'pv-final-backdrop'}
  ];
  function addImage(target,item){
   if(!target||target.querySelector('.'+item.cls))return;
@@ -3449,5 +3477,41 @@ else { init(); }
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build,{once:true});else build();
 })();
-</script></body>
+</script>
+<script id="pixel-value-v24-fixes">
+(function(){
+ 'use strict';
+ function fillBars(){
+  document.querySelectorAll('.br-f[data-v]').forEach(function(bar){
+   var value=parseFloat(bar.getAttribute('data-v'));
+   if(!Number.isFinite(value))return;
+   value=Math.max(0,Math.min(100,value));
+   bar.style.setProperty('width',value+'%','important');
+   bar.style.setProperty('opacity','1','important');
+   bar.setAttribute('aria-valuenow',String(value));
+  });
+ }
+ function addGameMarks(){
+  var slide=document.getElementById('s14'),fit=slide&&slide.querySelector('.fitbox');
+  if(!fit||fit.querySelector('.pv-game-row'))return;
+  var row=document.createElement('div');row.className='pv-game-row';row.setAttribute('aria-label','Игровые контексты исследования');
+  [['D2','DOTA 2','#a98a62'],['CS','CS2','#d8c18b'],['V','VALORANT','#ff5964'],['FN','FORTNITE','#8fd6ff']].forEach(function(game){
+   var item=document.createElement('div');item.className='pv-game-mark';item.style.setProperty('--game-accent',game[2]);
+   var mark=document.createElement('b');mark.textContent=game[0];mark.setAttribute('aria-hidden','true');
+   var label=document.createElement('span');label.textContent=game[1];
+   item.appendChild(mark);item.appendChild(label);row.appendChild(item);
+  });
+  fit.insertBefore(row,fit.firstChild);
+ }
+ function run(){fillBars();addGameMarks();}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
+ window.addEventListener('load',run,{once:true});
+ window.addEventListener('pageshow',run);
+ var observer=new MutationObserver(function(records){
+  if(records.some(function(record){return record.type==='attributes'&&record.attributeName==='class';}))fillBars();
+ });
+ document.querySelectorAll('.screen').forEach(function(slide){observer.observe(slide,{attributes:true,attributeFilter:['class']});});
+})();
+</script>
+</body>
 </html>
