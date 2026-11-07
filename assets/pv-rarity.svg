@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" fill="none">
+<defs><linearGradient id="cr" x1="180" y1="90" x2="590" y2="410" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD79A"/><stop offset=".48" stop-color="#FFBF69"/><stop offset="1" stop-color="#9B7BFF"/></linearGradient><radialGradient id="halo"><stop stop-color="#FFBF69" stop-opacity=".34"/><stop offset="1" stop-color="#FFBF69" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="380" cy="260" rx="280" ry="205" fill="url(#halo)"/>
+<circle cx="380" cy="250" r="190" stroke="#FFBF69" stroke-opacity=".2" stroke-dasharray="3 12"/><circle cx="380" cy="250" r="145" stroke="#9B7BFF" stroke-opacity=".28"/>
+<path d="m220 330 35-175 125 85 125-85 35 175H220Z" fill="#2B251B" stroke="url(#cr)" stroke-width="5" stroke-linejoin="round"/>
+<path d="m255 155 65 175m185-175-65 175M220 330h320" stroke="#FFD79A" stroke-opacity=".65" stroke-width="3"/>
+<path d="m380 70 18 36 40 6-29 28 7 40-36-19-36 19 7-40-29-28 40-6 18-36Z" fill="#FFBF69" stroke="#FFE1AE" stroke-width="3"/>
+<circle cx="255" cy="155" r="14" fill="#9B7BFF" stroke="#C3ADFF" stroke-width="3"/><circle cx="505" cy="155" r="14" fill="#66DFC4" stroke="#9DF0DE" stroke-width="3"/>
+<rect x="286" y="356" width="188" height="54" rx="27" fill="#161A27" stroke="#FFBF69" stroke-opacity=".6"/><text x="380" y="390" fill="#FFD79A" font-family="Arial,sans-serif" font-size="16" text-anchor="middle" letter-spacing="4">RARITY ≠ VALUE</text>
+<path d="M95 420h570" stroke="#9B7BFF" stroke-opacity=".25" stroke-dasharray="4 10"/>
+</svg>
