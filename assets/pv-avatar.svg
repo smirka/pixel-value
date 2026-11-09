@@ -1,11 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="pv-avatar-title pv-avatar-desc">
 <title id="pv-avatar-title">Цифровая идентичность</title><desc id="pv-avatar-desc">Силуэт игрового аватара в геометрической рамке</desc>
-<defs><linearGradient id="pv-avatar-line" x1="40" y1="28" x2="214" y2="224" gradientUnits="userSpaceOnUse"><stop stop-color="#bca5ff"/><stop offset="1" stop-color="#31dec5"/></linearGradient></defs>
+<defs><linearGradient id="pv-avatar-line" x1="40" y1="28" x2="214" y2="224" gradientUnits="userSpaceOnUse"><stop stop-color="#e0d7ff"/><stop offset=".48" stop-color="#9e82ff"/><stop offset="1" stop-color="#31dec5"/></linearGradient><linearGradient id="pv-avatar-glass" x1="96" y1="91" x2="161" y2="142" gradientUnits="userSpaceOnUse"><stop stop-color="#ad8cff" stop-opacity=".72"/><stop offset=".55" stop-color="#513d7a" stop-opacity=".82"/><stop offset="1" stop-color="#142735"/></linearGradient><linearGradient id="pv-avatar-coat" x1="87" y1="163" x2="171" y2="207" gradientUnits="userSpaceOnUse"><stop stop-color="#1d3f4a"/><stop offset="1" stop-color="#111a2c"/></linearGradient></defs>
 <rect x="24" y="24" width="208" height="208" rx="48" fill="#0b101a" stroke="#253248" stroke-width="2"/>
 <path d="M56 78V58h20m104 0h20v20m0 100v20h-20m-104 0H56v-20" stroke="#31dec5" stroke-width="4" stroke-linecap="round"/>
 <path d="m128 53 35 19 13 44-12 38-36 23-36-23-12-38 13-44 35-19Z" fill="#192335" stroke="url(#pv-avatar-line)" stroke-width="4" stroke-linejoin="round"/>
-<path d="m95 104 33-12 33 12-6 26-27 12-27-12-6-26Z" fill="#30244c" stroke="#bca5ff" stroke-width="3" stroke-linejoin="round"/>
-<path d="M108 116h10m20 0h10" stroke="#75f4df" stroke-width="5" stroke-linecap="round"/>
-<path d="M76 202c6-27 22-42 52-42s46 15 52 42" fill="#152532" stroke="url(#pv-avatar-line)" stroke-width="4" stroke-linecap="round"/>
+<path d="m95 104 33-12 33 12-6 26-27 12-27-12-6-26Z" fill="url(#pv-avatar-glass)" stroke="#c1a8ff" stroke-width="3" stroke-linejoin="round"/>
+<path d="m101 105 27-9 27 9-27 5-27-5Z" fill="#f0eaff" fill-opacity=".3"/><path d="m128 110 25-5-5 21-20 9v-25Z" fill="#c0aaff" fill-opacity=".22"/>
+<path d="M108 116h10m20 0h10" stroke="#a9fff0" stroke-width="5" stroke-linecap="round"/><path d="M109 114h8m22 0h8" stroke="#fff" stroke-opacity=".72" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76 202c6-27 22-42 52-42s46 15 52 42" fill="url(#pv-avatar-coat)" stroke="url(#pv-avatar-line)" stroke-width="4" stroke-linecap="round"/>
+<path d="M91 174c10-7 22-10 37-10s28 3 38 10" stroke="#9bf4e5" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
 <path d="m111 181 17 15 17-15" stroke="#bca5ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

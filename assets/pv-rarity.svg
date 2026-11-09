@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="pv-rarity-title pv-rarity-desc">
 <title id="pv-rarity-title">Редкость и признание</title><desc id="pv-rarity-desc">Огранённый кристалл в медальоне с лентами</desc>
-<defs><linearGradient id="pv-rarity-line" x1="61" y1="40" x2="197" y2="212" gradientUnits="userSpaceOnUse"><stop stop-color="#bca5ff"/><stop offset="1" stop-color="#31dec5"/></linearGradient></defs>
+<defs><linearGradient id="pv-rarity-line" x1="61" y1="40" x2="197" y2="212" gradientUnits="userSpaceOnUse"><stop stop-color="#fff0ca"/><stop offset=".42" stop-color="#d4a24f"/><stop offset=".7" stop-color="#a77bff"/><stop offset="1" stop-color="#31dec5"/></linearGradient><linearGradient id="pv-rarity-gem" x1="88" y1="86" x2="170" y2="153" gradientUnits="userSpaceOnUse"><stop stop-color="#f8e6ff"/><stop offset=".34" stop-color="#a77bff"/><stop offset=".7" stop-color="#57339a"/><stop offset="1" stop-color="#1a3442"/></linearGradient></defs>
 <rect x="24" y="24" width="208" height="208" rx="48" fill="#0b101a" stroke="#253248" stroke-width="2"/>
 <path d="m88 155-12 55 32-15 20 18 9-56m-7 2 18 53 18-20 28 9-20-54" fill="#152532" stroke="#4f6f78" stroke-width="3" stroke-linejoin="round"/>
 <path d="m128 43 24 10 26-1 12 24 20 17-6 26 4 25-22 15-13 23-26-3-25 8-20-17-25-6-6-25-17-21 11-23 2-26 25-9 21-17Z" fill="#162236" stroke="url(#pv-rarity-line)" stroke-width="4" stroke-linejoin="round"/>
-<path d="m102 87 52 0 16 24-42 43-42-43 16-24Z" fill="#30244c" stroke="#bca5ff" stroke-width="3" stroke-linejoin="round"/>
-<path d="m102 87 26 67 26-67m-68 24h84m-42-24-12 24m12-24 12 24" stroke="#75f4df" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="m102 87 52 0 16 24-42 43-42-43 16-24Z" fill="url(#pv-rarity-gem)" stroke="#eed4ff" stroke-width="3" stroke-linejoin="round"/>
+<path d="m102 87 26 67 26-67m-68 24h84m-42-24-12 24m12-24 12 24" stroke="#b9fff2" stroke-opacity=".82" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="m102 91 23 1-10 16-23 2 10-19Z" fill="#fff" fill-opacity=".35"/><path d="m130 92 21-1-11 17-18 1 8-17Z" fill="#f8e9ff" fill-opacity=".22"/><path d="m91 113 22-2 11 37-33-35Z" fill="#31dec5" fill-opacity=".22"/>
 <path d="M70 60v-9m-5 4h10m113 121v-9m-5 4h10" stroke="#31dec5" stroke-width="3" stroke-linecap="round"/>
 </svg>

@@ -382,16 +382,25 @@ body.explore .stage{--fs-0:10px;--fs-1:11.5px;--fs-2:14.5px;--fs-3:17px;--fs-4:2
 body.explore .h-t{font-size:clamp(38px,9.2vw,118px)}
 
 /* ══════════ СЛОИ ══════════ */
-.ov{position:fixed;inset:0;z-index:95;background:rgba(5,6,10,.97);-webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px);display:none;overflow:auto;padding:74px 22px 36px}
+.ov{position:fixed;inset:0;z-index:95;background:radial-gradient(ellipse at 50% -15%,rgba(91,120,205,.18),transparent 48%),rgba(5,7,14,.91);-webkit-backdrop-filter:blur(30px) saturate(135%);backdrop-filter:blur(30px) saturate(135%);display:none;overflow:auto;padding:74px 22px 36px;overscroll-behavior:contain}
 .ov.on{display:block;animation:fu .4s var(--eo)}
 .ov-h{max-width:1440px;margin:0 auto 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .ov-t{font-size:clamp(21px,3.1vw,37px);font-weight:800;letter-spacing:-.028em}
-.ov-g{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(186px,1fr));gap:13px}
-.ov-c{aspect-ratio:16/9;background:linear-gradient(158deg,rgba(30,34,52,.92),rgba(9,11,18,.97));border:1px solid var(--line);border-radius:11px;padding:13px;text-align:left;transition:all .38s var(--eo);position:relative;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.4);display:flex;flex-direction:column;justify-content:flex-end}
+.ov-g{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:15px}
+.ov-c{aspect-ratio:16/9;background:linear-gradient(158deg,rgba(30,34,52,.92),rgba(9,11,18,.97));border:1px solid rgba(186,202,255,.2);border-radius:13px;padding:13px;text-align:left;transition:transform .3s var(--eo),border-color .25s,box-shadow .3s;position:relative;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,.36),0 1px 0 rgba(255,255,255,.12) inset;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;--px:50%;--py:25%}
+.ov-c:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.85;background:radial-gradient(ellipse at var(--px) var(--py),color-mix(in srgb,var(--ac,var(--purple)) 27%,transparent),transparent 58%),linear-gradient(155deg,rgba(255,255,255,.09),transparent 42%)}
 .ov-c::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--ac,var(--purple)),transparent);opacity:.5}
-.ov-c:hover{transform:translateY(-4px);border-color:var(--ac)}
+.ov-c:hover,.ov-c:focus-visible{transform:translateY(-4px);border-color:color-mix(in srgb,var(--ac) 72%,#fff);box-shadow:0 22px 42px rgba(0,0,0,.45),0 0 26px color-mix(in srgb,var(--ac) 24%,transparent),0 1px 0 rgba(255,255,255,.2) inset;outline:none}
 .ov-c.on{border-color:var(--green);box-shadow:0 0 0 1px rgba(0,255,156,.3)}
-.ov-c .n{position:absolute;top:9px;left:13px;font-family:var(--mono);font-size:19px;font-weight:800;color:var(--line2);line-height:1;transition:color .3s}
+.ov-c .mini{position:absolute;inset:0 0 28%;overflow:hidden;opacity:.92;pointer-events:none}
+.ov-c .mini:before{content:"";position:absolute;width:42%;aspect-ratio:1;right:9%;top:14%;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.5),color-mix(in srgb,var(--ac) 72%,#29314f) 29%,rgba(18,22,38,.82) 69%,transparent 72%);filter:drop-shadow(0 8px 12px rgba(0,0,0,.4));transform:rotateX(18deg) rotateY(-18deg);box-shadow:0 0 30px color-mix(in srgb,var(--ac) 34%,transparent)}
+.ov-c .mini:after{content:"";position:absolute;right:4%;top:23%;width:52%;height:52%;border:1px solid color-mix(in srgb,var(--ac) 48%,transparent);border-radius:50%;transform:rotateX(67deg) rotateZ(-18deg);box-shadow:0 0 15px color-mix(in srgb,var(--ac) 25%,transparent)}
+.ov-c[data-i="0"] .mini:before{width:54%;height:90%;right:5%;top:5%;border-radius:47% 43% 20% 25%;background:radial-gradient(ellipse at 50% 40%,rgba(192,175,255,.8),rgba(83,68,157,.52) 47%,transparent 72%)}
+.ov-c[data-i="3"] .mini:before,.ov-c[data-i="4"] .mini:before,.ov-c[data-i="12"] .mini:before{clip-path:polygon(50% 0,91% 23%,100% 68%,68% 100%,26% 91%,0 48%,16% 14%);border-radius:0}
+.ov-c[data-i="13"] .mini:before{background:radial-gradient(circle at 35% 28%,#fff3ca,#f2b856 25%,#6a3db1 51%,rgba(12,13,25,.55) 71%,transparent 74%)}
+.ov-c[data-i="15"] .mini:before{width:38%;height:60%;border:3px solid color-mix(in srgb,var(--ac) 68%,#fff);background:radial-gradient(circle,rgba(80,231,221,.6),transparent 65%);transform:rotate(35deg)}
+.ov-c[data-i="9"] .mini:before,.ov-c[data-i="10"] .mini:before{width:24%;height:42%;right:8%;top:12%;border-radius:48% 48% 38% 38%;background:linear-gradient(130deg,color-mix(in srgb,var(--ac) 72%,#fff),rgba(22,27,43,.42));box-shadow:-52px 12px 0 -2px color-mix(in srgb,var(--ac) 48%,#20243a),-26px 28px 0 -7px rgba(255,255,255,.22),0 8px 14px rgba(0,0,0,.5)}
+.ov-c .n{position:absolute;top:10px;left:13px;font-family:var(--mono);font-size:19px;font-weight:800;color:rgba(235,239,255,.62);line-height:1;transition:color .3s;text-shadow:0 1px 10px rgba(0,0,0,.5)}
 .ov-c:hover .n,.ov-c.on .n{color:var(--green)}
 .ov-c .t{font-size:13px;font-weight:700;line-height:1.26;margin-bottom:3px}
 .ov-c .s{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--muted2);text-transform:uppercase}
@@ -565,6 +574,17 @@ body.lowfx .orb{animation:none}
  .cd-x,.kpi-d,.sdt-d,.sub,.vc-q,.lim-d,.co-x,.br-l,.lg-i .lb,.eth-d,.mini-t,.mono-s,.cmp li,.tlstep .d{color:#333!important}
  .ghost,.wash{display:none}
 }
+
+/* Liquid glass highlights: restrained rim light and a clean, slower specular pass. */
+.card,.kpi,.sdt,.cmp-s,.co,.tlstep,.vc,.eth,.src,.ov-map,.ov-c,.help-i,.pr-box,.pr-notes{position:relative;isolation:isolate}
+.card:after,.kpi:after,.sdt:after,.cmp-s:after,.co:after,.tlstep:after,.vc:after,.eth:after,.src:after,.ov-map:after,.pr-box:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:.56;background:linear-gradient(125deg,rgba(255,255,255,.12),transparent 21% 76%,rgba(143,167,255,.045));mask:linear-gradient(#000,transparent 44%);z-index:0}
+.ov-c:after{z-index:-1}
+.top{box-shadow:0 1px 0 rgba(255,255,255,.12),0 10px 34px rgba(0,0,0,.18)}
+.ov-map{background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025) 44%,rgba(0,0,0,.24));border-color:rgba(204,217,255,.22);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 22px 55px rgba(0,0,0,.3)}
+@media(max-width:760px){.ov{padding:64px 14px calc(26px + env(safe-area-inset-bottom))}.ov-h{margin-bottom:14px}.ov-g{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ov-c{min-height:118px;padding:10px;border-radius:11px}.ov-c .t{font-size:11px}.ov-c .s{font-size:7px}.ov-map{padding:14px;margin-bottom:16px}.mapflow{gap:6px}.mapnode{font-size:8px;padding:7px 10px}.maparr{font-size:9px}}
+@media(max-width:360px){.ov-g{grid-template-columns:1fr}.ov-c{min-height:145px}}
+@media(prefers-reduced-motion:reduce){.ov-c{animation:none!important;transition-duration:.01ms!important}}
+html.low-perf .card:after,html.low-perf .kpi:after,html.low-perf .sdt:after,html.low-perf .cmp-s:after,html.low-perf .co:after,html.low-perf .tlstep:after,html.low-perf .vc:after,html.low-perf .eth:after,html.low-perf .src:after{opacity:.24}
 
 /* Compact game-context examples on the monetization slide */
 .game-examples{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-2)}
@@ -777,7 +797,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 @media(prefers-reduced-motion:reduce){.pv-3d-art{animation:none!important;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}}
 @media print{.pv-3d-art{display:none!important}}
 
-</style><link rel="stylesheet" href="editorial.css?v=20261109-rune"/>
+</style><link rel="stylesheet" href="editorial.css?v=20261109-3d-map"/>
 </head>
 <body>
 <a class="skip" href="#stage">Перейти к содержимому</a>
@@ -1066,7 +1086,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <div class="visual-lead">
   <div class="hd rv"><span class="chip" style="--ac:var(--amber)">09 / Результаты · редкость и статус</span><span class="tagline">Знаменатель — все 18 участников</span></div>
   <h1 class="tt rv" style="--d:60ms">Связывают ли редкий скин<br><span class="ac sweep">со статусом?</span></h1>
-<figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-rare-relic.png" alt="Редкий коллекционный предмет в витрине" loading="lazy" decoding="async"/></figure>
+ <figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-amethyst-medallion-3d.png" alt="" loading="lazy" decoding="async"/></figure>
 </div><!--/visual-lead-->
   <div class="gap-s"></div>
   <div class="g g2">
@@ -1189,13 +1209,12 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <section class="screen" id="s13" data-i="13" data-title="Что стоит за покупкой" data-tag="Факторы" data-ac="#9b7bff" data-ac2="#66dfc4" role="group" aria-roledescription="кадр" aria-label="13 · Факторы ценности"
  data-notes="Ценность формируют три фактора: дефицит, спрос и символический смысл. Редкость сама по себе не гарантирует высокую цену — важен контекст конкретной игры.">
  <div class="wash"></div><div class="ghost" aria-hidden="true">13</div>
- <div class="pv-3d-art pv-3d-value" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div><div class="pv-3d-art pv-3d-rune" aria-hidden="true"><span class="rune-model"><span class="rune-stone"><span class="rune-glyph">ᛟ</span></span></span></div>
  <div class="fitwrap"><div class="fitbox editorial-with-art">
 <div class="visual-lead">
   <div class="hd rv"><span class="chip">13 / Что стоит за покупкой</span><span class="tagline">Supply · Demand · Meaning</span></div>
   <h1 class="tt rv" style="--d:60ms">Не каждый предмет<br><span class="ac sweep">продаёт одно и то же.</span></h1>
   <p class="sub rv" style="--d:130ms">Ценность формируется сразу несколькими факторами. <span class="key p">Редкость сама по себе не гарантирует высокую цену</span>: важны спрос и контекст конкретной игры.</p>
-<figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-collectibles.png" alt="Кристалл и эмблема как примеры цифровой косметики" loading="lazy" decoding="async"/></figure>
+<figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-collectible-trio-3d.png" alt="" loading="lazy" decoding="async"/></figure>
 </div><!--/visual-lead-->
   <div class="gap"></div>
   <div class="g g3">
@@ -1253,7 +1272,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <div class="visual-lead">
   <div class="hd rv"><span class="chip" style="--ac:var(--amber)">15 / После покупки</span><span class="tagline">Покупка — не конец истории</span></div>
   <h1 class="tt rv" style="--d:60ms">Пять этапов <span class="ac sweep">жизни предмета.</span></h1>
-<figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-item-journey.png" alt="Цифровой предмет как часть личной истории" loading="lazy" decoding="async"/></figure>
+<figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-orbital-relic-3d.png" alt="" loading="lazy" decoding="async"/></figure>
 </div><!--/visual-lead-->
   <div class="gap-s"></div>
   <div class="tlflow">
@@ -1781,9 +1800,10 @@ function buildNav(){
       c.type='button';
       c.className='ov-c';
       c.setAttribute('data-go',String(k));
+      c.setAttribute('data-i',String(k));
       c.style.setProperty('--ac',m.ac);
       c.setAttribute('aria-label','Кадр '+pad2(k)+': '+m.title);
-      c.innerHTML='<span class="n">'+pad2(k)+'</span><span class="t">'+m.title+'</span><span class="s">'+m.tag+'</span>';
+      c.innerHTML='<span class="mini" aria-hidden="true"></span><span class="n">'+pad2(k)+'</span><span class="t">'+m.title+'</span><span class="s">'+m.tag+'</span>';
       ov.appendChild(c);
     });
   }
@@ -2439,7 +2459,7 @@ function closeLayers(){
     releaseTrap();
     return true;
   }
-  if(ov&&ov.classList.contains('on')){ ov.classList.remove('on'); closed=true; }
+  if(ov&&ov.classList.contains('on')){ ov.classList.remove('on'); ov.setAttribute('aria-hidden','true'); closed=true; }
   if(mm&&mm.classList.contains('on')){
     mm.classList.remove('on');
     var bg=$('#burger'); if(bg){ bg.setAttribute('aria-expanded','false'); }
@@ -2458,11 +2478,15 @@ function toggleOv(force){
   if(v){
     closeLayers();
     o.classList.add('on');
+    o.setAttribute('aria-hidden','false');
     document.body.classList.add('locked');
     trapFocus(o);
     history.pushState(null,'','#overview');
+    update();
+    var current=$('#ovGrid .ov-c.on'); if(current){ current.scrollIntoView({block:'nearest'}); }
   } else {
     o.classList.remove('on');
+    o.setAttribute('aria-hidden','true');
     document.body.classList.remove('locked');
     releaseTrap();
     history.replaceState(null,'',(S.mode==='docs')?('#docs/'+S.tab):('#'+META[S.i].id));
@@ -3267,8 +3291,15 @@ function onClick(e){
   var g=t.closest('[data-go]');
   if(g){
     e.preventDefault();
+    var targetIndex=parseInt(g.getAttribute('data-go'),10);
+    if(g.classList.contains('ov-c')){
+      toggleOv(false);
+      go(targetIndex);
+      history.replaceState(null,'','#'+META[targetIndex].id);
+      return;
+    }
     closeLayers();
-    go(parseInt(g.getAttribute('data-go'),10));
+    go(targetIndex);
     return;
   }
 

@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="pv-community-title pv-community-desc">
 <title id="pv-community-title">Связь с сообществом</title><desc id="pv-community-desc">Три игрока соединены общим знаком</desc>
-<defs><linearGradient id="pv-community-line" x1="35" y1="45" x2="220" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#bca5ff"/><stop offset="1" stop-color="#31dec5"/></linearGradient></defs>
+<defs><linearGradient id="pv-community-line" x1="35" y1="45" x2="220" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#e0d7ff"/><stop offset=".52" stop-color="#9e82ff"/><stop offset="1" stop-color="#31dec5"/></linearGradient><linearGradient id="pv-community-core" x1="108" y1="131" x2="148" y2="175" gradientUnits="userSpaceOnUse"><stop stop-color="#eedfff"/><stop offset=".5" stop-color="#9473ed"/><stop offset="1" stop-color="#45d8c5"/></linearGradient><radialGradient id="pv-community-light" cx="0" cy="0" r="1" gradientTransform="matrix(0 28 -25 0 120 59)" gradientUnits="userSpaceOnUse"><stop stop-color="#c9fff5"/><stop offset="1" stop-color="#18353b"/></radialGradient></defs>
 <rect x="24" y="24" width="208" height="208" rx="48" fill="#0b101a" stroke="#253248" stroke-width="2"/>
 <path d="m79 131 49-47 49 47m-93 34h88" stroke="#42516b" stroke-width="3" stroke-linecap="round"/>
-<circle cx="128" cy="69" r="19" fill="#182f36" stroke="#75f4df" stroke-width="4"/>
+<circle cx="128" cy="69" r="19" fill="url(#pv-community-light)" stroke="#a7fff1" stroke-width="4"/><path d="M119 61c3-5 8-7 13-6" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
 <path d="M96 115c3-19 13-28 32-28s29 9 32 28" fill="#182f36" stroke="#31dec5" stroke-width="4" stroke-linecap="round"/>
-<circle cx="65" cy="142" r="17" fill="#2c2342" stroke="#bca5ff" stroke-width="4"/>
+<circle cx="65" cy="142" r="17" fill="#382852" stroke="#d0baff" stroke-width="4"/><path d="M59 135c3-3 7-4 11-3" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
 <path d="M39 184c2-18 11-27 26-27s24 9 26 27" fill="#2c2342" stroke="#bca5ff" stroke-width="4" stroke-linecap="round"/>
-<circle cx="191" cy="142" r="17" fill="#182f36" stroke="#75f4df" stroke-width="4"/>
+<circle cx="191" cy="142" r="17" fill="#193b40" stroke="#8cfae7" stroke-width="4"/><path d="M185 135c3-3 7-4 11-3" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
 <path d="M165 184c2-18 11-27 26-27s24 9 26 27" fill="#182f36" stroke="#31dec5" stroke-width="4" stroke-linecap="round"/>
-<path d="m128 131 19 11v22l-19 11-19-11v-22l19-11Z" fill="#152532" stroke="url(#pv-community-line)" stroke-width="3"/>
+<path d="m128 131 19 11v22l-19 11-19-11v-22l19-11Z" fill="url(#pv-community-core)" stroke="#e4d7ff" stroke-width="3"/><path d="m128 135 14 8-14 8-14-8 14-8Z" fill="#fff" fill-opacity=".27"/>
 <path d="m119 153 6 6 13-14" stroke="#f5f2ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M96 202h64" stroke="#42516b" stroke-width="3" stroke-linecap="round"/>
 </svg>

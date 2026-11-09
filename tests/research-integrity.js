@@ -4,7 +4,7 @@ const {execFileSync}=require('node:child_process');
 const html=fs.readFileSync('index.html','utf8');
 const original=execFileSync('git',['show','c344d631fe7dceb1baafbe5f8d6a5c50551a16ef:index.html'],{encoding:'utf8',maxBuffer:2e6});
 const slides=s=>Array.from(s.matchAll(/<section class="screen"[\s\S]*?<\/section>/g),m=>m[0]);
-const clean=s=>s.replace(/<figure class="editorial-side-art"[\s\S]*?<\/figure>/g,'').replace(/<div class="pv-3d-art pv-3d-rune"[\s\S]*?<\/span><\/span><\/div>/g,'').replace(/<img class="editorial-concept-icon"[^>]*>/g,'').replace(/ editorial-with-art/g,'').replaceAll('Источники · 2025 и материалы','Источники · Материалы').replaceAll('Источники 2025 и материалы','Источники и материалы').replace(/\s+/g,' ').trim();
+const clean=s=>s.replace(/<figure class="editorial-side-art"[\s\S]*?<\/figure>/g,'').replace(/<div class="pv-3d-art pv-3d-(?:rune|value)"[\s\S]*?<\/div>/g,'').replace(/<img class="editorial-concept-icon"[^>]*>/g,'').replace(/ editorial-with-art/g,'').replaceAll('Источники · 2025 и материалы','Источники · Материалы').replaceAll('Источники 2025 и материалы','Источники и материалы').replace(/\s+/g,' ').trim();
 const composed=s=>clean(s.replace('<div class="visual-lead">','').replace('</div><!--/visual-lead-->',''));
 const before=slides(original),after=slides(html);
 assert.equal(after.length,23);
