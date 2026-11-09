@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+<title id="title">Абстрактный стеклянный кристалл</title>
+<desc id="desc">Геометрический кристалл из полупрозрачных фиолетовых, бирюзовых и зелёных граней.</desc>
+<defs>
+ <linearGradient id="glass" x1="18%" y1="5%" x2="88%" y2="100%"><stop stop-color="#c3adff" stop-opacity=".92"/><stop offset=".48" stop-color="#66dfc4" stop-opacity=".72"/><stop offset="1" stop-color="#00ff9c" stop-opacity=".68"/></linearGradient>
+ <linearGradient id="left" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".72"/><stop offset="1" stop-color="#9b7bff" stop-opacity=".14"/></linearGradient>
+ <linearGradient id="right" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66dfc4" stop-opacity=".7"/><stop offset="1" stop-color="#080b15" stop-opacity=".45"/></linearGradient>
+ <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter>
+ <radialGradient id="shine"><stop stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="162" cy="272" rx="88" ry="18" fill="#000" opacity=".34" filter="url(#shadow)"/>
+<g stroke="#fff" stroke-opacity=".48" stroke-width="1.4" stroke-linejoin="round">
+ <path d="M160 28 264 91 285 190 208 275 94 258 36 157 73 69Z" fill="url(#glass)"/>
+ <path d="M160 28 161 147 73 69Z" fill="url(#left)"/>
+ <path d="M160 28 264 91 161 147Z" fill="#fff" fill-opacity=".2"/>
+ <path d="M264 91 285 190 161 147Z" fill="url(#right)"/>
+ <path d="M285 190 208 275 161 147Z" fill="#9b7bff" fill-opacity=".28"/>
+ <path d="M208 275 94 258 161 147Z" fill="#66dfc4" fill-opacity=".32"/>
+ <path d="M94 258 36 157 161 147Z" fill="#0a1020" fill-opacity=".28"/>
+ <path d="M36 157 73 69 161 147Z" fill="#fff" fill-opacity=".12"/>
+</g>
+<ellipse cx="118" cy="88" rx="76" ry="54" fill="url(#shine)" transform="rotate(-35 118 88)"/>
+<path d="m92 62 34-20 29 12" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3" stroke-linecap="round"/>
+</svg>
