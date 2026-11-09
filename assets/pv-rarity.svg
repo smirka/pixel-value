@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" fill="none">
-<defs><linearGradient id="cr" x1="180" y1="90" x2="590" y2="410" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD79A"/><stop offset=".48" stop-color="#FFBF69"/><stop offset="1" stop-color="#9B7BFF"/></linearGradient><radialGradient id="halo"><stop stop-color="#FFBF69" stop-opacity=".34"/><stop offset="1" stop-color="#FFBF69" stop-opacity="0"/></radialGradient></defs>
-<ellipse cx="380" cy="260" rx="280" ry="205" fill="url(#halo)"/>
-<circle cx="380" cy="250" r="190" stroke="#FFBF69" stroke-opacity=".2" stroke-dasharray="3 12"/><circle cx="380" cy="250" r="145" stroke="#9B7BFF" stroke-opacity=".28"/>
-<path d="m220 330 35-175 125 85 125-85 35 175H220Z" fill="#2B251B" stroke="url(#cr)" stroke-width="5" stroke-linejoin="round"/>
-<path d="m255 155 65 175m185-175-65 175M220 330h320" stroke="#FFD79A" stroke-opacity=".65" stroke-width="3"/>
-<path d="m380 70 18 36 40 6-29 28 7 40-36-19-36 19 7-40-29-28 40-6 18-36Z" fill="#FFBF69" stroke="#FFE1AE" stroke-width="3"/>
-<circle cx="255" cy="155" r="14" fill="#9B7BFF" stroke="#C3ADFF" stroke-width="3"/><circle cx="505" cy="155" r="14" fill="#66DFC4" stroke="#9DF0DE" stroke-width="3"/>
-<rect x="286" y="356" width="188" height="54" rx="27" fill="#161A27" stroke="#FFBF69" stroke-opacity=".6"/><text x="380" y="390" fill="#FFD79A" font-family="Arial,sans-serif" font-size="16" text-anchor="middle" letter-spacing="4">RARITY ≠ VALUE</text>
-<path d="M95 420h570" stroke="#9B7BFF" stroke-opacity=".25" stroke-dasharray="4 10"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="pv-rarity-title pv-rarity-desc">
+<title id="pv-rarity-title">Редкость и признание</title><desc id="pv-rarity-desc">Огранённый кристалл в медальоне с лентами</desc>
+<defs><linearGradient id="pv-rarity-line" x1="61" y1="40" x2="197" y2="212" gradientUnits="userSpaceOnUse"><stop stop-color="#bca5ff"/><stop offset="1" stop-color="#31dec5"/></linearGradient></defs>
+<rect x="24" y="24" width="208" height="208" rx="48" fill="#0b101a" stroke="#253248" stroke-width="2"/>
+<path d="m88 155-12 55 32-15 20 18 9-56m-7 2 18 53 18-20 28 9-20-54" fill="#152532" stroke="#4f6f78" stroke-width="3" stroke-linejoin="round"/>
+<path d="m128 43 24 10 26-1 12 24 20 17-6 26 4 25-22 15-13 23-26-3-25 8-20-17-25-6-6-25-17-21 11-23 2-26 25-9 21-17Z" fill="#162236" stroke="url(#pv-rarity-line)" stroke-width="4" stroke-linejoin="round"/>
+<path d="m102 87 52 0 16 24-42 43-42-43 16-24Z" fill="#30244c" stroke="#bca5ff" stroke-width="3" stroke-linejoin="round"/>
+<path d="m102 87 26 67 26-67m-68 24h84m-42-24-12 24m12-24 12 24" stroke="#75f4df" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M70 60v-9m-5 4h10m113 121v-9m-5 4h10" stroke="#31dec5" stroke-width="3" stroke-linecap="round"/>
 </svg>

@@ -763,7 +763,8 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 @media(prefers-reduced-motion:reduce){.pv-3d-art{animation:none!important;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}}
 @media print{.pv-3d-art{display:none!important}}
 
-</style></head>
+</style><link rel="stylesheet" href="editorial.css"/>
+</head>
 <body>
 <a class="skip" href="#stage">Перейти к содержимому</a>
 
@@ -781,7 +782,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <header class="top">
  <div class="top-in">
   <a class="logo" href="#s0" data-go="0" aria-label="PIXEL / VALUE — в начало">
-   <span class="logo-m" aria-hidden="true">P/V</span>
+   <span class="logo-m" aria-hidden="true"><img src="assets/pv-brand.svg" width="36" height="36" alt=""/></span>
    <span class="logo-t">PIXEL / VALUE<small>ИССЛЕДОВАНИЕ · 2026</small></span>
   </a>
   <svg class="ring" viewBox="0 0 36 36" aria-hidden="true"><circle class="rt" cx="18" cy="18" r="15.5"></circle><circle class="rv2" id="ringV" cx="18" cy="18" r="15.5" stroke-dasharray="97.4" stroke-dashoffset="97.4"></circle></svg>
@@ -817,8 +818,9 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  <div class="fitwrap"><div class="fitbox">
   <div class="hero-in">
    <p class="h-pre"><span class="tw" data-text="СОЦИОЛОГИЯ · UX · ГЕЙМДИЗАЙН / ИССЛЕДОВАНИЕ" data-keep="1">&nbsp;</span></p>
-   <h1 class="h-t" id="htitle">PIXEL<span class="hslash">/</span>VALUE</h1>
-   <p class="h-sub">Почему мы платим за пиксели Виртуальный предмет может не давать ни одной игровой единицы преимущества — и всё равно иметь для игрока настоящую ценность.</p>
+   <p class="editorial-wordmark">PIXEL <span>/</span> VALUE</p>
+   <h1 class="h-t" id="htitle">Почему мы<br>платим<br>за пиксели</h1>
+   <p class="h-sub">Виртуальный предмет может не давать ни одной игровой единицы преимущества — и всё равно иметь для игрока настоящую ценность.</p>
    <p class="h-q"><span class="tw" data-text="&gt; если скин не добавляет урона — за что игрок готов платить" data-keep="1">&nbsp;</span></p>
    <div class="h-btns">
     <button type="button" class="btn pri" data-go="1">Начать исследование →</button>
@@ -832,13 +834,17 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
     <span><i aria-hidden="true"></i>2026</span>
    </div>
   </div>
+  <figure class="editorial-portrait">
+   <img src="assets/pv-identity-portrait.png" width="1086" height="1448" alt="Оригинальный игровой персонаж в фиолетовом костюме — пример цифрового образа" fetchpriority="high" decoding="async"/>
+   <figcaption>Внешность. Идентичность. Ценность.</figcaption>
+  </figure>
  </div></div>
 </section>
 
 <section class="screen" id="s1" data-i="1" data-title="Парадокс" data-tag="Парадокс" data-ac="#9b7bff" data-ac2="#c3adff" role="group" aria-roledescription="кадр" aria-label="01 · Парадокс"
  data-notes="Ключевой кадр-крючок. Предмет меняет не игру, а ощущение себя. Три сигнала: стиль, достижение, принадлежность. Подчеркните: это возможные мотивы, а не универсальное объяснение для всех игроков.">
  <div class="wash"></div><div class="ghost" aria-hidden="true">01</div>
- <div class="fitwrap"><div class="fitbox">
+ <div class="fitwrap"><div class="fitbox editorial-with-art">
   <div class="hd rv"><span class="chip">01 / Парадокс</span><span class="tagline">The value is not only functional</span></div>
   <h1 class="tt rv" style="--d:60ms">У скина нет урона.<br><span class="ac sweep">Но у него есть значение.</span></h1>
   <p class="sub rv" style="--d:130ms">Косметический предмет работает как <span class="key">сигнал</span>: «это мой стиль», «я чего-то достиг», «я часть команды». Поэтому покупка может быть не столько про функцию, сколько про <span class="key p">смысл</span>.</p>
@@ -850,6 +856,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   </div>
   <div class="gap"></div>
   <div class="co rv" style="--d:250ms"><div class="co-l">Главная мысль</div><div class="co-x">Предмет меняет не игру. <span class="key">Он может менять ощущение себя.</span></div></div>
+ <figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-player-choice.png" alt="Личный выбор игрового образа" loading="lazy" decoding="async"/></figure>
  </div></div>
 </section>
 
@@ -879,9 +886,9 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   <p class="sub rv" style="--d:130ms">Теория самоопределения описывает три базовые психологические потребности. Это <span class="key p">рамка для интерпретации мотивов</span> — не утверждение, что любой скин автоматически их удовлетворяет.</p>
   <div class="gap"></div>
   <div class="g g3">
-   <article class="sdt rv" style="--ac:var(--purple);--d:0ms"><div class="sdt-n">01 / Autonomy</div><h2 class="sdt-t">Автономия</h2><div class="sdt-q">«Я выбираю сам»</div><p class="sdt-d">Самовыражение, личный вкус, ощущение собственного выбора.</p></article>
-   <article class="sdt rv" style="--ac:var(--amber);--d:90ms"><div class="sdt-n">02 / Competence</div><h2 class="sdt-t">Компетентность</h2><div class="sdt-q">«Я чего-то достиг»</div><p class="sdt-d">Мастерство, достижение, редкость и признание со стороны других.</p></article>
-   <article class="sdt rv" style="--ac:var(--teal);--d:180ms"><div class="sdt-n">03 / Relatedness</div><h2 class="sdt-t">Связанность</h2><div class="sdt-q">«Я среди своих»</div><p class="sdt-d">Друзья, команда, сообщество и общие символы.</p></article>
+   <article class="sdt rv" style="--ac:var(--purple);--d:0ms"><img class="editorial-concept-icon" src="assets/pv-avatar.svg" width="64" height="64" alt="" aria-hidden="true"/><div class="sdt-n">01 / Autonomy</div><h2 class="sdt-t">Автономия</h2><div class="sdt-q">«Я выбираю сам»</div><p class="sdt-d">Самовыражение, личный вкус, ощущение собственного выбора.</p></article>
+   <article class="sdt rv" style="--ac:var(--amber);--d:90ms"><img class="editorial-concept-icon" src="assets/pv-rarity.svg" width="64" height="64" alt="" aria-hidden="true"/><div class="sdt-n">02 / Competence</div><h2 class="sdt-t">Компетентность</h2><div class="sdt-q">«Я чего-то достиг»</div><p class="sdt-d">Мастерство, достижение, редкость и признание со стороны других.</p></article>
+   <article class="sdt rv" style="--ac:var(--teal);--d:180ms"><img class="editorial-concept-icon" src="assets/pv-community.svg" width="64" height="64" alt="" aria-hidden="true"/><div class="sdt-n">03 / Relatedness</div><h2 class="sdt-t">Связанность</h2><div class="sdt-q">«Я среди своих»</div><p class="sdt-d">Друзья, команда, сообщество и общие символы.</p></article>
   </div>
  </div></div>
 </section>
@@ -890,7 +897,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  data-notes="Концепция Belk: виртуальная вещь становится частью «Я». Обязательно оговорите: в опросе эта концепция отдельно не измерялась, это концептуальная схема, а не причинная цепочка.">
  <div class="wash" style="--washc:rgba(102,223,196,.11)"></div><div class="ghost" aria-hidden="true">04</div>
  <div class="pv-3d-art pv-3d-identity" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div>
- <div class="fitwrap"><div class="fitbox">
+ <div class="fitwrap"><div class="fitbox editorial-with-art">
   <div class="hd rv"><span class="chip" style="--ac:var(--teal)">04 / Цифровая идентичность</span><span class="tagline">Extended Self · Belk, 2013</span></div>
   <h1 class="tt rv" style="--d:60ms">Виртуальная вещь<br><span class="ac sweep">может стать частью «Я».</span></h1>
   <p class="sub rv" style="--d:130ms">Концепция «расширенного Я» объясняет, почему цифровое владение может иметь личный смысл: предмет связывается со вкусом, памятью, уникальностью и образом, который человек хочет показать.</p>
@@ -902,6 +909,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   </div>
   <div class="gap"></div>
   <div class="co warn rv"><div class="co-l">Оговорка</div><div class="co-x">Это <span class="key a">концептуальная схема</span>, а не доказанная причинная цепочка. В опросе концепция Belk отдельно не измерялась.</div></div>
+ <figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-digital-self.png" alt="Цифровой образ и отражение идентичности" loading="lazy" decoding="async"/></figure>
  </div></div>
 </section>
 
@@ -1034,7 +1042,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <section class="screen" id="s9" data-i="9" data-title="Результаты · Редкость и статус" data-tag="Редкость" data-ac="#ffbf69" data-ac2="#ffd79a" role="group" aria-roledescription="кадр" aria-label="09 · Результаты, редкость и статус"
  data-notes="Редкость и статус: да 7 из 18, нет 6 из 18, затрудняюсь 5 из 18. Ответы не подтверждают однозначную связь для большинства: нет и затрудняюсь вместе дают 11 из 18.">
  <div class="wash" style="--washc:rgba(255,191,105,.1)"></div><div class="ghost" aria-hidden="true">09</div>
- <div class="fitwrap"><div class="fitbox">
+ <div class="fitwrap"><div class="fitbox editorial-with-art">
   <div class="hd rv"><span class="chip" style="--ac:var(--amber)">09 / Результаты · редкость и статус</span><span class="tagline">Знаменатель — все 18 участников</span></div>
   <h1 class="tt rv" style="--d:60ms">Связывают ли редкий скин<br><span class="ac sweep">со статусом?</span></h1>
   <div class="gap-s"></div>
@@ -1076,13 +1084,14 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
     </div>
    </article>
   </div>
+ <figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-rare-relic.png" alt="Редкий коллекционный предмет в витрине" loading="lazy" decoding="async"/></figure>
  </div></div>
 </section>
 
 <section class="screen" id="s10" data-i="10" data-title="Результаты · Влияние друзей" data-tag="Социум" data-ac="#66dfc4" data-ac2="#9df0de" role="group" aria-roledescription="кадр" aria-label="10 · Результаты, влияние друзей"
  data-notes="Влияние друзей: сильно 3 из 18, иногда 7 из 18, не влияют 8 из 18. Самая частая категория — «не влияют», но «иногда» почти так же распространено.">
  <div class="wash" style="--washc:rgba(102,223,196,.11)"></div><div class="ghost" aria-hidden="true">10</div>
- <div class="fitwrap"><div class="fitbox">
+ <div class="fitwrap"><div class="fitbox editorial-with-art">
   <div class="hd rv"><span class="chip" style="--ac:var(--teal)">10 / Результаты · социальное влияние</span><span class="tagline">Знаменатель — все 18 участников</span></div>
   <h1 class="tt rv" style="--d:60ms">Насколько друзья<br><span class="ac sweep">влияют на покупку?</span></h1>
   <div class="gap-s"></div>
@@ -1107,6 +1116,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
     <p class="mono-s" style="margin-top:var(--sp-2)">Этот вопрос задавался всем 18 участникам, а не только покупателям. Поэтому его нельзя напрямую сравнивать с мотивом «влияние друзей» среди 10 покупателей.</p>
    </article>
   </div>
+ <figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-community-scene.png" alt="Общие образы и принадлежность к игровой команде" loading="lazy" decoding="async"/></figure>
  </div></div>
 </section>
 
@@ -1154,7 +1164,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  data-notes="Ценность формируют три фактора: дефицит, спрос и символический смысл. Редкость сама по себе не гарантирует высокую цену — важен контекст конкретной игры.">
  <div class="wash"></div><div class="ghost" aria-hidden="true">13</div>
  <div class="pv-3d-art pv-3d-value" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div>
- <div class="fitwrap"><div class="fitbox">
+ <div class="fitwrap"><div class="fitbox editorial-with-art">
   <div class="hd rv"><span class="chip">13 / Что стоит за покупкой</span><span class="tagline">Supply · Demand · Meaning</span></div>
   <h1 class="tt rv" style="--d:60ms">Не каждый предмет<br><span class="ac sweep">продаёт одно и то же.</span></h1>
   <p class="sub rv" style="--d:130ms">Ценность формируется сразу несколькими факторами. <span class="key p">Редкость сама по себе не гарантирует высокую цену</span>: важны спрос и контекст конкретной игры.</p>
@@ -1166,13 +1176,14 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   </div>
   <div class="gap"></div>
   <div class="co rv"><div class="co-l">Почему это важно</div><div class="co-x">Один и тот же предмет может быть ценным по разным причинам: кому-то важен <span class="key p">внешний вид</span>, кому-то — <span class="key a">редкость</span>, кому-то — <span class="key">принадлежность к сообществу</span>. Эти мотивы могут сочетаться.</div></div>
+ <figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-collectibles.png" alt="Кристалл и эмблема как примеры цифровой косметики" loading="lazy" decoding="async"/></figure>
  </div></div>
 </section>
 
 <section class="screen" id="s14" data-i="14" data-title="Косметика и Pay-to-Win" data-tag="Монетизация" data-ac="#ff7d91" data-ac2="#9b7bff" role="group" aria-roledescription="кадр" aria-label="14 · Два типа монетизации"
  data-notes="Два типа монетизации. Косметика меняет внешний вид, Pay-to-Win меняет результат. Обязательно упомяните серую зону: косметика может влиять на читаемость силуэта.">
  <div class="wash" style="--washc:rgba(255,125,145,.1)"></div><div class="ghost" aria-hidden="true">14</div>
- <div class="fitwrap"><div class="fitbox">
+ <div class="fitwrap"><div class="fitbox editorial-with-art">
   <div class="hd rv"><span class="chip" style="--ac:var(--red)">14 / Два типа монетизации</span><span class="tagline">Cosmetic vs Pay-to-Win</span></div>
   <h1 class="tt rv" style="--d:60ms">Косметика <span class="ac sweep">или Pay-to-Win?</span></h1>
   <div class="gap-s"></div>
@@ -1201,6 +1212,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
    <article class="game-example" style="--game-ac:#66dfc4"><div class="game-name">Fortnite</div><p>Epic подтверждает: образы не меняют хитбоксы и не дают конкурентного преимущества.</p><span class="game-kind">Косметика</span></article>
   </div>
   <p class="game-foot rv">Важно: эти игры приведены как контексты для разговора о косметике, а не как утверждение, что каждая из них использует Pay-to-Win. P2W — это покупка, дающая измеримое преимущество в игровом процессе.</p>
+ <figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-avatar-wardrobe.png" alt="Косметический костюм на выставочном манекене" loading="lazy" decoding="async"/></figure>
  </div></div>
 </section>
 
@@ -1208,7 +1220,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  data-notes="Пять этапов жизни предмета у владельца: ожидание, покупка, использование, привыкание, оценка. Отдельный риск — боевой пропуск и ощущение обязательства.">
  <div class="wash" style="--washc:rgba(255,191,105,.1)"></div><div class="ghost" aria-hidden="true">15</div>
  <div class="pv-3d-art pv-3d-cycle" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div>
- <div class="fitwrap"><div class="fitbox">
+ <div class="fitwrap"><div class="fitbox editorial-with-art">
   <div class="hd rv"><span class="chip" style="--ac:var(--amber)">15 / После покупки</span><span class="tagline">Покупка — не конец истории</span></div>
   <h1 class="tt rv" style="--d:60ms">Пять этапов <span class="ac sweep">жизни предмета.</span></h1>
   <div class="gap-s"></div>
@@ -1225,6 +1237,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   </div>
   <div class="gap"></div>
   <div class="co warn rv"><div class="co-l">Отдельный риск</div><div class="co-x">Боевой пропуск и ограниченные по времени награды могут создавать ощущение обязательства: «я уже заплатил — нужно успеть всё открыть». Это <span class="key a">возможный сценарий, а не универсальная реакция</span>.</div></div>
+ <figure class="editorial-side-art" aria-hidden="true"><img src="assets/pv-item-journey.png" alt="Цифровой предмет как часть личной истории" loading="lazy" decoding="async"/></figure>
  </div></div>
 </section>
 
@@ -1332,11 +1345,11 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  </div></div>
 </section>
 
-<section class="screen" id="s22" data-i="22" data-title="Источники · 2025 и материалы" data-tag="Материалы" data-ac="#66dfc4" data-ac2="#00ff9c" role="group" aria-roledescription="кадр" aria-label="22 · Источники 2025 и материалы"
+<section class="screen" id="s22" data-i="22" data-title="Источники · Материалы" data-tag="Материалы" data-ac="#66dfc4" data-ac2="#00ff9c" role="group" aria-roledescription="кадр" aria-label="22 · Источники и материалы"
  data-notes="Вторая часть источников: работы 2025 года, регуляторный документ и примечание о визуальных материалах.">
  <div class="wash" style="--washc:rgba(102,223,196,.11)"></div><div class="ghost" aria-hidden="true">22</div>
  <div class="fitwrap"><div class="fitbox">
-  <div class="hd rv"><span class="chip" style="--ac:var(--teal)">22 / Источники · 2025 и материалы</span><span class="tagline">Свежие работы и регуляторика</span></div>
+  <div class="hd rv"><span class="chip" style="--ac:var(--teal)">22 / Источники · Материалы</span><span class="tagline">Свежие работы и регуляторика</span></div>
   <div class="g g2" id="srcB"></div>
   <div class="gap-s"></div>
   <div class="mono-s rv">Официальные пояснения к примерам: <a href="https://www.dota2.com/spoilsofwar/faq?l=english" target="_blank" rel="noopener noreferrer">Dota 2 · Valve</a> · <a href="https://playvalorant.com/en-gb/news/dev/valorant-store-and-cosmetic-content/" target="_blank" rel="noopener noreferrer">VALORANT · Riot Games</a> · <a href="https://www.epicgames.com/help/c-34254770/c-33726977/do-fortnite-outfits-provide-a-gameplay-advantage-a13997117" target="_blank" rel="noopener noreferrer">Fortnite · Epic Games</a>.</div>
@@ -1839,6 +1852,11 @@ var exitTimers=[];
 function clearExit(){
   for(var i=0;i<exitTimers.length;i++){ clearTimeout(exitTimers[i]); }
   exitTimers=[];
+  // Cancelled callbacks must not leave inline display or transition classes behind.
+  SECT.forEach(function(sec){
+    sec.classList.remove('in-fwd','in-back','out-fwd','out-back');
+    sec.style.display='';
+  });
 }
 function go(k,opt){
   opt=opt||{};
@@ -3358,7 +3376,7 @@ function init(){
     buildSources();
     buildA11yTables();
     buildHelp();
-    initHeroTitle();
+    // Editorial heading is readable immediately; no letter-by-letter reveal.
     initHeroCanvas();
     initLight();
     initTilt();

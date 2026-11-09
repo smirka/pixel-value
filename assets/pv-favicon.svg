@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-<rect x="1" y="1" width="46" height="46" rx="13" fill="#11131d" stroke="#33384b"/>
-<path d="M11 13h12c7 0 11 4 11 10s-4 10-11 10h-4v5h-8V13Zm8 7v6h4c2 0 3-1 3-3s-1-3-3-3h-4Z" fill="#e9e7f4"/>
-<path d="M28 13h9v4h-5v4h4v4h-4v5h-4V13Z" fill="#9b7bff"/>
-<path d="M11 39h26" stroke="#66dfc4" stroke-width="2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-labelledby="pv-favicon-title">
+<title id="pv-favicon-title">PIXEL / VALUE</title>
+<rect width="32" height="32" rx="9" fill="#0b101a"/>
+<path d="M7 8h7c4 0 6 2 6 6s-2 6-6 6h-3v5H7V8Zm4 4v4h3c1 0 2-1 2-2s-1-2-2-2h-3Z" fill="#f5f2ff"/>
+<path d="m23 7 4 0-6 18h-4l6-18Z" fill="#31dec5"/>
 </svg>

@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const h=fs.readFileSync('index.html','utf8');
+const scenes=[...h.matchAll(/<img[^>]*src="(assets\/[^" ]+\.png)"/g)].map(m=>m[1]);
+assert.equal(scenes.length,8,'Eight distinct thematic illustrations across the presentation');
+assert.equal(new Set(scenes).size,scenes.length,'Never reuse a scene illustration');
+for(const p of scenes)assert.ok(fs.existsSync(p),'Artwork exists: '+p);
+assert.match(h,/class="logo-m"[^>]*>[\s\S]*?pv-brand\.svg/,'Header uses the new brand icon');
+assert.match(fs.readFileSync('README.md','utf8'),/Год: \*\*2026\*\*/);
+assert.doesNotMatch(h,/Источники · 2025 и материалы/,'Source section heading is not labelled as the project year');
+console.log('Eight unique illustrations, brand icon and project year verified.');

@@ -1,0 +1,15 @@
+'use strict';
+const fs=require('node:fs'),assert=require('node:assert/strict'),vm=require('node:vm');
+const {execFileSync}=require('node:child_process');
+const html=fs.readFileSync('index.html','utf8');
+const original=execFileSync('git',['show','c344d631fe7dceb1baafbe5f8d6a5c50551a16ef:index.html'],{encoding:'utf8',maxBuffer:2e6});
+const slides=s=>Array.from(s.matchAll(/<section class="screen"[\s\S]*?<\/section>/g),m=>m[0]);
+const clean=s=>s.replace(/<figure class="editorial-side-art"[\s\S]*?<\/figure>/g,'').replace(/<img class="editorial-concept-icon"[^>]*>/g,'').replace(/ editorial-with-art/g,'').replaceAll('Источники · 2025 и материалы','Источники · Материалы').replaceAll('Источники 2025 и материалы','Источники и материалы').replace(/\s+/g,' ').trim();
+const before=slides(original),after=slides(html);
+assert.equal(after.length,23);
+for(let i=1;i<23;i++) assert.equal(clean(after[i]),clean(before[i]),'Research markup unchanged on slide '+i);
+const notes=s=>Array.from(s.matchAll(/data-notes="([^"]*)"/g),m=>m[1]);
+assert.deepEqual(notes(html),notes(original),'All speaker notes preserved');
+for(const m of html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)) new vm.Script(m[1]);
+for(const m of html.matchAll(/(?:src|href)="(assets\/[^"?]+)"/g)) assert.ok(fs.existsSync(m[1]),'Local asset exists: '+m[1]);
+console.log('23 slides, all research/notes unchanged, local assets present, inline JS syntax valid.');
