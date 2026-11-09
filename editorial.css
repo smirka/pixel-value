@@ -1,11 +1,21 @@
 /* Editorial art direction: local artwork, readable hierarchy, restrained movement. */
-:root{--green:#31dec5;--green2:#9cf4e5;--greenD:#16453f;--bg:#0b101a;--dim:#d1d3df;--muted2:#979aaf}
+:root{--green:#31dec5;--green2:#9cf4e5;--greenD:#16453f;--bg:#0b101a;--dim:#d1d3df;--muted2:#979aaf;--rim:rgba(150,181,255,.2);--ambient:rgba(93,74,176,.12)}
 .top{background:rgba(11,16,26,.95)}
 .screen .pv-3d-art{display:none}
+#s4 .pv-3d-identity,#s13 .pv-3d-value,#s15 .pv-3d-cycle{display:block;z-index:2;opacity:.72;pointer-events:none}
+#s4 .pv-3d-identity{right:3%;top:20%;width:clamp(150px,17cqw,255px)}
+#s13 .pv-3d-value{right:4%;top:15%;width:clamp(138px,16cqw,230px)}
+#s15 .pv-3d-cycle{right:2%;top:18%;width:clamp(148px,18cqw,250px)}
+#s4 .pv-3d-identity{--pv3d-a:#76f2df;--pv3d-b:#8574e8;--pv3d-c:#3c285f}
+#s13 .pv-3d-value{--pv3d-a:#ffdb9e;--pv3d-b:#ae77ff;--pv3d-c:#3e244d}
+#s15 .pv-3d-cycle{--pv3d-a:#ffce83;--pv3d-b:#7ae8dd;--pv3d-c:#483278}
 #s0 #hcv,#s0 .wash,#s0 .ghost{display:none}
 #s0 .fitwrap{overflow:visible}
 #s0 .fitbox{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:1.5cqw;width:100%;max-width:1440px;position:relative;isolation:isolate}
 #s0 .hero-in{display:flex;align-items:flex-start;text-align:left;padding:0;border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;max-width:none;height:auto}
+#s0 .editorial-portrait{filter:drop-shadow(0 22px 34px rgba(5,7,14,.6));isolation:isolate}
+#s0 .editorial-portrait:before{content:"";position:absolute;inset:6% 4% 12%;z-index:-1;background:radial-gradient(ellipse at 60% 40%,rgba(126,81,255,.31),rgba(65,208,195,.14) 42%,transparent 72%)}
+#s0 .editorial-portrait img{filter:drop-shadow(0 12px 28px rgba(93,72,172,.18))}
 #s0 .hero-in:before,#s0 .hero-in:after{display:none}
 #s0 .h-pre{display:none;font-size:clamp(9px,1.15cqw,14px);letter-spacing:.18em;margin-bottom:18px}
 .editorial-wordmark{display:none;font-size:clamp(16px,2cqw,26px);font-weight:800;letter-spacing:-.03em;margin-bottom:20px}
@@ -26,6 +36,17 @@
 .logo-m img{display:block;width:36px;height:36px}
 .editorial-concept-icon{width:64px;height:64px;object-fit:contain;display:block;margin:0 0 14px}
 .screen.on .editorial-side-art img{animation:editorialArt 650ms cubic-bezier(.2,.75,.25,1) both}
+/* Soft, layered studio light; no extra raster assets or always-running JS. */
+.screen{--scene-glow:rgba(102,223,196,.12)}
+.screen:after{content:"";position:absolute;inset:var(--top) 0 var(--bot);z-index:0;pointer-events:none;opacity:.72;background:radial-gradient(ellipse 45% 50% at 8% 12%,var(--scene-glow),transparent 72%),radial-gradient(ellipse 30% 42% at 94% 90%,var(--ambient),transparent 70%)}
+.screen>.fitwrap{z-index:1}
+#s0 .fitbox:before{content:"";position:absolute;z-index:-1;top:-15%;right:0;width:52%;height:130%;pointer-events:none;background:radial-gradient(ellipse at 55% 42%,rgba(112,78,255,.22),rgba(49,222,197,.08) 38%,transparent 72%)}
+#s4{--scene-glow:rgba(102,223,196,.16)}
+#s9,#s13,#s15{--scene-glow:rgba(255,191,105,.11)}
+#s10{--scene-glow:rgba(49,222,197,.16)}
+.card,.kpi,.sdt,.cmp-s,.co,.tlstep,.vc,.eth,.src{border-color:var(--rim);background-image:linear-gradient(145deg,rgba(255,255,255,.055),transparent 42%),linear-gradient(158deg,rgba(30,34,52,.94),rgba(12,15,24,.97) 58%,rgba(9,11,18,.98));box-shadow:0 1px 0 rgba(255,255,255,.13) inset,0 -1px 0 rgba(0,0,0,.4) inset,0 12px 28px rgba(0,0,0,.24)}
+.editorial-concept-icon{filter:drop-shadow(0 8px 14px rgba(102,223,196,.16));transition:transform .35s cubic-bezier(.2,.75,.25,1),filter .35s}
+@media(hover:hover) and (pointer:fine){.card:hover,.sdt:hover,.kpi:hover{border-color:rgba(102,223,196,.44);box-shadow:0 1px 0 rgba(255,255,255,.17) inset,0 12px 30px rgba(0,0,0,.28),0 0 26px rgba(102,223,196,.07)}.card:hover .editorial-concept-icon,.sdt:hover .editorial-concept-icon{transform:translateY(-3px) scale(1.035);filter:drop-shadow(0 12px 18px rgba(102,223,196,.25))}}
 @keyframes editorialArt{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
 .screen.in-fwd,.screen.in-back{animation-duration:380ms;animation-timing-function:cubic-bezier(.2,.75,.25,1)}
 .screen.out-fwd,.screen.out-back{animation-duration:220ms}
@@ -39,6 +60,7 @@ body.explore .screen *{animation-play-state:running!important}
 @media(hover:hover) and (pointer:fine){.card:hover,.sdt:hover,.kpi:hover{transform:translateY(-3px);transition-duration:220ms}}
 @media(hover:none){.card:hover,.sdt:hover,.kpi:hover{transform:none}}
 @media(max-width:760px),(orientation:portrait){
+ #s4 .pv-3d-identity,#s13 .pv-3d-value,#s15 .pv-3d-cycle{display:none!important}
  #s0{overflow-y:auto;overscroll-behavior:contain;justify-content:flex-start;padding:24px 20px 35px}
  #s0 .fitwrap{height:auto;display:block;overflow:visible}
  #s0 .fitbox{display:flex;flex-direction:column;align-items:stretch;gap:18px;transform:none!important;width:100%}
@@ -95,8 +117,14 @@ html.low-perf .top,html.low-perf .snav,html.low-perf .modes{background:rgba(11,1
 html.low-perf .screen,.low-perf .screen *,.low-perf .screen *:before,.low-perf .screen *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.12s!important}
 html.low-perf .pv-3d-art{animation:none!important;transform:none!important;filter:none!important}
 html.low-perf .editorial-side-art img{animation:none!important}
+html.low-perf .screen:after{opacity:.38}
+html.low-perf .pv-3d-art:not(.pv-3d-hero) .pv-3d-core,html.low-perf .pv-3d-art:not(.pv-3d-hero) .pv-3d-facet,html.low-perf .pv-3d-art:not(.pv-3d-hero) .pv-3d-glint{display:none}
+html.low-perf .pv-3d-art:not(.pv-3d-hero){animation:none!important}
+html.low-perf .card,html.low-perf .kpi,html.low-perf .sdt,html.low-perf .cmp-s,html.low-perf .co,html.low-perf .tlstep,html.low-perf .vc,html.low-perf .eth,html.low-perf .src{box-shadow:0 1px 0 rgba(255,255,255,.1) inset;border-color:rgba(150,181,255,.18)}
 @media(max-width:760px){.snav button{width:42px;height:42px}.snav{bottom:max(10px,env(safe-area-inset-bottom));max-width:calc(100vw - 20px)}.snav .cnt{min-width:52px}.modes button{min-height:40px;padding:9px 12px}.top{-webkit-backdrop-filter:none;backdrop-filter:none}}
 @media(max-width:760px),(orientation:portrait){
+ .screen:after{opacity:.3}
+ .pv-3d-art:not(.pv-3d-hero){display:none!important}
  .visual-lead,#s1 .visual-lead,#s4 .visual-lead,#s9 .visual-lead,#s10 .visual-lead,#s15 .visual-lead{display:flex;padding:0;min-height:0;margin-bottom:18px}
  .visual-lead .tt{font-size:clamp(27px,6.5vw,40px)}
  .visual-lead .sub{font-size:16px}

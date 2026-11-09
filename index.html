@@ -747,6 +747,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 
 /* PIXEL / VALUE · локальные 3D-акценты. Не влияют на сетку и данные. */
 .pv-3d-art{position:absolute;z-index:1;pointer-events:none;isolation:isolate;width:clamp(142px,18cqw,280px);aspect-ratio:1;transform-style:preserve-3d;opacity:.62;filter:drop-shadow(0 26px 30px rgba(0,0,0,.38));animation:pv3d-float 9s ease-in-out infinite}
+.pv-3d-art img{position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;filter:drop-shadow(0 20px 26px rgba(0,0,0,.35))}
 .pv-3d-art::before{content:"";position:absolute;left:13%;right:13%;bottom:5%;height:16%;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.48),transparent 72%);filter:blur(10px);transform:rotateX(72deg) translateZ(-24px)}
 .pv-3d-core{position:absolute;inset:15%;display:block;transform-style:preserve-3d;clip-path:polygon(50% 0,91% 23%,100% 68%,68% 100%,26% 91%,0 48%,16% 14%);background:linear-gradient(138deg,var(--pv3d-a,#9b7bff),rgba(255,255,255,.2) 28%,var(--pv3d-b,#66dfc4) 58%,var(--pv3d-c,#00ff9c));border:1px solid rgba(255,255,255,.42);box-shadow:inset 16px 8px 24px rgba(255,255,255,.26),inset -18px -16px 28px rgba(0,0,0,.28),0 20px 34px rgba(0,0,0,.3);transform:translateZ(18px) rotateY(-16deg) rotateX(12deg)}
 .pv-3d-facet{position:absolute;display:block;inset:18%;transform-style:preserve-3d;backface-visibility:hidden}
@@ -763,10 +764,11 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 #s0 .fitbox,#s4 .fitbox,#s13 .fitbox,#s15 .fitbox,#s20 .fitbox{position:relative;z-index:2}
 @keyframes pv3d-float{0%,100%{transform:translate3d(0,0,0) rotateX(-9deg) rotateY(15deg) rotateZ(-5deg)}50%{transform:translate3d(0,-12px,10px) rotateX(5deg) rotateY(-10deg) rotateZ(3deg)}}
 @media(max-width:760px),(orientation:portrait){.pv-3d-art{width:132px;opacity:.14;animation:none;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}.pv-3d-hero{right:2%;top:8%;width:138px}.pv-3d-identity{right:0;top:2%;width:104px}.pv-3d-value{right:0;top:8%;width:96px}.pv-3d-cycle{right:0;top:30%;width:112px}.pv-3d-finale{left:calc(50% - 75px);right:auto;top:0;width:150px;transform:none!important}}
+@media(max-width:760px),(orientation:portrait){.pv-3d-art img{inset:0;width:100%;height:100%;filter:drop-shadow(0 10px 14px rgba(0,0,0,.28))}}
 @media(prefers-reduced-motion:reduce){.pv-3d-art{animation:none!important;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}}
 @media print{.pv-3d-art{display:none!important}}
 
-</style><link rel="stylesheet" href="editorial.css?v=20261109-lowperf"/>
+</style><link rel="stylesheet" href="editorial.css?v=20261109-depth"/>
 </head>
 <body>
 <a class="skip" href="#stage">Перейти к содержимому</a>
