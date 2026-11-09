@@ -727,6 +727,28 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
  #s9 .lg-i .lb{min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.25}
  #s9 .lg-i .vl,#s9 .lg-i .pc{white-space:nowrap;min-width:max-content;font-size:11px}
 }
+
+/* PIXEL / VALUE · локальные 3D-акценты. Не влияют на сетку и данные. */
+.pv-3d-art{position:absolute;z-index:1;pointer-events:none;isolation:isolate;width:clamp(142px,18cqw,280px);aspect-ratio:1;transform-style:preserve-3d;opacity:.62;filter:drop-shadow(0 26px 30px rgba(0,0,0,.38));animation:pv3d-float 9s ease-in-out infinite}
+.pv-3d-art::before{content:"";position:absolute;left:13%;right:13%;bottom:5%;height:16%;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.48),transparent 72%);filter:blur(10px);transform:rotateX(72deg) translateZ(-24px)}
+.pv-3d-core{position:absolute;inset:15%;display:block;transform-style:preserve-3d;clip-path:polygon(50% 0,91% 23%,100% 68%,68% 100%,26% 91%,0 48%,16% 14%);background:linear-gradient(138deg,var(--pv3d-a,#9b7bff),rgba(255,255,255,.2) 28%,var(--pv3d-b,#66dfc4) 58%,var(--pv3d-c,#00ff9c));border:1px solid rgba(255,255,255,.42);box-shadow:inset 16px 8px 24px rgba(255,255,255,.26),inset -18px -16px 28px rgba(0,0,0,.28),0 20px 34px rgba(0,0,0,.3);transform:translateZ(18px) rotateY(-16deg) rotateX(12deg)}
+.pv-3d-facet{position:absolute;display:block;inset:18%;transform-style:preserve-3d;backface-visibility:hidden}
+.pv-facet-a{clip-path:polygon(50% 0,50% 53%,0 42%);background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(255,255,255,.04));transform:translateZ(31px)}
+.pv-facet-b{clip-path:polygon(50% 0,100% 25%,50% 53%);background:linear-gradient(155deg,rgba(255,255,255,.38),rgba(102,223,196,.06));transform:translateZ(28px)}
+.pv-facet-c{clip-path:polygon(0 42%,50% 53%,28% 100%);background:linear-gradient(135deg,rgba(155,123,255,.1),rgba(0,0,0,.38));transform:translateZ(25px)}
+.pv-facet-d{clip-path:polygon(50% 53%,100% 25%,78% 100%,28% 100%);background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(0,0,0,.42));transform:translateZ(22px)}
+.pv-3d-glint{position:absolute;inset:8%;border-radius:50%;background:linear-gradient(112deg,transparent 35%,rgba(255,255,255,.32) 48%,transparent 58%);filter:blur(5px);transform:translateZ(42px) rotate(-24deg);opacity:.72}
+.pv-3d-hero{right:6%;top:48%;width:clamp(170px,22cqw,320px);--pv3d-a:#9b7bff;--pv3d-b:#66dfc4;--pv3d-c:#00ff9c}
+.pv-3d-identity{right:1%;top:17%;width:clamp(130px,15cqw,220px);opacity:.34;--pv3d-a:#66dfc4;--pv3d-b:#9b7bff;--pv3d-c:#c3adff;animation-delay:-2s}
+.pv-3d-value{right:3%;top:28%;width:clamp(118px,13cqw,190px);opacity:.34;--pv3d-a:#9b7bff;--pv3d-b:#ffbf69;--pv3d-c:#66dfc4;animation-delay:-4s}
+.pv-3d-cycle{right:4%;top:46%;width:clamp(140px,16cqw,230px);opacity:.26;--pv3d-a:#ffbf69;--pv3d-b:#9b7bff;--pv3d-c:#66dfc4;animation-delay:-1s}
+.pv-3d-finale{right:50%;top:3%;width:clamp(170px,20cqw,300px);transform:translateX(50%);opacity:.2;--pv3d-a:#00ff9c;--pv3d-b:#66dfc4;--pv3d-c:#9b7bff;animation-delay:-3s}
+#s0 .fitbox,#s4 .fitbox,#s13 .fitbox,#s15 .fitbox,#s20 .fitbox{position:relative;z-index:2}
+@keyframes pv3d-float{0%,100%{transform:translate3d(0,0,0) rotateX(-9deg) rotateY(15deg) rotateZ(-5deg)}50%{transform:translate3d(0,-12px,10px) rotateX(5deg) rotateY(-10deg) rotateZ(3deg)}}
+@media(max-width:760px),(orientation:portrait){.pv-3d-art{width:132px;opacity:.14;animation:none;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}.pv-3d-hero{right:2%;top:8%;width:138px}.pv-3d-identity{right:0;top:2%;width:104px}.pv-3d-value{right:0;top:8%;width:96px}.pv-3d-cycle{right:0;top:30%;width:112px}.pv-3d-finale{right:50%;top:0;width:150px;transform:translateX(50%)!important}}
+@media(prefers-reduced-motion:reduce){.pv-3d-art{animation:none!important;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}}
+@media print{.pv-3d-art{display:none!important}}
+
 </style></head>
 <body>
 <a class="skip" href="#stage">Перейти к содержимому</a>
@@ -776,6 +798,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <section class="screen" id="s0" data-i="0" data-title="PIXEL / VALUE" data-tag="Вступление" data-ac="#9b7bff" data-ac2="#66dfc4" role="group" aria-roledescription="кадр" aria-label="00 · Вступление"
  data-notes="Приветствие. Владислав Смирнов, 11 класс. Тема — покупка косметических предметов в играх. Сразу задайте интригу: скин не даёт урона, но за него платят. Упомяните, что выборка маленькая — n = 18, и это честное ограничение, а не слабость работы.">
  <div class="wash"></div><div class="ghost" aria-hidden="true">00</div>
+ <div class="pv-3d-art pv-3d-hero" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div>
  <canvas id="hcv" aria-hidden="true"></canvas>
  <div class="fitwrap"><div class="fitbox">
   <div class="hero-in">
@@ -852,6 +875,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <section class="screen" id="s4" data-i="4" data-title="Теория · Расширенное Я" data-tag="Идентичность" data-ac="#66dfc4" data-ac2="#9df0de" role="group" aria-roledescription="кадр" aria-label="04 · Цифровая идентичность"
  data-notes="Концепция Belk: виртуальная вещь становится частью «Я». Обязательно оговорите: в опросе эта концепция отдельно не измерялась, это концептуальная схема, а не причинная цепочка.">
  <div class="wash" style="--washc:rgba(102,223,196,.11)"></div><div class="ghost" aria-hidden="true">04</div>
+ <div class="pv-3d-art pv-3d-identity" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div>
  <div class="fitwrap"><div class="fitbox">
   <div class="hd rv"><span class="chip" style="--ac:var(--teal)">04 / Цифровая идентичность</span><span class="tagline">Extended Self · Belk, 2013</span></div>
   <h1 class="tt rv" style="--d:60ms">Виртуальная вещь<br><span class="ac sweep">может стать частью «Я».</span></h1>
@@ -1115,6 +1139,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <section class="screen" id="s13" data-i="13" data-title="Что стоит за покупкой" data-tag="Факторы" data-ac="#9b7bff" data-ac2="#66dfc4" role="group" aria-roledescription="кадр" aria-label="13 · Факторы ценности"
  data-notes="Ценность формируют три фактора: дефицит, спрос и символический смысл. Редкость сама по себе не гарантирует высокую цену — важен контекст конкретной игры.">
  <div class="wash"></div><div class="ghost" aria-hidden="true">13</div>
+ <div class="pv-3d-art pv-3d-value" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div>
  <div class="fitwrap"><div class="fitbox">
   <div class="hd rv"><span class="chip">13 / Что стоит за покупкой</span><span class="tagline">Supply · Demand · Meaning</span></div>
   <h1 class="tt rv" style="--d:60ms">Не каждый предмет<br><span class="ac sweep">продаёт одно и то же.</span></h1>
@@ -1168,6 +1193,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <section class="screen" id="s15" data-i="15" data-title="После покупки" data-tag="Цикл" data-ac="#ffbf69" data-ac2="#ffd79a" role="group" aria-roledescription="кадр" aria-label="15 · После покупки"
  data-notes="Пять этапов жизни предмета у владельца: ожидание, покупка, использование, привыкание, оценка. Отдельный риск — боевой пропуск и ощущение обязательства.">
  <div class="wash" style="--washc:rgba(255,191,105,.1)"></div><div class="ghost" aria-hidden="true">15</div>
+ <div class="pv-3d-art pv-3d-cycle" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div>
  <div class="fitwrap"><div class="fitbox">
   <div class="hd rv"><span class="chip" style="--ac:var(--amber)">15 / После покупки</span><span class="tagline">Покупка — не конец истории</span></div>
   <h1 class="tt rv" style="--d:60ms">Пять этапов <span class="ac sweep">жизни предмета.</span></h1>
@@ -1258,6 +1284,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 
 <section class="screen" id="s20" data-i="20" data-title="Вывод" data-tag="Вывод" data-ac="#00ff9c" data-ac2="#9b7bff" role="group" aria-roledescription="кадр" aria-label="20 · Вывод"
  data-notes="Финальный тезис: скин покупают за значение, а не за урон. Оговоритесь — вывод только о небольшой группе. Закончите вопросом для размышления и паузой."> <div class="wash" style="--washc:rgba(0,255,156,.12)"></div><div class="ghost" aria-hidden="true">20</div>
+ <div class="pv-3d-art pv-3d-finale" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div>
  <div class="fitwrap"><div class="fitbox" style="text-align:center">
   <div class="hd rv" style="justify-content:center"><span class="chip" style="--ac:var(--green)">20 / Вывод</span></div>
   <h1 class="rv" style="--d:60ms;font-size:var(--fs-7);font-weight:800;line-height:1.05;letter-spacing:-.036em;margin-bottom:var(--sp-3)">
