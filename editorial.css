@@ -168,3 +168,4 @@ html.low-perf .pv-showcase-model .pv-model-hint{display:none}
 @media(max-width:760px),(orientation:portrait){#s9 .pv-showcase-model,#s15 .pv-showcase-model{height:clamp(230px,66vw,360px);background:radial-gradient(ellipse,rgba(20,24,39,.42),transparent 72%)!important}}
 @media(prefers-reduced-motion:reduce){.pv-showcase-model .pv-showcase-video{display:none!important}.pv-showcase-model .pv-model-hint{display:none;animation:none;opacity:.82;transform:none}}
 @media(hover:none){.pv-showcase-model .pv-model-hint{opacity:1}}
+@media(max-width:640px),(orientation:portrait){#s13 .pv-model-hint{left:4%;right:auto;bottom:4%;max-width:92%;box-sizing:border-box;padding:6px 9px;gap:5px;white-space:nowrap;font-size:7px;letter-spacing:.06em;transform:none;animation:none;opacity:1}#s13 .pv-model-copy{font-size:0}#s13 .pv-model-copy:after{content:"ВРАЩАЙТЕ";font-size:7px;letter-spacing:.08em}#s13 .pv-model-keys{display:none}}

@@ -1215,7 +1215,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   <div class="hd rv"><span class="chip">13 / Что стоит за покупкой</span><span class="tagline">Supply · Demand · Meaning</span></div>
   <h1 class="tt rv" style="--d:60ms">Не каждый предмет<br><span class="ac sweep">продаёт одно и то же.</span></h1>
   <p class="sub rv" style="--d:130ms">Ценность формируется сразу несколькими факторами. <span class="key p">Редкость сама по себе не гарантирует высокую цену</span>: важны спрос и контекст конкретной игры.</p>
-<figure class="editorial-side-art pv-model" data-3d-model="collectibles" data-model-label="Коллекция: подвеска с бирюзовым кристаллом, медаль с аметистом и фиолетовый самоцвет" aria-label="Коллекция из трёх объёмных игровых артефактов"><img class="pv-model-poster" src="assets/pv-collectible-trio-3d.png" alt="" loading="lazy" decoding="async"/><canvas class="pv-model-canvas" aria-label="Интерактивная 3D-модель коллекции артефактов" tabindex="0"></canvas><span class="pv-model-hint" aria-hidden="true"><span class="pv-model-orbit">↻</span> ПОТЯНИТЕ, ЧТОБЫ ВРАЩАТЬ <span class="pv-model-keys">· ← → ↑ ↓</span></span></figure>
+  <figure class="editorial-side-art pv-model" data-3d-model="collectibles" data-model-label="Коллекция: подвеска с бирюзовым кристаллом, медаль с аметистом и фиолетовый самоцвет" aria-label="Коллекция из трёх объёмных игровых артефактов"><img class="pv-model-poster" src="assets/pv-collectible-trio-3d.png" alt="" loading="lazy" decoding="async"/><canvas class="pv-model-canvas" aria-label="Интерактивная 3D-модель коллекции артефактов" tabindex="0"></canvas><span class="pv-model-hint" aria-hidden="true"><span class="pv-model-orbit">↻</span><span class="pv-model-copy">ПОТЯНИТЕ, ЧТОБЫ ВРАЩАТЬ</span><span class="pv-model-keys">· ← → ↑ ↓</span></span></figure>
 </div><!--/visual-lead-->
   <div class="gap"></div>
   <div class="g g3">
@@ -2045,7 +2045,7 @@ function syncArtifactMotion(){
   figure.dataset.modelState='loading';
   if(!threeImport){
     figure.dataset.modelState='loading';
-    threeImport=import('./assets/pv-3d-scenes.js?v=20261109-final').then(function(mod){threeModels=mod;mod.setReducedMotion(Env.RM);if(threeActiveId===id&&S.mode==='present'){figure.dataset.modelState=mod.activate(id,figure)?'ready':'fallback';}else{mod.suspend();}}).catch(function(error){figure.dataset.modelState='fallback';figure.dataset.modelError=String(error&&error.message||error).slice(0,180);threeImport=null;threeActiveId='';console.warn('3D engine unavailable; showing the local artwork poster.',error);});
+    threeImport=import('./assets/pv-3d-scenes.js?v=20261110-model-balance').then(function(mod){threeModels=mod;mod.setReducedMotion(Env.RM);if(threeActiveId===id&&S.mode==='present'){figure.dataset.modelState=mod.activate(id,figure)?'ready':'fallback';}else{mod.suspend();}}).catch(function(error){figure.dataset.modelState='fallback';figure.dataset.modelError=String(error&&error.message||error).slice(0,180);threeImport=null;threeActiveId='';console.warn('3D engine unavailable; showing the local artwork poster.',error);});
     return;
   }
   threeImport.then(function(){if(threeModels&&threeActiveId===id){figure.dataset.modelState=threeModels.activate(id,figure)?'ready':'fallback';}});
