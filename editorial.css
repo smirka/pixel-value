@@ -2,9 +2,11 @@
 :root{--green:#31dec5;--green2:#9cf4e5;--greenD:#16453f;--bg:#0b101a;--dim:#d1d3df;--muted2:#979aaf;--rim:rgba(150,181,255,.2);--ambient:rgba(93,74,176,.12)}
 .top{background:rgba(11,16,26,.95)}
 .screen .pv-3d-art{display:none}
-#s4 .pv-3d-identity,#s13 .pv-3d-value,#s15 .pv-3d-cycle{display:block;z-index:2;opacity:.72;pointer-events:none}
+#s4 .pv-3d-identity,#s13 .pv-3d-value,#s13 .pv-3d-rune,#s15 .pv-3d-cycle{display:block;z-index:2;opacity:.72;pointer-events:none}
+#s13 .pv-3d-value{right:15%;width:clamp(138px,14cqw,200px);opacity:.56}
+#s13 .pv-3d-rune{right:0;top:13%;width:clamp(112px,12cqw,170px);opacity:.96}
 #s4 .pv-3d-identity{right:3%;top:20%;width:clamp(150px,17cqw,255px)}
-#s13 .pv-3d-value{right:4%;top:15%;width:clamp(138px,16cqw,230px)}
+#s13 .pv-3d-value{right:15%;top:15%;width:clamp(138px,14cqw,200px);opacity:.56}
 #s15 .pv-3d-cycle{right:2%;top:18%;width:clamp(148px,18cqw,250px)}
 #s4 .pv-3d-identity{--pv3d-a:#76f2df;--pv3d-b:#8574e8;--pv3d-c:#3c285f}
 #s13 .pv-3d-value{--pv3d-a:#ffdb9e;--pv3d-b:#ae77ff;--pv3d-c:#3e244d}
@@ -60,7 +62,7 @@ body.explore .screen *{animation-play-state:running!important}
 @media(hover:hover) and (pointer:fine){.card:hover,.sdt:hover,.kpi:hover{transform:translateY(-3px);transition-duration:220ms}}
 @media(hover:none){.card:hover,.sdt:hover,.kpi:hover{transform:none}}
 @media(max-width:760px),(orientation:portrait){
- #s4 .pv-3d-identity,#s13 .pv-3d-value,#s15 .pv-3d-cycle{display:none!important}
+ #s4 .pv-3d-identity,#s13 .pv-3d-value,#s13 .pv-3d-rune,#s15 .pv-3d-cycle{display:none!important}
  #s0{overflow-y:auto;overscroll-behavior:contain;justify-content:flex-start;padding:24px 20px 35px}
  #s0 .fitwrap{height:auto;display:block;overflow:visible}
  #s0 .fitbox{display:flex;flex-direction:column;align-items:stretch;gap:18px;transform:none!important;width:100%}
@@ -118,12 +120,20 @@ html.low-perf .screen,.low-perf .screen *,.low-perf .screen *:before,.low-perf .
 html.low-perf .pv-3d-art{animation:none!important;transform:none!important;filter:none!important}
 html.low-perf .editorial-side-art img{animation:none!important}
 html.low-perf .screen:after{opacity:.38}
-html.low-perf .pv-3d-art:not(.pv-3d-hero) .pv-3d-core,html.low-perf .pv-3d-art:not(.pv-3d-hero) .pv-3d-facet,html.low-perf .pv-3d-art:not(.pv-3d-hero) .pv-3d-glint{display:none}
+html.low-perf .pv-3d-art:not(.pv-3d-hero):not(.pv-3d-rune) .pv-3d-core,html.low-perf .pv-3d-art:not(.pv-3d-hero):not(.pv-3d-rune) .pv-3d-facet,html.low-perf .pv-3d-art:not(.pv-3d-hero):not(.pv-3d-rune) .pv-3d-glint{display:none}
 html.low-perf .pv-3d-art:not(.pv-3d-hero){animation:none!important}
+html.low-perf .pv-3d-rune .rune-model:before,html.low-perf .pv-3d-rune .rune-model:after,html.low-perf .pv-3d-rune .rune-stone{animation:none!important}
+html.low-perf .pv-3d-rune{filter:none!important}
+html.low-perf .pv-3d-rune .rune-model:before,html.low-perf .pv-3d-rune .rune-model:after,html.low-perf .pv-3d-rune .rune-stone{box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 8px 14px rgba(0,0,0,.32)}
 html.low-perf .card,html.low-perf .kpi,html.low-perf .sdt,html.low-perf .cmp-s,html.low-perf .co,html.low-perf .tlstep,html.low-perf .vc,html.low-perf .eth,html.low-perf .src{box-shadow:0 1px 0 rgba(255,255,255,.1) inset;border-color:rgba(150,181,255,.18)}
 @media(max-width:760px){.snav button{width:42px;height:42px}.snav{bottom:max(10px,env(safe-area-inset-bottom));max-width:calc(100vw - 20px)}.snav .cnt{min-width:52px}.modes button{min-height:40px;padding:9px 12px}.top{-webkit-backdrop-filter:none;backdrop-filter:none}}
 @media(max-width:760px),(orientation:portrait){
  .screen:after{opacity:.3}
+ #s13 .pv-3d-rune{display:block!important;position:absolute;top:clamp(180px,52vw,218px);right:8px;width:82px;opacity:.82;z-index:4;background:none;filter:drop-shadow(0 7px 12px rgba(0,0,0,.48))}
+ #s13 .pv-3d-rune .rune-model:before{inset:5%;border-width:1px;animation:none}
+ #s13 .pv-3d-rune .rune-model:after{inset:12%;border-width:1px;animation:none}
+ #s13 .pv-3d-rune .rune-stone{inset:25%;animation:none;box-shadow:inset 3px 2px 6px rgba(255,255,255,.35),inset -5px -4px 9px rgba(5,7,22,.7),0 7px 12px rgba(0,0,0,.35)}
+ #s13 .pv-3d-rune .rune-glyph{font-size:28px}
  .pv-3d-art:not(.pv-3d-hero){display:none!important}
  .visual-lead,#s1 .visual-lead,#s4 .visual-lead,#s9 .visual-lead,#s10 .visual-lead,#s15 .visual-lead{display:flex;padding:0;min-height:0;margin-bottom:18px}
  .visual-lead .tt{font-size:clamp(27px,6.5vw,40px)}

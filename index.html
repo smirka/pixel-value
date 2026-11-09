@@ -756,6 +756,15 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 .pv-facet-c{clip-path:polygon(0 42%,50% 53%,28% 100%);background:linear-gradient(135deg,rgba(155,123,255,.1),rgba(0,0,0,.38));transform:translateZ(25px)}
 .pv-facet-d{clip-path:polygon(50% 53%,100% 25%,78% 100%,28% 100%);background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(0,0,0,.42));transform:translateZ(22px)}
 .pv-3d-glint{position:absolute;inset:8%;border-radius:50%;background:linear-gradient(112deg,transparent 35%,rgba(255,255,255,.32) 48%,transparent 58%);filter:blur(5px);transform:translateZ(42px) rotate(-24deg);opacity:.72}
+.rune-model{position:absolute;inset:0;display:block;transform-style:preserve-3d;pointer-events:none;--rune-glow:rgba(196,153,255,.65)}
+.rune-model:before{content:"";position:absolute;inset:12%;border:2px solid rgba(204,174,255,.74);border-radius:50%;transform:rotateX(68deg) rotateZ(-14deg);box-shadow:0 0 12px rgba(181,134,255,.7),inset 0 0 12px rgba(181,134,255,.35);animation:rune-orbit 8s linear infinite}
+.rune-model:after{content:"";position:absolute;inset:19%;border:1px solid rgba(106,239,225,.55);border-radius:50%;transform:rotateY(66deg) rotateZ(18deg);box-shadow:0 0 9px rgba(80,228,211,.42);animation:rune-orbit 11s linear infinite reverse}
+.rune-stone{position:absolute;inset:27%;display:grid;place-items:center;transform-style:preserve-3d;transform:rotateX(12deg) rotateY(-18deg);border:1px solid rgba(236,218,255,.9);border-radius:24% 43% 23% 41%;clip-path:polygon(50% 0,91% 23%,100% 68%,68% 100%,26% 91%,0 48%,16% 14%);background:linear-gradient(135deg,rgba(255,247,255,.78),rgba(181,128,255,.82) 24%,rgba(79,48,143,.95) 58%,rgba(25,31,57,.98));box-shadow:inset 7px 5px 12px rgba(255,255,255,.45),inset -10px -8px 16px rgba(5,7,22,.8),0 0 18px var(--rune-glow),0 18px 30px rgba(0,0,0,.55);animation:rune-hover 4.8s ease-in-out infinite}
+.rune-stone:before{content:"";position:absolute;inset:9%;border:1px solid rgba(230,205,255,.54);clip-path:inherit;transform:translateZ(5px);background:linear-gradient(145deg,rgba(255,255,255,.17),transparent 50%)}
+.rune-glyph{position:relative;color:#fff4d5;font:800 clamp(40px,6cqw,82px)/1 Georgia,serif;text-shadow:0 0 7px #fff,0 0 18px #c49aff,0 0 36px #8e5fff;transform:translateZ(16px) rotate(-8deg)}
+@keyframes rune-hover{0%,100%{transform:translateY(0) rotateX(12deg) rotateY(-18deg)}50%{transform:translateY(-8px) rotateX(17deg) rotateY(9deg)}}
+@keyframes rune-orbit{to{transform:rotateX(68deg) rotateZ(346deg)}}
+.pv-3d-rune{right:0;top:4%;width:clamp(112px,12cqw,170px);--pv3d-a:#f4dcff;--pv3d-b:#a77bff;--pv3d-c:#34225f}
 .pv-3d-hero{right:6%;top:48%;width:clamp(170px,22cqw,320px);--pv3d-a:#9b7bff;--pv3d-b:#66dfc4;--pv3d-c:#00ff9c}
 .pv-3d-identity{right:1%;top:17%;width:clamp(130px,15cqw,220px);opacity:.34;--pv3d-a:#66dfc4;--pv3d-b:#9b7bff;--pv3d-c:#c3adff;animation-delay:-2s}
 .pv-3d-value{right:3%;top:28%;width:clamp(118px,13cqw,190px);opacity:.34;--pv3d-a:#9b7bff;--pv3d-b:#ffbf69;--pv3d-c:#66dfc4;animation-delay:-4s}
@@ -1180,7 +1189,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <section class="screen" id="s13" data-i="13" data-title="Что стоит за покупкой" data-tag="Факторы" data-ac="#9b7bff" data-ac2="#66dfc4" role="group" aria-roledescription="кадр" aria-label="13 · Факторы ценности"
  data-notes="Ценность формируют три фактора: дефицит, спрос и символический смысл. Редкость сама по себе не гарантирует высокую цену — важен контекст конкретной игры.">
  <div class="wash"></div><div class="ghost" aria-hidden="true">13</div>
- <div class="pv-3d-art pv-3d-value" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div>
+ <div class="pv-3d-art pv-3d-value" aria-hidden="true"><span class="pv-3d-core"></span><i class="pv-3d-facet pv-facet-a"></i><i class="pv-3d-facet pv-facet-b"></i><i class="pv-3d-facet pv-facet-c"></i><i class="pv-3d-facet pv-facet-d"></i><span class="pv-3d-glint"></span></div><div class="pv-3d-art pv-3d-rune" aria-hidden="true"><span class="rune-model"><span class="rune-stone"><span class="rune-glyph">ᛟ</span></span></span></div>
  <div class="fitwrap"><div class="fitbox editorial-with-art">
 <div class="visual-lead">
   <div class="hd rv"><span class="chip">13 / Что стоит за покупкой</span><span class="tagline">Supply · Demand · Meaning</span></div>
