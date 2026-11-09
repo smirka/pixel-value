@@ -22,16 +22,9 @@
 .editorial-portrait{position:relative;align-self:stretch;min-width:0;margin:0;display:flex;flex-direction:column;justify-content:center;z-index:-1}
 .editorial-portrait img{width:100%;height:73cqh;object-fit:cover;object-position:50% 24%;display:block;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 78%,transparent);mask-composite:intersect}
 .editorial-portrait figcaption{font-size:clamp(10px,1.1cqw,15px);font-style:italic;color:var(--dim);text-align:right;margin-top:-28px;position:relative;padding-right:5px}
-.editorial-with-art{position:relative;padding-right:25%}
-.editorial-side-art{position:absolute;right:0;top:15%;width:23%;height:72%;margin:0;display:flex;align-items:center;overflow:hidden}
-.editorial-side-art img{width:100%;height:100%;object-fit:contain;mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent)}
-#s4 .editorial-side-art img{object-fit:contain;object-position:center}
 .logo-m{width:36px;height:36px;background:none;box-shadow:none;border-radius:0;flex-shrink:0}
 .logo-m img{display:block;width:36px;height:36px}
 .editorial-concept-icon{width:64px;height:64px;object-fit:contain;display:block;margin:0 0 14px}
-.editorial-with-art{padding-right:34%}
-.editorial-side-art{width:31%;height:100%;top:0}
-.editorial-side-art img{mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent);mask-composite:intersect}
 .screen.on .editorial-side-art img{animation:editorialArt 650ms cubic-bezier(.2,.75,.25,1) both}
 @keyframes editorialArt{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
 .screen.in-fwd,.screen.in-back{animation-duration:380ms;animation-timing-function:cubic-bezier(.2,.75,.25,1)}
@@ -61,10 +54,6 @@ body.explore .screen *{animation-play-state:running!important}
  .editorial-portrait{max-width:440px;width:100%;align-self:center;z-index:0}
  .editorial-portrait img{height:auto;max-height:390px;object-fit:contain}
  .editorial-portrait figcaption{font-size:12px;text-align:center}
- .editorial-with-art{padding-right:0}
- .editorial-side-art{position:relative;top:auto;right:auto;width:100%;height:180px;margin:12px 0 20px}
- .editorial-side-art img{object-fit:contain!important;object-position:center!important}
- .editorial-side-art{height:240px}
  .editorial-concept-icon{width:48px;height:48px}
  .snav button{min-width:32px;min-height:36px}
 }
@@ -73,3 +62,41 @@ body.explore .screen *{animation-play-state:running!important}
  #s0 .h-t,#s0 .h-sub,#s0 .h-q,#s0 .h-btns,#s0 .h-meta{opacity:1;transform:none}
 }
 @media print{.editorial-portrait{max-width:300px}.editorial-side-art{display:none}.editorial-with-art{padding-right:0}}
+
+/* Images share the headline composition; evidence and comparison stay full width. */
+.editorial-with-art{padding-right:0;position:relative}
+.visual-lead{position:relative;isolation:isolate;min-height:clamp(170px,31cqh,290px);padding:24px 46% 24px 0;display:flex;flex-direction:column;justify-content:center;margin-bottom:8px}
+.visual-lead .hd{position:relative;z-index:1}
+.visual-lead .tt{font-size:clamp(24px,4.8cqh,48px);line-height:1.08}
+.visual-lead .sub{font-size:clamp(12px,1.9cqh,18px);line-height:1.5}
+.editorial-side-art{margin:0;position:absolute;inset:0 0 0 auto;width:44%;overflow:hidden;z-index:-1;pointer-events:none}
+.editorial-side-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;mask-image:linear-gradient(to right,transparent,#000 18%,#000 88%,transparent)}
+#s1 .visual-lead,#s4 .visual-lead{min-height:clamp(230px,40cqh,370px);padding-right:48%}
+#s1 .editorial-side-art,#s4 .editorial-side-art{width:49%;inset:-18px -3% -12px auto}
+#s4 .editorial-side-art img{object-position:50% 0%}
+#s9 .visual-lead,#s10 .visual-lead{min-height:clamp(160px,27cqh,240px);padding-right:51%}
+#s9 .editorial-side-art,#s10 .editorial-side-art{width:48%;inset:-18px 0 -10px auto}
+#s9 .editorial-side-art img{object-fit:contain;mask-image:linear-gradient(to right,transparent,#000 15%,#000 85%,transparent)}
+#s10 .editorial-side-art img{object-position:50% 0%;mask-image:linear-gradient(to right,transparent,#000 15%,#000 92%,transparent),linear-gradient(to bottom,#000 65%,transparent);mask-composite:intersect}
+#s13 .editorial-side-art img{object-fit:contain}
+#s15 .visual-lead{min-height:clamp(180px,32cqh,280px);padding-right:50%}
+#s15 .editorial-side-art{width:49%}
+#s15 .editorial-side-art img{object-position:50% 58%;mask-image:linear-gradient(to right,transparent,#000 15%,#000 85%,transparent)}
+#s14 .cmp-s:first-child{position:relative;isolation:isolate;overflow:hidden;padding-right:19%}
+#s14 .editorial-side-art{width:40%;z-index:-1;opacity:.75}
+#s14 .editorial-side-art img{object-position:52% 30%;mask-image:linear-gradient(to right,transparent,#000 55%),linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent);mask-composite:intersect}
+#s14 .cmp-s:first-child .cmp-q{max-width:72%}
+.screen.on .visual-lead .editorial-side-art img{animation:editorialArt 650ms cubic-bezier(.2,.75,.25,1) both}
+@media(max-width:760px),(orientation:portrait){
+ .visual-lead,#s1 .visual-lead,#s4 .visual-lead,#s9 .visual-lead,#s10 .visual-lead,#s15 .visual-lead{display:flex;padding:0;min-height:0;margin-bottom:18px}
+ .visual-lead .tt{font-size:clamp(27px,6.5vw,40px)}
+ .visual-lead .sub{font-size:16px}
+ .editorial-side-art,#s1 .editorial-side-art,#s4 .editorial-side-art,#s9 .editorial-side-art,#s10 .editorial-side-art,#s15 .editorial-side-art{position:relative;inset:auto;width:100%;height:210px;z-index:0;margin:12px 0 0}
+ .editorial-side-art img{object-fit:cover}
+ #s14 .cmp-s:first-child{padding-right:var(--sp-4)}
+ #s14 .cmp-s:first-child .cmp-q{max-width:none}
+ #s14 .editorial-side-art{width:100%;height:180px;position:relative;inset:auto;opacity:1;margin:0 0 20px;z-index:0}
+ #s14 .editorial-side-art img{object-fit:contain;mask-image:linear-gradient(to right,transparent,#000 15%,#000 85%,transparent)}
+}
+@media(prefers-reduced-motion:reduce){.screen.on .visual-lead .editorial-side-art img{animation:none}}
+@media print{.visual-lead{padding:0!important;min-height:0!important}.editorial-side-art{display:none!important}#s14 .cmp-s:first-child{padding-right:var(--sp-4)}}
