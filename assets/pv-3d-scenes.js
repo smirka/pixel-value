@@ -157,17 +157,20 @@ function buildCollectibles(root) {
   group.position.set(0, -0.06, 0);
   root.add(group);
   const left = pendant(group, 0.81);
-  left.position.set(-1.52, -0.01, 0);
+  left.position.set(-1.64, -0.01, 0);
   left.rotation.z = -0.12;
   const center = medallion(group, 0.75);
   center.position.set(0, 0.02, 0.05);
   const right = new THREE.Group();
-  right.position.set(1.5, -0.03, 0);
+  right.position.set(1.64, -0.03, 0);
   group.add(right);
   torus(right, 0.42, 0.027, silver(), [0, 0, -0.08], [0.1, -0.4, 0.25]);
   const poly = crystal(right, '#7957df', 1.2);
   poly.scale.set(0.96, 1, 0.82);
   right.add(glow('#a879ff', 1.4, 2.3, [0.02, 0.08, 0.35]));
+  const rotors = [left, center, right];
+  group.userData.pvRotors = rotors;
+  root.userData.pvRotors = rotors;
   group.scale.setScalar(0.82);
   return group;
 }
@@ -220,6 +223,18 @@ function draw() {
   renderer.render(activeModel.scene, activeModel.camera);
 }
 
+function applyModelRotation(yawOffset = 0) {
+  if (!activeModel) return;
+  if (!activeModel.rotors) {
+    activeModel.group.rotation.set(pitch, yaw + yawOffset, 0);
+    return;
+  }
+  activeModel.rotors.forEach((rotor, index) => {
+    const base = rotor.userData.pvRotationBase;
+    rotor.rotation.set(base.x + pitch, base.y + yaw + yawOffset + (index - 1) * 0.035, base.z);
+  });
+}
+
 function makeEnvironment() {
   if (environmentMap) return environmentMap;
   const image = document.createElement('canvas');
@@ -264,8 +279,8 @@ function animate(now) {
     activeModel.group.scale.setScalar(activeModel.baseScale * (0.78 + 0.22 * ease));
     if (!dragged) {
       yaw += delta * 0.07;
-      activeModel.group.rotation.y = yaw + Math.sin(now * 0.00032) * 0.055;
     }
+    applyModelRotation(Math.sin(now * 0.00032) * 0.055);
     if (elapsed > 900 && lowPerf) {
       draw();
       return;
@@ -281,7 +296,7 @@ function startAnimation() {
   previousTime = 0;
   if (reducedMotion) {
     activeModel.group.scale.setScalar(activeModel.baseScale);
-    activeModel.group.rotation.set(pitch, yaw, 0);
+    applyModelRotation();
     draw();
     return;
   }
@@ -336,7 +351,7 @@ function bindControls(host) {
     lastY = event.clientY;
     yaw += dx * 0.009;
     pitch = THREE.MathUtils.clamp(pitch + dy * 0.007, -0.62, 0.62);
-    activeModel.group.rotation.set(pitch, yaw, 0);
+    applyModelRotation();
     draw();
   }, { passive: true });
   const release = event => {
@@ -349,7 +364,7 @@ function bindControls(host) {
   el.addEventListener('pointercancel', release, { passive: true });
   el.addEventListener('keydown', event => {
     const step = event.shiftKey ? 0.24 : 0.1;
-    if (event.key === 'Home') { event.preventDefault(); yaw = 0; pitch = 0; activeModel.group.rotation.set(0, 0, 0); draw(); return; }
+    if (event.key === 'Home') { event.preventDefault(); yaw = 0; pitch = 0; applyModelRotation(); draw(); return; }
     if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
     event.preventDefault();
     event.stopPropagation();
@@ -357,10 +372,10 @@ function bindControls(host) {
     if (event.key === 'ArrowRight') yaw += step;
     if (event.key === 'ArrowUp') pitch = THREE.MathUtils.clamp(pitch - step, -0.62, 0.62);
     if (event.key === 'ArrowDown') pitch = THREE.MathUtils.clamp(pitch + step, -0.62, 0.62);
-    activeModel.group.rotation.set(pitch, yaw, 0);
+    applyModelRotation();
     draw();
   });
-  el.addEventListener('dblclick', () => { yaw = 0; pitch = 0; activeModel.group.rotation.set(0, 0, 0); draw(); });
+  el.addEventListener('dblclick', () => { yaw = 0; pitch = 0; applyModelRotation(); draw(); });
 }
 
 export function activate(id, host) {
@@ -421,6 +436,9 @@ export function activate(id, host) {
   }
   try {
     definitions[id](group);
+    activeModel.rotors = group.userData.pvRotors || null;
+    if (activeModel.rotors) activeModel.rotors.forEach(rotor => { rotor.userData.pvRotationBase = rotor.rotation.clone(); });
+    applyModelRotation();
     setCanvasSize();
     startAnimation();
     return true;
