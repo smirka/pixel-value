@@ -157,12 +157,12 @@ function buildCollectibles(root) {
   group.position.set(0, -0.06, 0);
   root.add(group);
   const left = pendant(group, 0.81);
-  left.position.set(-1.64, -0.01, 0);
+  left.position.set(-1.86, -0.01, 0);
   left.rotation.z = -0.12;
   const center = medallion(group, 0.75);
   center.position.set(0, 0.02, 0.05);
   const right = new THREE.Group();
-  right.position.set(1.64, -0.03, 0);
+  right.position.set(1.86, -0.03, 0);
   group.add(right);
   torus(right, 0.42, 0.027, silver(), [0, 0, -0.08], [0.1, -0.4, 0.25]);
   const poly = crystal(right, '#7957df', 1.2);
@@ -171,7 +171,7 @@ function buildCollectibles(root) {
   const rotors = [left, center, right];
   group.userData.pvRotors = rotors;
   root.userData.pvRotors = rotors;
-  group.scale.setScalar(0.82);
+  group.scale.setScalar(0.8);
   return group;
 }
 
@@ -214,6 +214,10 @@ function setCanvasSize() {
   renderer.setPixelRatio(ratio);
   renderer.setSize(Math.round(rect.width), Math.round(rect.height), false);
   activeModel.camera.aspect = rect.width / rect.height;
+  if (activeModel.id === 'collectibles') {
+    const portraitFit = Math.max(1, 1.38 / activeModel.camera.aspect);
+    activeModel.camera.position.z = 6.3 * portraitFit;
+  }
   activeModel.camera.updateProjectionMatrix();
   draw();
 }
@@ -421,7 +425,7 @@ export function activate(id, host) {
   scene.add(group);
   const baseScale = 1;
   group.scale.setScalar(baseScale);
-  activeModel = { scene, camera, group, baseScale };
+  activeModel = { id, scene, camera, group, baseScale };
   yaw = 0;
   pitch = 0;
   dragged = false;
@@ -458,6 +462,12 @@ export function suspend() {
   cancelAnimationFrame(frame);
   frame = 0;
   if (currentFigure?.classList.contains('is-3d')) draw();
+}
+
+export function resume() {
+  if (!activeModel || !currentFigure?.classList.contains('is-3d') || document.hidden) return;
+  if (!frame && !reducedMotion) startAnimation();
+  else if (reducedMotion) draw();
 }
 
 export function setReducedMotion(value) {
