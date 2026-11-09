@@ -419,6 +419,20 @@ kbd{font-family:var(--mono);font-size:9px;padding:4px 7px;border-radius:6px;back
 .pr-notes{background:linear-gradient(158deg,rgba(255,191,105,.07),rgba(17,19,29,.9));border:1px solid rgba(255,191,105,.2);border-radius:15px;padding:22px}
 .pr-notes h4{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--amber);margin-bottom:9px;text-transform:uppercase}
 .pr-notes p{color:var(--dim);font-size:14px;line-height:1.78}
+.qa{position:fixed;inset:0;z-index:100;display:none;overflow:auto;padding:clamp(64px,8vh,92px) 22px 36px;background:radial-gradient(ellipse at 82% 8%,rgba(155,123,255,.16),transparent 42%),rgba(5,6,10,.985);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px)}
+.qa.on{display:block;animation:fu .28s var(--eo)}
+.qa-inner{width:min(1040px,100%);margin:0 auto}
+.qa-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--green);text-transform:uppercase;margin-bottom:12px}
+.qa h2{font-size:clamp(30px,5vw,54px);line-height:1.05;letter-spacing:-.045em;margin:0 0 12px}
+.qa-intro{max-width:720px;color:var(--dim);font-size:15px;line-height:1.7;margin-bottom:26px}
+.qa-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.qa-item{padding:clamp(16px,2.5vw,24px);border:1px solid var(--line);border-radius:16px;background:linear-gradient(150deg,rgba(28,32,48,.88),rgba(9,11,18,.94));box-shadow:0 1px 0 rgba(255,255,255,.08) inset}
+.qa-item>span{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--green);text-transform:uppercase}
+.qa-item h3{font-size:clamp(16px,2vw,21px);line-height:1.35;letter-spacing:-.02em;margin:12px 0 8px}
+.qa-item p{color:var(--dim);font-size:13px;line-height:1.65;margin:0}
+.qa-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:20px;color:var(--muted2);font-size:12px;line-height:1.5}
+@media(max-width:680px){.qa{padding:66px 16px 28px}.qa-list{grid-template-columns:1fr}.qa-item{padding:16px}}
+@media(prefers-reduced-motion:reduce){.qa.on{animation:none}}
 .help{position:fixed;inset:0;z-index:97;background:rgba(5,6,10,.96);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);display:none;overflow:auto;padding:74px 22px 40px}
 .help.on{display:block;animation:fu .35s var(--eo)}
 .help-in{max-width:900px;margin:0 auto}
@@ -762,7 +776,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <div class="layer l-grain" aria-hidden="true"></div>
 <div id="pulse" aria-hidden="true"></div>
 <div class="guides" id="guides" aria-hidden="true"><div class="third"></div><div class="safe"></div></div>
-<div class="prog"><i id="progFill"></i></div>
+<div class="prog" id="slideProgress" role="progressbar" aria-label="Прогресс презентации" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Кадр 1 из 23"><i id="progFill"></i></div>
 
 <header class="top">
  <div class="top-in">
@@ -1301,6 +1315,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
    <button type="button" class="btn" data-go="21">Источники →</button>
    <button type="button" class="btn grn" data-go="0">↺ Смотреть заново</button>
    <button type="button" class="btn" data-act="copy">⧉ Скопировать ссылку</button>
+   <button type="button" class="btn grn" id="qaOpenFinal">Вопросы аудитории</button>
   </div>
  </div></div>
 </section>
@@ -1459,12 +1474,13 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 
 <div class="pr" id="pr" role="dialog" aria-modal="true" aria-label="Режим докладчика">
  <div class="pr-top">
-  <div><div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--muted2);text-transform:uppercase;margin-bottom:5px">Режим докладчика</div><div class="pr-timer" id="prTimer">00:00</div></div>
-  <div class="pr-prog"><i id="prProg"></i></div>
+  <div><div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--muted2);text-transform:uppercase;margin-bottom:5px">Режим докладчика</div><div class="pr-timer" id="prTimer" role="timer" aria-live="off">00:00</div></div>
+  <div class="pr-prog" id="presenterProgress" role="progressbar" aria-label="Прогресс выступления" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Кадр 1 из 23"><i id="prProg"></i></div>
   <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
    <button type="button" class="tb" id="prPrev">← Назад</button>
    <button type="button" class="tb acc" id="prNext">Далее →</button>
    <button type="button" class="tb" id="prReset">↺ Таймер</button>
+   <button type="button" class="tb grn" id="qaOpenPresenter">Вопросы аудитории</button>
    <button type="button" class="tb" id="prClose">✕ Закрыть</button>
   </div>
  </div>
@@ -1474,6 +1490,22 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   <div class="pr-box nx"><div class="pr-l">Следующий кадр</div><div class="pr-ct" id="prNextT" style="font-size:20px"></div><div class="pr-cc" id="prNextC" style="font-size:13px"></div></div>
  </div>
  <div class="pr-notes"><h4>Заметки докладчика · не видны аудитории</h4><p id="prNotes"></p></div>
+</div>
+
+<div class="qa" id="qaDialog" role="dialog" aria-modal="true" aria-labelledby="qaTitle" aria-describedby="qaIntro" aria-hidden="true">
+ <button type="button" class="xclose" id="qaClose" aria-label="Закрыть вопросы аудитории">✕</button>
+ <div class="qa-inner">
+  <div class="qa-kicker">PIXEL / VALUE · ОБСУЖДЕНИЕ</div>
+  <h2 id="qaTitle">Вопросы аудитории</h2>
+  <p id="qaIntro" class="qa-intro">Вопросы помогают обсудить метод, результаты и границы исследования — без добавления новых выводов.</p>
+  <div class="qa-list">
+   <article class="qa-item"><span>01 / ВЫБОРКА</span><h3>Что можно и чего нельзя заключить по опросу из 18 участников?</h3><p>Обсудите размер и способ отбора выборки, а также почему результаты нельзя автоматически переносить на всех игроков.</p></article>
+   <article class="qa-item"><span>02 / ЗНАМЕНАТЕЛИ</span><h3>Почему показатели 4/10, 7/18 и 3/18 нельзя объединить в одну шкалу?</h3><p>Вспомните, кому задавался каждый вопрос и почему у показателей разные знаменатели.</p></article>
+   <article class="qa-item"><span>03 / МОНЕТИЗАЦИЯ</span><h3>Где проходит граница между косметикой и Pay-to-Win?</h3><p>Обсудите игровое преимущество и серую зону визуальной заметности или читаемости модели.</p></article>
+   <article class="qa-item"><span>04 / СЛЕДУЮЩИЙ ШАГ</span><h3>Как можно было бы улучшить исследование?</h3><p>Вспомните увеличение выборки, более случайный отбор, одну игру и одинаковую шкалу SDT.</p></article>
+  </div>
+  <div class="qa-foot"><span>Все темы основаны на содержании и ограничениях текущей работы.</span><button type="button" class="btn grn" id="qaDone">Вернуться к презентации</button></div>
+ </div>
 </div>
 
 <div class="help" id="help" role="dialog" aria-modal="true" aria-label="Горячие клавиши">
@@ -1889,6 +1921,11 @@ function applyAccent(){
 /* ══════════ PAINT ══════════ */
 function paint(){
   var p=(N>1)?(S.i/(N-1)):0;
+  var progress=$('#slideProgress');
+  if(progress){
+    progress.setAttribute('aria-valuenow',String(Math.round(p*100)));
+    progress.setAttribute('aria-valuetext','Кадр '+(S.i+1)+' из '+N);
+  }
   var pf=$('#progFill'); if(pf){ pf.style.width=(p*100)+'%'; }
   var rv=$('#ringV'); if(rv){ rv.setAttribute('stroke-dashoffset',(97.4*(1-p)).toFixed(2)); }
   var cc=$('#cCur'); if(cc){ cc.textContent=pad2(S.i); }
@@ -2097,7 +2134,7 @@ function countUp(el){
   el.dataset.done='1';
   var to=num(el.getAttribute('data-to'));
   var suf=el.getAttribute('data-suf')||'';
-  if(Env.RM){ el.textContent=to+suf; return; }
+  if(Env.RM||Env.LOW){ el.textContent=to+suf; return; }
   var dur=1100, t0=performance.now();
   function step(t){
     var p=clamp((t-t0)/dur,0,1);
@@ -2120,7 +2157,7 @@ function startType(el,txt){
   if(el.dataset.done){ return; }
   el.dataset.done='1';
   var keep=(el.getAttribute('data-keep')==='1');
-  if(Env.RM){ el.textContent=txt; return; }
+  if(Env.RM||Env.LOW){ el.textContent=txt; return; }
   el.innerHTML='';
   var car=document.createElement('span');
   car.className='car';
@@ -2341,7 +2378,14 @@ function releaseTrap(){
 }
 function closeLayers(){
   var closed=false;
-  var ov=$('#ov'),pr=$('#pr'),mm=$('#mm'),hp=$('#help');
+  var qa=$('#qaDialog'),ov=$('#ov'),pr=$('#pr'),mm=$('#mm'),hp=$('#help');
+  if(qa&&qa.classList.contains('on')){
+    qa.classList.remove('on');
+    qa.setAttribute('aria-hidden','true');
+    document.body.classList.toggle('locked',!!(pr&&pr.classList.contains('on')));
+    releaseTrap();
+    return true;
+  }
   if(ov&&ov.classList.contains('on')){ ov.classList.remove('on'); closed=true; }
   if(mm&&mm.classList.contains('on')){
     mm.classList.remove('on');
@@ -2396,6 +2440,22 @@ function togglePr(force){
     history.replaceState(null,'',(S.mode==='docs')?('#docs/'+S.tab):('#'+META[S.i].id));
   }
 }
+function toggleQa(force){
+  var q=$('#qaDialog'); if(!q){ return; }
+  var v=(force===undefined)?!q.classList.contains('on'):!!force;
+  if(v){
+    q.classList.add('on');
+    q.setAttribute('aria-hidden','false');
+    document.body.classList.add('locked');
+    trapFocus(q);
+  } else {
+    q.classList.remove('on');
+    q.setAttribute('aria-hidden','true');
+    var pr=$('#pr');
+    document.body.classList.toggle('locked',!!(pr&&pr.classList.contains('on')));
+    releaseTrap();
+  }
+}
 function toggleHelp(force){
   var h=$('#help'); if(!h){ return; }
   var v=(force===undefined)?!h.classList.contains('on'):!!force;
@@ -2435,7 +2495,13 @@ function updatePresenter(){
   if(cl){ cl.textContent='Кадр '+pad2(S.i+1)+' / '+N+' · '+m.tag.toUpperCase(); }
   if(ct){ ct.textContent=m.title; }
   if(cc){ cc.textContent=m.lead||'—'; }
-  if(pp){ pp.style.width=(((N>1)?(S.i/(N-1)):0)*100)+'%'; }
+  var progress=$('#presenterProgress');
+  var progressValue=Math.round(((N>1)?(S.i/(N-1)):0)*100);
+  if(progress){
+    progress.setAttribute('aria-valuenow',String(progressValue));
+    progress.setAttribute('aria-valuetext','Кадр '+(S.i+1)+' из '+N);
+  }
+  if(pp){ pp.style.width=progressValue+'%'; }
   if(nt){ nt.textContent=nx?nx.title:'Конец презентации'; }
   if(nc){ nc.textContent=nx?(pad2(S.i+2)+' · '+nx.tag+' — '+(nx.lead||'')):'Финальный кадр. Спасибо за внимание.'; }
   if(nn){ nn.textContent=m.notes||'Заметки для этого кадра не добавлены.'; }
@@ -3196,8 +3262,8 @@ function onKey(e){
     return;
   }
 
-  var ovEl=$('#ov'), helpEl=$('#help'), mmEl=$('#mm');
-  var layerOpen=(ovEl&&ovEl.classList.contains('on'))||(helpEl&&helpEl.classList.contains('on'))||(mmEl&&mmEl.classList.contains('on'));
+  var ovEl=$('#ov'), helpEl=$('#help'), mmEl=$('#mm'), qaEl=$('#qaDialog');
+  var layerOpen=(ovEl&&ovEl.classList.contains('on'))||(helpEl&&helpEl.classList.contains('on'))||(mmEl&&mmEl.classList.contains('on'))||(qaEl&&qaEl.classList.contains('on'));
 
   if(low==='h'||k===''||k==='/'){ e.preventDefault(); toggleHelp(); return; }
 
@@ -3322,6 +3388,11 @@ function init(){
     on($('#prPrev'),'click',prev);
     on($('#prNext'),'click',next);
     on($('#prReset'),'click',function(){ S.t0=Date.now(); timer(); toast('↺ Таймер сброшен'); });
+    on($('#qaOpenFinal'),'click',function(){ toggleQa(true); });
+    on($('#qaOpenPresenter'),'click',function(){ toggleQa(true); });
+    on($('#qaClose'),'click',function(){ toggleQa(false); });
+    on($('#qaDone'),'click',function(){ toggleQa(false); });
+    on($('#qaDialog'),'click',function(e){ if(e.target===$('#qaDialog')){ toggleQa(false); } });
     on($('#docsBtn'),'click',function(){
       if(S.mode==='docs'){ setView('present'); toast('◈ Возврат к презентации'); }
       else { setView('docs'); toast('◈ Документация проекта'); }
