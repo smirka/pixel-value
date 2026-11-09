@@ -25,3 +25,7 @@ Existing chapter navigation, compact slide controls, map action, author metadata
 
 ## Limits and P3 follow-up
 OS-level reduced-motion emulation, print/PDF and a disconnected-network browser run were not performed. Reduced-motion CSS and controller branch were checked in source and the controller test. Existing external fonts/icon stylesheet remain external. No Lighthouse score is claimed. Header/control typography retains the existing presentation conventions and may be enlarged in a separate usability pass.
+
+## Visual expansion / ECC follow-up (2026-11-09)
+Eight unique illustrations, each used once; six newly generated images. New brand/favicon and three refined SVG concept icons. Desktop s3/s10 rendered and inspected; mobile s14 has body width390 with vertical scrolling. Four Node checks passed, research preserved. Independent ECC code/tests/errors/accessibility review: no material findings. Publication years/DOIs preserved; project year2026. OS reduced-motion/print/offline limits above remain.
+

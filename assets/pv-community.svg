@@ -1,11 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" fill="none">
-<defs><radialGradient id="gl"><stop stop-color="#66DFC4" stop-opacity=".28"/><stop offset="1" stop-color="#66DFC4" stop-opacity="0"/></radialGradient><linearGradient id="ln" x1="100" y1="100" x2="650" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#9B7BFF"/><stop offset="1" stop-color="#66DFC4"/></linearGradient></defs>
-<ellipse cx="380" cy="250" rx="330" ry="220" fill="url(#gl)"/>
-<path d="m170 250 210-112 210 112-210 112-210-112Z" stroke="url(#ln)" stroke-width="2" stroke-dasharray="7 9" opacity=".7"/>
-<path d="M170 250 380 250 590 250M380 138v224" stroke="#66DFC4" stroke-opacity=".35" stroke-width="2"/>
-<g transform="translate(104 165)"><circle cx="66" cy="85" r="75" fill="#9B7BFF" fill-opacity=".1" stroke="#9B7BFF" stroke-width="2"/><circle cx="66" cy="62" r="24" fill="#26213E" stroke="#C3ADFF" stroke-width="3"/><path d="M25 133c7-32 21-48 41-48s34 16 41 48" fill="#25213E" stroke="#C3ADFF" stroke-width="3"/><path d="m42 52 24-23 24 23" stroke="#66DFC4" stroke-width="3"/></g>
-<g transform="translate(314 52)"><circle cx="66" cy="85" r="75" fill="#66DFC4" fill-opacity=".1" stroke="#66DFC4" stroke-width="2"/><circle cx="66" cy="62" r="24" fill="#172A31" stroke="#9DF0DE" stroke-width="3"/><path d="M25 133c7-32 21-48 41-48s34 16 41 48" fill="#172A31" stroke="#9DF0DE" stroke-width="3"/><path d="m42 52 24-23 24 23" stroke="#9B7BFF" stroke-width="3"/></g>
-<g transform="translate(524 165)"><circle cx="66" cy="85" r="75" fill="#FFBF69" fill-opacity=".1" stroke="#FFBF69" stroke-width="2"/><circle cx="66" cy="62" r="24" fill="#33271A" stroke="#FFD79A" stroke-width="3"/><path d="M25 133c7-32 21-48 41-48s34 16 41 48" fill="#33271A" stroke="#FFD79A" stroke-width="3"/><path d="m42 52 24-23 24 23" stroke="#FFBF69" stroke-width="3"/></g>
-<circle cx="380" cy="250" r="52" fill="#111827" stroke="url(#ln)" stroke-width="3"/><path d="m380 218 11 21 24 4-18 17 4 24-21-12-21 12 4-24-18-17 24-4 11-21Z" fill="#9B7BFF" fill-opacity=".7" stroke="#C3ADFF" stroke-width="2"/>
-<g fill="#F6F5FC" font-family="Arial,sans-serif" font-size="12" letter-spacing="2"><text x="170" y="385" text-anchor="middle">STYLE</text><text x="380" y="468" text-anchor="middle">SHARED SYMBOL</text><text x="590" y="385" text-anchor="middle">TEAM</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="pv-community-title pv-community-desc">
+<title id="pv-community-title">Связь с сообществом</title><desc id="pv-community-desc">Три игрока соединены общим знаком</desc>
+<defs><linearGradient id="pv-community-line" x1="35" y1="45" x2="220" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#bca5ff"/><stop offset="1" stop-color="#31dec5"/></linearGradient></defs>
+<rect x="24" y="24" width="208" height="208" rx="48" fill="#0b101a" stroke="#253248" stroke-width="2"/>
+<path d="m79 131 49-47 49 47m-93 34h88" stroke="#42516b" stroke-width="3" stroke-linecap="round"/>
+<circle cx="128" cy="69" r="19" fill="#182f36" stroke="#75f4df" stroke-width="4"/>
+<path d="M96 115c3-19 13-28 32-28s29 9 32 28" fill="#182f36" stroke="#31dec5" stroke-width="4" stroke-linecap="round"/>
+<circle cx="65" cy="142" r="17" fill="#2c2342" stroke="#bca5ff" stroke-width="4"/>
+<path d="M39 184c2-18 11-27 26-27s24 9 26 27" fill="#2c2342" stroke="#bca5ff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="191" cy="142" r="17" fill="#182f36" stroke="#75f4df" stroke-width="4"/>
+<path d="M165 184c2-18 11-27 26-27s24 9 26 27" fill="#182f36" stroke="#31dec5" stroke-width="4" stroke-linecap="round"/>
+<path d="m128 131 19 11v22l-19 11-19-11v-22l19-11Z" fill="#152532" stroke="url(#pv-community-line)" stroke-width="3"/>
+<path d="m119 153 6 6 13-14" stroke="#f5f2ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M96 202h64" stroke="#42516b" stroke-width="3" stroke-linecap="round"/>
 </svg>
