@@ -3448,7 +3448,7 @@ function addGames(){
 }
 function $(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
 function addCosmetics(){
- var sec=$('#s13 .g3');
+ var sec=$('#s13 .g3')[0];
  if(!sec||sec.querySelector('.pv-cosmetic-strip'))return;
  var strip=document.createElement('div');strip.className='pv-cosmetic-strip';
  strip.innerHTML='<div class="pv-cosmetic"><span>'+cosmetic('avatar')+'</span><span><small>ОБРАЗ</small><strong>Персонаж и стиль</strong></span></div><div class="pv-cosmetic"><span>'+cosmetic('aura')+'</span><span><small>ЭФФЕКТ</small><strong>Аура и оформление</strong></span></div><div class="pv-cosmetic"><span>'+cosmetic('badge')+'</span><span><small>КОЛЛЕКЦИЯ</small><strong>Значок и эмблема</strong></span></div>';
