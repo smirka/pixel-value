@@ -87,6 +87,15 @@ body.explore .screen *{animation-play-state:running!important}
 #s14 .editorial-side-art img{object-position:52% 30%;mask-image:linear-gradient(to right,transparent,#000 55%),linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent);mask-composite:intersect}
 #s14 .cmp-s:first-child .cmp-q{max-width:72%}
 .screen.on .visual-lead .editorial-side-art img{animation:editorialArt 650ms cubic-bezier(.2,.75,.25,1) both}
+/* LOW mode: lower GPU/compositing cost while preserving the dark palette and legibility. */
+html.low-perf .orb{display:none!important}
+html.low-perf .l-grain,html.low-perf .l-tint,html.low-perf .l-vig,html.low-perf #spot,html.low-perf #pulse,html.low-perf .pv-cursor-glow{display:none!important}
+html.low-perf .top,html.low-perf .snav,html.low-perf .modes,html.low-perf .help,.low-perf .card,.low-perf .kpi,.low-perf .sdt,.low-perf .cmp-s,.low-perf .co,.low-perf .tlstep,.low-perf .vc,.low-perf .eth,.low-perf .src,.low-perf .pv-glass-layer{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important}
+html.low-perf .top,html.low-perf .snav,html.low-perf .modes{background:rgba(11,16,26,.98)}
+html.low-perf .screen,.low-perf .screen *,.low-perf .screen *:before,.low-perf .screen *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.12s!important}
+html.low-perf .pv-3d-art{animation:none!important;transform:none!important;filter:none!important}
+html.low-perf .editorial-side-art img{animation:none!important}
+@media(max-width:760px){.snav button{width:42px;height:42px}.snav{bottom:max(10px,env(safe-area-inset-bottom));max-width:calc(100vw - 20px)}.snav .cnt{min-width:52px}.modes button{min-height:40px;padding:9px 12px}.top{-webkit-backdrop-filter:none;backdrop-filter:none}}
 @media(max-width:760px),(orientation:portrait){
  .visual-lead,#s1 .visual-lead,#s4 .visual-lead,#s9 .visual-lead,#s10 .visual-lead,#s15 .visual-lead{display:flex;padding:0;min-height:0;margin-bottom:18px}
  .visual-lead .tt{font-size:clamp(27px,6.5vw,40px)}
