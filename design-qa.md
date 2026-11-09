@@ -29,3 +29,8 @@ OS-level reduced-motion emulation, print/PDF and a disconnected-network browser 
 ## Visual expansion / ECC follow-up (2026-11-09)
 Eight unique illustrations, each used once; six newly generated images. New brand/favicon and three refined SVG concept icons. Desktop s3/s10 rendered and inspected; mobile s14 has body width390 with vertical scrolling. Four Node checks passed, research preserved. Independent ECC code/tests/errors/accessibility review: no material findings. Publication years/DOIs preserved; project year2026. OS reduced-motion/print/offline limits above remain.
 
+
+## Composition refinement (2026-11-09)
+Replaced universal full-slide sidebar with headline-integrated visual leads. Data grids, three-column concept cards and lifecycle timeline retain full width. Cosmetic outfit now belongs inside the cosmetic comparison panel. Checked desktop s1/s4/s10/s14 and mobile s4 (390px body width; title then image then cards, no overlap). Corrected face cropping and constrained text away from outfit. All 8 scene images remain unique; research text/notes retained. New composition check plus four existing checks pass. Existing OS-level reduced-motion/print/offline verification limits still apply.
+
+Independent review found landscape-print selector specificity retaining blank art columns; corrected print padding/min-height with explicit precedence. Browser print remains unverified.
