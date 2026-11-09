@@ -8,6 +8,7 @@
 <meta name="color-scheme" content="dark"/>
 <meta name="theme-color" content="#0a0a0f"/>
 <link rel="icon" type="image/svg+xml" href="assets/pv-favicon.svg"/>
+<script src="assets/pv-showcase.js?v=20261110" defer></script>
 <style>
 /* The presentation has a system-font fallback, so the first frame does not wait for a font CDN. */
 @font-face{font-family:'Inter';src:local('Segoe UI'),local('Arial');font-display:swap}
@@ -797,7 +798,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 @media(prefers-reduced-motion:reduce){.pv-3d-art{animation:none!important;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}}
 @media print{.pv-3d-art{display:none!important}}
 
-</style><link rel="stylesheet" href="editorial.css?v=20261109-true-3d-final"/>
+</style><link rel="stylesheet" href="editorial.css?v=20261110-showcase-final"/>
 </head>
 <body>
 <a class="skip" href="#stage">Перейти к содержимому</a>
@@ -1086,7 +1087,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <div class="visual-lead">
   <div class="hd rv"><span class="chip" style="--ac:var(--amber)">09 / Результаты · редкость и статус</span><span class="tagline">Знаменатель — все 18 участников</span></div>
   <h1 class="tt rv" style="--d:60ms">Связывают ли редкий скин<br><span class="ac sweep">со статусом?</span></h1>
- <figure class="editorial-side-art pv-model" data-3d-model="medallion" data-model-label="Пурпурная медаль из золота и огранённого аметиста" aria-label="Пурпурная медаль из золота и огранённого аметиста"><img class="pv-model-poster" src="assets/pv-amethyst-medallion-3d.png" alt="" loading="lazy" decoding="async"/><canvas class="pv-model-canvas" aria-label="Интерактивная 3D-модель пурпурной медали" tabindex="0"></canvas><span class="pv-model-hint" aria-hidden="true"><span class="pv-model-orbit">↻</span> ПОТЯНИТЕ, ЧТОБЫ ВРАЩАТЬ <span class="pv-model-keys">· ← → ↑ ↓</span></span></figure>
+ <figure class="editorial-side-art pv-model pv-showcase-model" data-showcase-video aria-label="Вращающаяся пурпурная медаль из золота и огранённого аметиста"><img class="pv-showcase-poster" src="assets/pv-medallion-loop.webp" alt="" loading="lazy" decoding="async"/><video class="pv-showcase-video artifact-interactive" src="assets/pv-medallion-loop.mp4" poster="assets/pv-medallion-loop.webp" muted loop playsinline preload="none" tabindex="0" aria-label="Видео модели медальона. Перетаскивайте по горизонтали, чтобы вращать; стрелки влево и вправо меняют ракурс."></video><span class="pv-model-hint" aria-hidden="true"><span class="pv-model-orbit">↻</span> ПОТЯНИТЕ, ЧТОБЫ ВРАЩАТЬ <span class="pv-model-keys">· ← →</span></span></figure>
 </div><!--/visual-lead-->
   <div class="gap-s"></div>
   <div class="g g2">
@@ -1272,7 +1273,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 <div class="visual-lead">
   <div class="hd rv"><span class="chip" style="--ac:var(--amber)">15 / После покупки</span><span class="tagline">Покупка — не конец истории</span></div>
   <h1 class="tt rv" style="--d:60ms">Пять этапов <span class="ac sweep">жизни предмета.</span></h1>
-<figure class="editorial-side-art pv-model" data-3d-model="orbital" data-model-label="Парящая орбитальная реликвия с бирюзовым ядром, металлическими кольцами и подвесным кристаллом" aria-label="Орбитальная 3D-реликвия на тёмном постаменте"><img class="pv-model-poster" src="assets/pv-orbital-relic-3d.png" alt="" loading="lazy" decoding="async"/><canvas class="pv-model-canvas" aria-label="Интерактивная 3D-модель орбитальной реликвии" tabindex="0"></canvas><span class="pv-model-hint" aria-hidden="true"><span class="pv-model-orbit">↻</span> ПОТЯНИТЕ, ЧТОБЫ ВРАЩАТЬ <span class="pv-model-keys">· ← → ↑ ↓</span></span></figure>
+<figure class="editorial-side-art pv-model pv-showcase-model" data-showcase-video aria-label="Вращающаяся орбитальная реликвия с бирюзовым ядром, серебряными кольцами и подвесным кристаллом"><img class="pv-showcase-poster" src="assets/pv-orbital-loop.webp" alt="" loading="lazy" decoding="async"/><video class="pv-showcase-video artifact-interactive" src="assets/pv-orbital-loop.mp4" poster="assets/pv-orbital-loop.webp" muted loop playsinline preload="none" tabindex="0" aria-label="Видео орбитальной реликвии. Перетаскивайте по горизонтали, чтобы вращать; стрелки влево и вправо меняют ракурс."></video><span class="pv-model-hint" aria-hidden="true"><span class="pv-model-orbit">↻</span> ПОТЯНИТЕ, ЧТОБЫ ВРАЩАТЬ <span class="pv-model-keys">· ← →</span></span></figure>
 </div><!--/visual-lead-->
   <div class="gap-s"></div>
   <div class="tlflow">
@@ -2029,7 +2030,14 @@ function paint(){
 var threeModels=null,threeImport=null,threeActiveId='';
 function syncArtifactMotion(){
   var figure=S.mode==='present'&&$('.screen.on .pv-model');
+  $$('.pv-showcase-video').forEach(function(video){
+    var play=!!(figure&&figure.contains(video)&&!Env.RM&&!Env.LOW&&!document.hidden);
+    if(!play){video.pause();video.removeAttribute('data-playing');return;}
+    var attempt=video.play();
+    if(attempt&&attempt.then){attempt.then(function(){video.setAttribute('data-playing','');}).catch(function(){video.removeAttribute('data-playing');});}
+  });
   if(!figure){if(threeModels){threeModels.suspend();}threeActiveId='';return;}
+  if(figure.hasAttribute('data-showcase-video')){if(threeModels){threeModels.suspend();}threeActiveId='';return;}
   var id=figure.getAttribute('data-3d-model');
   if(id===threeActiveId&&threeModels){return;}
   threeActiveId=id;
@@ -2044,8 +2052,8 @@ function syncArtifactMotion(){
 }
 if(window.matchMedia){
   var motionQuery=window.matchMedia('(prefers-reduced-motion: reduce)');
-  on(motionQuery,'change',function(e){Env.RM=e.matches;if(threeModels){threeModels.setReducedMotion(e.matches);}});
-  on(document,'visibilitychange',function(){if(threeModels){if(document.hidden){threeModels.suspend();}else{syncArtifactMotion();}}});
+  on(motionQuery,'change',function(e){Env.RM=e.matches;if(threeModels){threeModels.setReducedMotion(e.matches);}syncArtifactMotion();});
+  on(document,'visibilitychange',function(){if(document.hidden&&threeModels){threeModels.suspend();}else{syncArtifactMotion();}});
 }
 function announce(){
   var l=$('#live'); if(!l){ return; }

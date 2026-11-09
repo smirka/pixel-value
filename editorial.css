@@ -152,3 +152,19 @@ html.low-perf .card,html.low-perf .kpi,html.low-perf .sdt,html.low-perf .cmp-s,h
 }
 @media(prefers-reduced-motion:reduce){.screen.on .visual-lead .editorial-side-art img{animation:none}.pv-model-hint{animation:none;opacity:1;transform:none}}
 @media print{.visual-lead{padding:0!important;min-height:0!important}.editorial-side-art{display:none!important}#s14 .cmp-s:first-child{padding-right:var(--sp-4)}}
+
+/* Tripo showcase loops blend into the page palette; posters remain for reduced motion and low-end devices. */
+.pv-showcase-model{isolation:isolate;overflow:visible!important;background:transparent!important}
+.pv-showcase-model:before{content:"";position:absolute;z-index:-1;inset:16% 12%;border-radius:50%;background:radial-gradient(ellipse,rgba(101,68,190,.16),rgba(49,222,197,.055) 38%,transparent 72%);filter:blur(16px);pointer-events:none}
+.pv-showcase-model .pv-showcase-poster,.pv-showcase-model .pv-showcase-video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;mask-image:none;filter:drop-shadow(0 14px 24px rgba(0,0,0,.18))}
+.pv-showcase-model .pv-showcase-video{opacity:0;cursor:grab;touch-action:pan-y pinch-zoom;pointer-events:auto;user-select:none;-webkit-user-select:none;transition:opacity .32s ease}
+.pv-showcase-model .pv-showcase-video[data-playing],.pv-showcase-model .pv-showcase-video[data-scrubbing]{opacity:1}
+.pv-showcase-model .pv-showcase-video:active{cursor:grabbing}
+.pv-showcase-model .pv-showcase-poster{pointer-events:none}
+.pv-showcase-model .pv-model-hint{display:flex;opacity:.82;transform:none;animation:none}
+.pv-showcase-model .pv-showcase-video:focus-visible~.pv-model-hint,.pv-showcase-model:hover .pv-model-hint{opacity:1;border-color:rgba(182,255,242,.5)}
+html.low-perf .pv-showcase-model .pv-showcase-video{display:none}
+html.low-perf .pv-showcase-model .pv-model-hint{display:none}
+@media(max-width:760px),(orientation:portrait){#s9 .pv-showcase-model,#s15 .pv-showcase-model{height:clamp(230px,66vw,360px);background:radial-gradient(ellipse,rgba(20,24,39,.42),transparent 72%)!important}}
+@media(prefers-reduced-motion:reduce){.pv-showcase-model .pv-showcase-video{display:none!important}.pv-showcase-model .pv-model-hint{display:none;animation:none;opacity:.82;transform:none}}
+@media(hover:none){.pv-showcase-model .pv-model-hint{opacity:1}}
