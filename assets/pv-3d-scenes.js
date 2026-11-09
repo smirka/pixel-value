@@ -388,6 +388,7 @@ function bindControls(host) {
     const index = Number(button.dataset.modelSelect);
     const rotors = activeModel?.rotors || [];
     if (!rotors[index]) return;
+    activeModel.selectedArtifact = index;
     yaw = index === 0 ? 0.28 : index === 2 ? -0.28 : 0; pitch = 0; applyModelRotation(); draw();
     currentFigure.querySelectorAll('[data-model-select]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
     currentFigure.querySelector('[data-model-current]')?.replaceChildren(document.createTextNode((button.dataset.modelName || 'Артефакт') + ' · потяните, чтобы вращать'));

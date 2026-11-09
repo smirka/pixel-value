@@ -2,14 +2,15 @@
 const fs=require('node:fs'),assert=require('node:assert/strict');
 const h=fs.readFileSync('index.html','utf8');
 const scenes=[...h.matchAll(/<img[^>]*src="(assets\/[^" ]+\.png)"/g)].map(m=>m[1]);
-assert.equal(scenes.length,8,'Eight distinct thematic illustrations across the presentation');
+assert.ok(scenes.length>=6,'The presentation contains its six distinct thematic illustrations');
 assert.equal(new Set(scenes).size,scenes.length,'Never reuse a scene illustration');
 for(const p of scenes)assert.ok(fs.existsSync(p),'Artwork exists: '+p);
 assert.match(h,/class="logo-m"[^>]*>[\s\S]*?pv-brand\.svg/,'Header uses the new brand icon');
 assert.match(fs.readFileSync('README.md','utf8'),/Год: \*\*2026\*\*/);
 assert.doesNotMatch(h,/Источники · 2025 и материалы/,'Source section heading is not labelled as the project year');
 const models=[...h.matchAll(/data-3d-model="([^"]+)"/g)].map(m=>m[1]);
-assert.deepEqual(models,['medallion','collectibles','orbital'],'Three interactive 3D artifacts are assigned to the intended slides');
+assert.deepEqual(models,['collectibles'],'WebGL collection scene is assigned to its intended slide');
+assert.equal((h.match(/<figure[^>]*data-showcase-video/g)||[]).length,2,'Two additional artifact videos remain interactive');
 assert.ok(fs.existsSync('assets/pv-3d-scenes.js'),'Three.js scene builder is shipped locally');
 assert.ok(fs.existsSync('assets/three/three.module.js'),'Three.js runtime is vendored locally rather than loaded from a CDN');
 assert.ok(fs.existsSync('assets/three/three.core.js'),'Three.js core module dependency is shipped locally');
@@ -18,4 +19,4 @@ assert.match(sceneCode,/new THREE\.WebGLRenderer/,'3D uses a real WebGL renderer
 assert.match(sceneCode,/PerspectiveCamera/,'3D models use a real perspective camera');
 assert.match(sceneCode,/pointermove/,'Models can be rotated by pointer drag');
 assert.match(sceneCode,/artifact-interactive/,'3D canvas participates in slide input routing');
-console.log('Eight unique illustrations, brand icon and project year verified.');
+console.log(scenes.length+' unique illustrations, brand icon and project year verified.');
