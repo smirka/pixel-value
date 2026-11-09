@@ -797,7 +797,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 @media(prefers-reduced-motion:reduce){.pv-3d-art{animation:none!important;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}}
 @media print{.pv-3d-art{display:none!important}}
 
-</style><link rel="stylesheet" href="editorial.css?v=20261109-3d-map"/>
+</style><link rel="stylesheet" href="editorial.css?v=20261109-3d-rotation"/>
 </head>
 <body>
 <a class="skip" href="#stage">Перейти к содержимому</a>
@@ -2035,15 +2035,16 @@ function syncArtifactMotion(){
   img.classList.toggle('artifact-auto',permitted&&!img.classList.contains('artifact-dragged'));
 }
 function initArtifactRotation(){
-  if(Env.RM||Env.LOW){ return; }
+  if(Env.RM){ return; }
   $$('.screen').forEach(function(sec){
     if(!artifactFrames.some(function(i){return i===parseInt(sec.getAttribute('data-i'),10);})){ return; }
     var img=$('.editorial-side-art img',sec); if(!img||img.dataset.orbitBound){ return; }
     img.dataset.orbitBound='1'; img.draggable=false;
+    img.classList.add('artifact-interactive');
     var drag=null,rx=0,ry=0;
     function stopMotion(){ img.classList.remove('artifact-auto'); }
     function start(e){
-      if(Env.RM||Env.LOW||S.mode!=='present'||S.i!==parseInt(sec.getAttribute('data-i'),10)){ return; }
+      if(Env.RM||S.mode!=='present'||S.i!==parseInt(sec.getAttribute('data-i'),10)){ return; }
       if(e.pointerType==='mouse'&&e.button!==0){return;}
       if(e.cancelable&&e.pointerType==='touch'&&Math.abs(e.movementX||0)<Math.abs(e.movementY||0)){return;}
       drag={id:e.pointerId,x:e.clientX,y:e.clientY,rx:rx,ry:ry,moved:false};
@@ -2077,9 +2078,20 @@ function initArtifactRotation(){
     on(img,'pointerup',end,{passive:true});
     on(img,'pointercancel',end,{passive:true});
     on(img,'dblclick',reset);
-    on(img,'keydown',function(e){if(e.key==='Home'){reset();}});
+    on(img,'keydown',function(e){
+      var step=e.shiftKey?12:5;
+      if(e.key==='Home'){e.preventDefault();reset();return;}
+      if(e.key==='ArrowLeft'||e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='ArrowDown'){
+        e.preventDefault();stopMotion();img.classList.add('artifact-dragged');
+        if(e.key==='ArrowLeft'){ry=clamp(ry-step,-24,24);}
+        if(e.key==='ArrowRight'){ry=clamp(ry+step,-24,24);}
+        if(e.key==='ArrowUp'){rx=clamp(rx-step,-12,12);}
+        if(e.key==='ArrowDown'){rx=clamp(rx+step,-12,12);}
+        img.style.setProperty('--artifact-ry',ry+'deg');img.style.setProperty('--artifact-rx',rx+'deg');
+      }
+    });
     img.tabIndex=0;img.setAttribute('role','img');
-    img.setAttribute('aria-label','Объёмная модель. Перетаскивайте мышью или пальцем, чтобы повернуть. Двойное нажатие сбрасывает угол.');
+    img.setAttribute('aria-label','Объёмная модель. Перетаскивайте мышью или пальцем, либо вращайте стрелками. Двойное нажатие или клавиша Home сбрасывает угол.');
   });
   on(document,'visibilitychange',syncArtifactMotion);
   if(Env.RM){$$('.editorial-side-art img.artifact-auto').forEach(function(img){img.classList.remove('artifact-auto');});}
@@ -3433,7 +3445,7 @@ function initTouch(){
     if(!e.touches||!e.touches[0]){ return; }
     sx=e.touches[0].clientX; sy=e.touches[0].clientY; lock=false;
     var ovEl=$('#ov');
-    active=(S.mode==='present'&&!S.presenter&&!(ovEl&&ovEl.classList.contains('on')));
+    active=(S.mode==='present'&&!S.presenter&&!(ovEl&&ovEl.classList.contains('on'))&&!(e.target&&e.target.closest&&e.target.closest('.artifact-interactive')));
   },{passive:true});
   on(document,'touchmove',function(e){
     if(!active||lock||!e.touches||!e.touches[0]){ return; }

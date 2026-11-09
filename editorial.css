@@ -114,6 +114,7 @@ body.explore .screen *{animation-play-state:running!important}
 .screen.on#s9 .editorial-side-art img.artifact-auto,.screen.on#s13 .editorial-side-art img.artifact-auto,.screen.on#s15 .editorial-side-art img.artifact-auto{animation:artifactArrive 950ms cubic-bezier(.16,.75,.22,1) both,artifactOrbit 18s ease-in-out 950ms infinite}
 @keyframes artifactOrbit{0%{transform:perspective(900px) translateY(0) rotateX(var(--artifact-rx,0deg)) rotateY(calc(var(--artifact-ry,0deg) - 4deg)) scale(var(--artifact-scale,1))}50%{transform:perspective(900px) translateY(-5px) rotateX(calc(var(--artifact-rx,0deg) + 2deg)) rotateY(calc(var(--artifact-ry,0deg) + 5deg)) scale(var(--artifact-scale,1))}100%{transform:perspective(900px) translateY(0) rotateX(var(--artifact-rx,0deg)) rotateY(calc(var(--artifact-ry,0deg) - 4deg)) scale(var(--artifact-scale,1))}}
 @media(hover:hover) and (pointer:fine){.screen.on#s9 .editorial-side-art img:hover,.screen.on#s13 .editorial-side-art img:hover,.screen.on#s15 .editorial-side-art img:hover{filter:drop-shadow(0 22px 32px rgba(3,6,18,.5)) drop-shadow(0 0 25px color-mix(in srgb,var(--ac) 30%,transparent))}}
+.screen.on#s9 .editorial-side-art img.artifact-dragged,.screen.on#s13 .editorial-side-art img.artifact-dragged,.screen.on#s15 .editorial-side-art img.artifact-dragged{animation:none!important}
 /* LOW mode: lower GPU/compositing cost while preserving the dark palette and legibility. */
 html.low-perf .orb{display:none!important}
 html.low-perf .l-grain,html.low-perf .l-tint,html.low-perf .l-vig,html.low-perf #spot,html.low-perf #pulse,html.low-perf .pv-cursor-glow{display:none!important}
@@ -122,7 +123,7 @@ html.low-perf .top,html.low-perf .snav,html.low-perf .modes{background:rgba(11,1
 html.low-perf .screen,.low-perf .screen *,.low-perf .screen *:before,.low-perf .screen *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.12s!important}
 html.low-perf .pv-3d-art{animation:none!important;transform:none!important;filter:none!important}
 html.low-perf .editorial-side-art img{animation:none!important}
-html.low-perf .screen.on#s9 .editorial-side-art img,html.low-perf .screen.on#s13 .editorial-side-art img,html.low-perf .screen.on#s15 .editorial-side-art img{will-change:auto;transform:none!important;cursor:default;touch-action:auto;pointer-events:none}
+html.low-perf .screen.on#s9 .editorial-side-art img,html.low-perf .screen.on#s13 .editorial-side-art img,html.low-perf .screen.on#s15 .editorial-side-art img{--artifact-rx:0deg;--artifact-ry:0deg;--artifact-scale:1;will-change:auto;transform:rotateX(var(--artifact-rx)) rotateY(var(--artifact-ry)) scale(var(--artifact-scale))!important;animation:none!important;cursor:grab;touch-action:pan-y pinch-zoom;pointer-events:auto}
 html.low-perf .screen:after{opacity:.38}
 html.low-perf .pv-3d-art:not(.pv-3d-hero):not(.pv-3d-rune) .pv-3d-core,html.low-perf .pv-3d-art:not(.pv-3d-hero):not(.pv-3d-rune) .pv-3d-facet,html.low-perf .pv-3d-art:not(.pv-3d-hero):not(.pv-3d-rune) .pv-3d-glint{display:none}
 html.low-perf .pv-3d-art:not(.pv-3d-hero){animation:none!important}
