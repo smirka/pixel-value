@@ -742,10 +742,10 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 .pv-3d-identity{right:1%;top:17%;width:clamp(130px,15cqw,220px);opacity:.34;--pv3d-a:#66dfc4;--pv3d-b:#9b7bff;--pv3d-c:#c3adff;animation-delay:-2s}
 .pv-3d-value{right:3%;top:28%;width:clamp(118px,13cqw,190px);opacity:.34;--pv3d-a:#9b7bff;--pv3d-b:#ffbf69;--pv3d-c:#66dfc4;animation-delay:-4s}
 .pv-3d-cycle{right:4%;top:46%;width:clamp(140px,16cqw,230px);opacity:.26;--pv3d-a:#ffbf69;--pv3d-b:#9b7bff;--pv3d-c:#66dfc4;animation-delay:-1s}
-.pv-3d-finale{right:50%;top:3%;width:clamp(170px,20cqw,300px);transform:translateX(50%);opacity:.2;--pv3d-a:#00ff9c;--pv3d-b:#66dfc4;--pv3d-c:#9b7bff;animation-delay:-3s}
+.pv-3d-finale{left:calc(50% - clamp(85px,10cqw,150px));right:auto;top:3%;width:clamp(170px,20cqw,300px);opacity:.2;--pv3d-a:#00ff9c;--pv3d-b:#66dfc4;--pv3d-c:#9b7bff;animation-delay:-3s}
 #s0 .fitbox,#s4 .fitbox,#s13 .fitbox,#s15 .fitbox,#s20 .fitbox{position:relative;z-index:2}
 @keyframes pv3d-float{0%,100%{transform:translate3d(0,0,0) rotateX(-9deg) rotateY(15deg) rotateZ(-5deg)}50%{transform:translate3d(0,-12px,10px) rotateX(5deg) rotateY(-10deg) rotateZ(3deg)}}
-@media(max-width:760px),(orientation:portrait){.pv-3d-art{width:132px;opacity:.14;animation:none;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}.pv-3d-hero{right:2%;top:8%;width:138px}.pv-3d-identity{right:0;top:2%;width:104px}.pv-3d-value{right:0;top:8%;width:96px}.pv-3d-cycle{right:0;top:30%;width:112px}.pv-3d-finale{right:50%;top:0;width:150px;transform:translateX(50%)!important}}
+@media(max-width:760px),(orientation:portrait){.pv-3d-art{width:132px;opacity:.14;animation:none;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}.pv-3d-hero{right:2%;top:8%;width:138px}.pv-3d-identity{right:0;top:2%;width:104px}.pv-3d-value{right:0;top:8%;width:96px}.pv-3d-cycle{right:0;top:30%;width:112px}.pv-3d-finale{left:calc(50% - 75px);right:auto;top:0;width:150px;transform:none!important}}
 @media(prefers-reduced-motion:reduce){.pv-3d-art{animation:none!important;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}}
 @media print{.pv-3d-art{display:none!important}}
 
