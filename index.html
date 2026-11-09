@@ -798,7 +798,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
 @media(prefers-reduced-motion:reduce){.pv-3d-art{animation:none!important;transform:none!important;background:url("assets/pv-crystal.svg") center/contain no-repeat;filter:none}.pv-3d-art::before{display:none}.pv-3d-art>*{display:none}}
 @media print{.pv-3d-art{display:none!important}}
 
-</style><link rel="stylesheet" href="editorial.css?v=20261110-responsive-recap"/>
+</style><link rel="stylesheet" href="editorial.css?v=20261110-glass-flow-picker"/>
 </head>
 <body>
 <a class="skip" href="#stage">Перейти к содержимому</a>
@@ -1215,7 +1215,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   <div class="hd rv"><span class="chip">13 / Что стоит за покупкой</span><span class="tagline">Supply · Demand · Meaning</span></div>
   <h1 class="tt rv" style="--d:60ms">Не каждый предмет<br><span class="ac sweep">продаёт одно и то же.</span></h1>
   <p class="sub rv" style="--d:130ms">Ценность формируется сразу несколькими факторами. <span class="key p">Редкость сама по себе не гарантирует высокую цену</span>: важны спрос и контекст конкретной игры.</p>
-  <figure class="editorial-side-art pv-model" data-3d-model="collectibles" data-model-label="Коллекция: подвеска с бирюзовым кристаллом, медаль с аметистом и фиолетовый самоцвет" aria-label="Коллекция из трёх объёмных игровых артефактов"><img class="pv-model-poster" src="assets/pv-collectible-trio-3d.png" alt="" loading="lazy" decoding="async"/><canvas class="pv-model-canvas" aria-label="Интерактивная 3D-модель коллекции артефактов" tabindex="0"></canvas><span class="pv-model-hint" aria-hidden="true"><span class="pv-model-orbit">↻</span><span class="pv-model-copy">ПОТЯНИТЕ, ЧТОБЫ ВРАЩАТЬ</span><span class="pv-model-keys">· ← → ↑ ↓</span></span></figure>
+<figure class="editorial-side-art pv-model" data-3d-model="collectibles" data-model-label="Коллекция: подвеска с бирюзовым кристаллом, медаль с аметистом и фиолетовый самоцвет" aria-label="Коллекция из трёх объёмных игровых артефактов"><img class="pv-model-poster" src="assets/pv-collectible-trio-3d.png" alt="" loading="lazy" decoding="async"/><canvas class="pv-model-canvas" aria-label="Интерактивная 3D-модель коллекции артефактов" tabindex="0"></canvas><span class="pv-model-hint" aria-hidden="true"><span class="pv-model-orbit">↻</span><span class="pv-model-copy">ПОТЯНИТЕ, ЧТОБЫ ВРАЩАТЬ</span><span class="pv-model-keys">· ← → ↑ ↓</span></span><div class="pv-model-picker" role="group" aria-label="Выбрать артефакт"><button type="button" data-model-select="0" data-model-name="Подвеска" aria-pressed="false">Подвеска</button><button type="button" data-model-select="1" data-model-name="Медаль" aria-pressed="true">Медаль</button><button type="button" data-model-select="2" data-model-name="Кристалл" aria-pressed="false">Кристалл</button><button type="button" data-model-reset aria-label="Сбросить ракурс">↺</button></div><span class="pv-model-current" data-model-current aria-live="polite">Медаль · потяните, чтобы вращать</span></figure>
 </div><!--/visual-lead-->
   <div class="gap"></div>
   <div class="g g3">
@@ -1369,6 +1369,7 @@ h1,h2,h3,p,button,.chip,.tagline,.cd-l,.kpi-l,.mono-s{font-family:'Inter',system
   <h1 class="rv" style="--d:60ms;font-size:var(--fs-7);font-weight:800;line-height:1.05;letter-spacing:-.036em;margin-bottom:var(--sp-3)">
    <span style="background:linear-gradient(116deg,var(--purple) 0%,var(--green) 54%,var(--teal) 100%);-webkit-background-clip:text;background-clip:text;color:transparent">В этой выборке</span><br>стиль чаще был главным мотивом.</h1>
   <p class="sub rv" style="--d:150ms;margin:0 auto var(--sp-4);text-align:center;font-size:var(--fs-4)">Среди 10 опрошенных покупателей <span class="key">4 назвали стиль и самовыражение</span> главным мотивом покупки.</p>
+  <div class="research-flow rv" aria-label="Путь от участников опроса к мотивам покупателей"><div><b>18</b><span>участников опроса</span></div><i aria-hidden="true">→</i><div><b>10</b><span>покупали предметы</span></div><i aria-hidden="true">→</i><div><b>4 / 10</b><span>выбрали стиль главным мотивом</span></div></div>
   <div class="g g4" style="max-width:1120px;margin:0 auto var(--sp-3);text-align:left">
    <article class="kpi rv" style="--ac:var(--purple);--d:0ms"><div class="kpi-l">Стиль / самовыражение</div><div class="kpi-v mid">4/10</div><p class="kpi-d">40% покупателей назвали главным мотивом</p></article>
    <article class="kpi rv" style="--ac:var(--amber);--d:70ms"><div class="kpi-l">Редкость</div><div class="kpi-v mid">3/10</div><p class="kpi-d">30% покупателей назвали главным мотивом</p></article>
@@ -2046,7 +2047,7 @@ function syncArtifactMotion(){
   figure.dataset.modelState='loading';
   if(!threeImport){
     figure.dataset.modelState='loading';
-    threeImport=import('./assets/pv-3d-scenes.js?v=20261110-responsive-fit').then(function(mod){threeModels=mod;mod.setReducedMotion(Env.RM);if(threeActiveId===id&&S.mode==='present'){figure.dataset.modelState=mod.activate(id,figure)?'ready':'fallback';}else{mod.suspend();}}).catch(function(error){figure.dataset.modelState='fallback';figure.dataset.modelError=String(error&&error.message||error).slice(0,180);threeImport=null;threeActiveId='';console.warn('3D engine unavailable; showing the local artwork poster.',error);});
+    threeImport=import('./assets/pv-3d-scenes.js?v=20261110-glass-flow-picker').then(function(mod){threeModels=mod;mod.setReducedMotion(Env.RM);if(threeActiveId===id&&S.mode==='present'){figure.dataset.modelState=mod.activate(id,figure)?'ready':'fallback';}else{mod.suspend();}}).catch(function(error){figure.dataset.modelState='fallback';figure.dataset.modelError=String(error&&error.message||error).slice(0,180);threeImport=null;threeActiveId='';console.warn('3D engine unavailable; showing the local artwork poster.',error);});
     return;
   }
   threeImport.then(function(){if(threeModels&&threeActiveId===id){figure.dataset.modelState=threeModels.activate(id,figure)?'ready':'fallback';}});

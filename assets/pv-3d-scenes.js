@@ -164,6 +164,7 @@ function buildCollectibles(root) {
   const right = new THREE.Group();
   right.position.set(1.86, -0.03, 0);
   group.add(right);
+  right.name = 'crystal'; left.name = 'pendant'; center.name = 'medallion';
   torus(right, 0.42, 0.027, silver(), [0, 0, -0.08], [0.1, -0.4, 0.25]);
   const poly = crystal(right, '#7957df', 1.2);
   poly.scale.set(0.96, 1, 0.82);
@@ -380,6 +381,18 @@ function bindControls(host) {
     draw();
   });
   el.addEventListener('dblclick', () => { yaw = 0; pitch = 0; applyModelRotation(); draw(); });
+  document.addEventListener('click', event => {
+    const button = event.target.closest('[data-model-select], [data-model-reset]');
+    if (!button || !currentFigure?.contains(button)) return;
+    if (button.hasAttribute('data-model-reset')) { yaw = 0; pitch = 0; applyModelRotation(); draw(); currentFigure.querySelectorAll('[data-model-select]').forEach((item, index) => item.setAttribute('aria-pressed', String(index === 1))); currentFigure.querySelector('[data-model-current]')?.replaceChildren(document.createTextNode('Медаль · потяните, чтобы вращать')); return; }
+    const index = Number(button.dataset.modelSelect);
+    const rotors = activeModel?.rotors || [];
+    if (!rotors[index]) return;
+    yaw = index === 0 ? 0.28 : index === 2 ? -0.28 : 0; pitch = 0; applyModelRotation(); draw();
+    currentFigure.querySelectorAll('[data-model-select]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    currentFigure.querySelector('[data-model-current]')?.replaceChildren(document.createTextNode((button.dataset.modelName || 'Артефакт') + ' · потяните, чтобы вращать'));
+    el.focus({ preventScroll: true });
+  });
 }
 
 export function activate(id, host) {
