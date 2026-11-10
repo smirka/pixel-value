@@ -2067,8 +2067,8 @@ function reveal(sec){
   if(!sec){ return; }
   $$('.rv,.rvl,.rvr,.rvs,.rvc,.sweep',sec).forEach(function(el){ el.classList.add('in'); });
   $$('[data-bars]',sec).forEach(function(w){
-    $$('.br-f',w).forEach(function(f){
-      if(!f.style.width||f.style.width==='0%'){ f.style.width=Math.max(num(f.getAttribute('data-v')),0)+'%'; }
+  $$('.br-f',w).forEach(function(f){
+      if(!f.dataset.chartStarted){ f.dataset.chartStarted='1'; f.style.width=Math.max(num(f.getAttribute('data-v')),0)+'%'; }
     });
   });
   $$('[data-segbar]',sec).forEach(buildSeg);
@@ -2096,12 +2096,12 @@ function play(sec){
     el.classList.add('in');
   });
   $$('[data-bars]',sec).forEach(function(w){
-    $$('.br-f',w).forEach(function(f){ f.style.width='0%'; });
-    setTimeout(function(){
+  $$('.br-f',w).forEach(function(f){ f.dataset.chartStarted=''; f.style.transition='none'; f.style.width='0%'; });
+    requestAnimationFrame(function(){
       $$('.br-f',w).forEach(function(f,i){
-        setTimeout(function(){ f.style.width=Math.max(num(f.getAttribute('data-v')),0)+'%'; },Env.RM?0:i*90);
+        setTimeout(function(){ f.style.transition=''; f.dataset.chartStarted='1'; f.style.width=Math.max(num(f.getAttribute('data-v')),0)+'%'; },Env.RM?0:i*70);
       });
-    },Env.RM?0:150);
+    });
   });
   $$('[data-segbar]',sec).forEach(function(sb){
     sb.dataset.done='';
@@ -3619,17 +3619,6 @@ function cosmetic(type){
  if(type==='aura')return '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#66cdbb" stroke-width="2" stroke-dasharray="3 4"/><circle cx="32" cy="32" r="16" fill="#193b3c" stroke="#66cdbb"/><path d="m32 18 4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#a6eee0"/><circle cx="32" cy="32" r="4" fill="#f1f4f2"/></svg>';
  return '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 53 18v27L32 58 11 45V18Z" fill="#3c2d25" stroke="#d6a66d" stroke-width="1.6"/><path d="M32 13 46 21v20L32 50 18 41V21Z" fill="#d6a66d" opacity=".2"/><path d="m32 17 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2Z" fill="#e8c58c"/></svg>';
 }
-function setBars(){
- document.querySelectorAll('.br-f[data-v]').forEach(function(bar){
-  var v=parseFloat(bar.getAttribute('data-v'));
-  if(!Number.isFinite(v))return;
-  v=Math.max(0,Math.min(100,v));
-  bar.style.setProperty('display','block','important');
-  bar.style.setProperty('width',v+'%','important');
-  bar.style.setProperty('height','100%','important');
-  bar.style.setProperty('opacity','1','important');
- });
-}
 function addGames(){
  var games=[['dota','#bba8f5'],['cs','#c4c7d2'],['valo','#e08b96'],['fortnite','#78cdbb']];
  var cards=$('.game-examples .game-example');
@@ -3658,17 +3647,11 @@ function setFavicon(){
  });
 }
 function init(){
- setFavicon();addGames();addCosmetics();setBars();
+ setFavicon();addGames();addCosmetics();
  document.querySelectorAll('.ftnote span:first-child').forEach(function(el){el.textContent=el.textContent.replace(/©\s*20\d{2}/,'© 2026')});
  document.querySelectorAll('.logo-t small').forEach(function(el){el.textContent='ИССЛЕДОВАНИЕ · 2026'});
  document.querySelectorAll('.h-meta span').forEach(function(el){if(/2025/.test(el.textContent))el.textContent=el.textContent.replace('2025','2026')});
  document.querySelectorAll('.ftnote').forEach(function(el){if(el.textContent.indexOf('© 2026')<0)el.textContent=el.textContent.replace('© 2025','© 2026')});
- var old=window.reveal,oldPlay=window.play;
- // The core presentation functions are scoped; a lightweight observer repairs bars after every slide transition.
- var observer=new MutationObserver(function(records){if(records.some(function(r){return r.attributeName==='class'}))setBars()});
- observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']});
- window.addEventListener('pageshow',setBars);window.addEventListener('resize',setBars);
- setTimeout(setBars,200);setTimeout(setBars,900);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
