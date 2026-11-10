@@ -2,16 +2,22 @@
 const fs=require('node:fs'),assert=require('node:assert/strict'),vm=require('node:vm');
 const {execFileSync}=require('node:child_process');
 const html=fs.readFileSync('index.html','utf8');
+for(const file of ['styles.css','editorial.css']) assert.ok(fs.existsSync(file),'Stylesheet exists: '+file);
 const original=execFileSync('git',['show','c344d631fe7dceb1baafbe5f8d6a5c50551a16ef:index.html'],{encoding:'utf8',maxBuffer:2e6});
 const slides=s=>Array.from(s.matchAll(/<section class="screen"[\s\S]*?<\/section>/g),m=>m[0]);
-const clean=s=>s.replace(/<figure class="editorial-side-art[^\"]*"[\s\S]*?<\/figure>/g,'').replace(/<div class="pv-3d-art pv-3d-(?:rune|value)"[\s\S]*?<\/div>/g,'').replace(/<img class="editorial-concept-icon"[^>]*>/g,'').replace(/ editorial-with-art/g,'').replaceAll('Источники · 2025 и материалы','Источники · Материалы').replaceAll('Источники 2025 и материалы','Источники и материалы').replace(/\s+/g,' ').trim();
+const clean=s=>s.replace(/<figure class="editorial-side-art[^\"]*"[\s\S]*?<\/figure>/g,'').replace(/<div class="pv-3d-art pv-3d-(?:rune|value)"[\s\S]*?<\/div>/g,'').replace(/<img class="editorial-concept-icon"[^>]*>/g,'').replace(/ editorial-with-art/g,'').replace(/<div class="co warn rv"><div class="co-l">Проверка источников и материалов<\/div><div class="co-x">[\s\S]*?<\/div><\/div>/g,'[asset notes]').replaceAll('Источники · 2025 и материалы','Источники · Материалы').replaceAll('Источники 2025 и материалы','Источники и материалы').replace(/\s+/g,' ').trim();
 const composed=s=>clean(s.replace('<div class="visual-lead">','').replace('</div><!--/visual-lead-->','').replace(/<div class="research-flow rv"[\s\S]*?<\/div><div class="g g4"/, '<div class="g g4"'));
 const before=slides(original),after=slides(html);
 assert.equal(after.length,23);
 for(let i=1;i<23;i++) if(i!==20) assert.equal(composed(after[i]),composed(before[i]),'Research markup unchanged on slide '+i);
 assert.match(after[20],/18[\s\S]*участник[\s\S]*10[\s\S]*покупал[\s\S]*4 \/ 10[\s\S]*стиль/,'Added visual flow preserves the stated participant and buyer denominators');
+assert.match(after[22],/Иллюстрации, видео, SVG, модули Three\.js/,'Asset notes describe the shipped media and runtime accurately');
 const notes=s=>Array.from(s.matchAll(/data-notes="([^"]*)"/g),m=>m[1]);
 assert.deepEqual(notes(html),notes(original),'All speaker notes preserved');
 for(const m of html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)) new vm.Script(m[1]);
 for(const m of html.matchAll(/(?:src|href)="(assets\/[^"?]+)"/g)) assert.ok(fs.existsSync(m[1]),'Local asset exists: '+m[1]);
-console.log('23 slides, all research/notes unchanged, local assets present, inline JS syntax valid.');
+for(const file of ['assets/pv-showcase.js','assets/pv-presentation.js','assets/pv-project-ui.js','assets/pv-3d-scenes.js']) {
+  assert.ok(fs.existsSync(file),'Local script exists: '+file);
+  execFileSync(process.execPath,['--check',file]);
+}
+console.log('23 slides, research and notes preserved; local styles, assets and JavaScript are valid.');

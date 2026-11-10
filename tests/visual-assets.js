@@ -6,7 +6,7 @@ assert.ok(scenes.length>=6,'The presentation contains its six distinct thematic 
 assert.equal(new Set(scenes).size,scenes.length,'Never reuse a scene illustration');
 for(const p of scenes)assert.ok(fs.existsSync(p),'Artwork exists: '+p);
 assert.match(h,/class="logo-m"[^>]*>[\s\S]*?pv-brand\.svg/,'Header uses the new brand icon');
-assert.match(fs.readFileSync('README.md','utf8'),/Год: \*\*2026\*\*/);
+assert.match(fs.readFileSync('README.md','utf8'),/Год проекта: 2026/);
 assert.doesNotMatch(h,/Источники · 2025 и материалы/,'Source section heading is not labelled as the project year');
 const models=[...h.matchAll(/data-3d-model="([^"]+)"/g)].map(m=>m[1]);
 assert.deepEqual(models,['collectibles'],'WebGL collection scene is assigned to its intended slide');

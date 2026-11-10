@@ -3,8 +3,8 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
-const html = fs.readFileSync('index.html', 'utf8');
-const controller = html.slice(html.indexOf('var exitTimers=[];'), html.indexOf('function next(){'));
+const source = fs.readFileSync('assets/pv-presentation.js', 'utf8');
+const controller = source.slice(source.indexOf('var exitTimers=[];'), source.indexOf('function next(){'));
 function run(reduced) {
   const timers = new Map(); let id = 0;
   const slides = Array.from({length: 4}, (_, i) => {

@@ -1,4 +1,4 @@
-/* Editorial art direction: local artwork, readable hierarchy, restrained movement. */
+/* Editorial artwork */
 :root{--green:#31dec5;--green2:#9cf4e5;--greenD:#16453f;--bg:#0b101a;--dim:#d1d3df;--muted2:#979aaf;--rim:rgba(150,181,255,.2);--ambient:rgba(93,74,176,.12)}
 .top{background:rgba(11,16,26,.95)}
 .screen .pv-3d-art{display:none}
@@ -118,7 +118,7 @@ body.explore .screen *{animation-play-state:running!important}
 .pv-model-orbit{display:inline-grid;place-items:center;width:18px;height:18px;border:1px solid rgba(218,230,255,.32);border-radius:50%;font:16px/1 sans-serif;color:#b6fff1}
 .pv-model-keys{opacity:.62;letter-spacing:0}
 @keyframes modelHintReveal{to{opacity:1;transform:none}}
-/* Refero-inspired polish: luminous editorial accents and clearer glass hierarchy. */
+/* Luminous accents and glass hierarchy */
 :root{--ambient:rgba(92,71,195,.19);--rim:rgba(163,181,255,.26)}
 .screen:after{opacity:.88;background:radial-gradient(ellipse 38% 44% at 8% 8%,var(--scene-glow),transparent 72%),radial-gradient(ellipse 34% 45% at 94% 88%,var(--ambient),transparent 70%),linear-gradient(125deg,rgba(255,255,255,.012),transparent 40%)}
 #s0 .fitbox:before{right:-5%;width:59%;background:radial-gradient(ellipse at 58% 42%,rgba(142,104,255,.3),rgba(49,222,197,.13) 39%,transparent 73%)}
@@ -171,7 +171,7 @@ html.low-perf .card,html.low-perf .kpi,html.low-perf .sdt,html.low-perf .cmp-s,h
 @media(prefers-reduced-motion:reduce){.screen.on .visual-lead .editorial-side-art img{animation:none}.pv-model-hint{animation:none;opacity:1;transform:none}}
 @media print{.visual-lead{padding:0!important;min-height:0!important}.editorial-side-art{display:none!important}#s14 .cmp-s:first-child{padding-right:var(--sp-4)}}
 
-/* Tripo showcase loops blend into the page palette; posters remain for reduced motion and low-end devices. */
+/* Artifact videos and static fallbacks */
 .pv-showcase-model{isolation:isolate;overflow:visible!important;background:transparent!important}
 .pv-showcase-model:before{content:"";position:absolute;z-index:-1;inset:16% 12%;border-radius:50%;background:radial-gradient(ellipse,rgba(101,68,190,.16),rgba(49,222,197,.055) 38%,transparent 72%);filter:blur(16px);pointer-events:none}
 .pv-showcase-model .pv-showcase-poster,.pv-showcase-model .pv-showcase-video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;mask-image:none;filter:drop-shadow(0 14px 24px rgba(0,0,0,.18))}
